@@ -13,8 +13,8 @@ let package = Package(
             targets: ["ECashKit"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/horizontalsystems/BitcoinCore.Swift.git", .upToNextMajor(from: "1.1.2")),
-        .package(url: "https://github.com/horizontalsystems/BitcoinCashKit.Swift.git", .upToNextMajor(from: "1.0.3")),
+        .package(url: "https://github.com/horizontalsystems/BitcoinCore.Swift.git", .upToNextMajor(from: "2.0.0")),
+        .package(url: "https://github.com/horizontalsystems/BitcoinCashKit.Swift.git", .upToNextMajor(from: "2.0.0")),
         .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.6.0"),
     ],
     targets: [

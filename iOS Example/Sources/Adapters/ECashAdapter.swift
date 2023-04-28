@@ -1,7 +1,6 @@
 import ECashKit
 import BitcoinCore
 import HsToolKit
-import RxSwift
 import HdWalletKit
 
 class ECashAdapter: BaseAdapter {
@@ -26,23 +25,23 @@ class ECashAdapter: BaseAdapter {
 extension ECashAdapter: BitcoinCoreDelegate {
 
     func transactionsUpdated(inserted: [TransactionInfo], updated: [TransactionInfo]) {
-        transactionsSignal.notify()
+        transactionsSubject.send()
     }
 
     func transactionsDeleted(hashes: [String]) {
-        transactionsSignal.notify()
+        transactionsSubject.send()
     }
 
     func balanceUpdated(balance: BalanceInfo) {
-        balanceSignal.notify()
+        balanceSubject.send()
     }
 
     func lastBlockInfoUpdated(lastBlockInfo: BlockInfo) {
-        lastBlockSignal.notify()
+        lastBlockSubject.send()
     }
 
     public func kitStateUpdated(state: BitcoinCore.KitState) {
-        syncStateSignal.notify()
+        syncStateSubject.send()
     }
 
 }
