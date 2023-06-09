@@ -24,7 +24,16 @@ public class ChronikApi {
             parameters["page"] = index
         }
 
-        let data = try await networkManager.fetchData(url: url + path, method: .get, parameters: parameters)
+        let data: Data
+        do {
+            data = try await networkManager.fetchData(url: url + path, method: .get, parameters: parameters)
+        } catch let error as HsToolKit.NetworkManager.ResponseError {
+            if let code = error.statusCode, code == 200, error.rawData == nil {
+                return []
+            } else {
+                throw error
+            }
+        }
 
         var items = items
         var numPages = 1
