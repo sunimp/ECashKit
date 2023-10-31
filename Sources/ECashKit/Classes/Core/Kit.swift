@@ -53,26 +53,42 @@ public class Kit: AbstractKit {
 
     public init(extendedKey: HDExtendedKey, walletId: String, syncMode: BitcoinCore.SyncMode = .api, networkType: NetworkType = .mainNet, confirmationsThreshold: Int = 6, logger: Logger?) throws {
         let network: INetwork
-        let initialSyncApiUrl: String
 
         let validScheme: String
         switch networkType {
             case .mainNet:
                 network = MainNet()
-                initialSyncApiUrl = "https://chronik.fabien.cash/"
                 validScheme = "ecash"
             case .testNet:
                 network = TestNet()
-                initialSyncApiUrl = ""
                 validScheme = "ecashtest"
         }
 
         let logger = logger ?? Logger(minLogLevel: .verbose)
-
-        let initialSyncApi = ChronikApi(url: initialSyncApiUrl, logger: logger)
-
         let databaseFilePath = try DirectoryHelper.directoryURL(for: Kit.name).appendingPathComponent(Kit.databaseFileName(walletId: walletId, networkType: networkType, syncMode: syncMode)).path
         let storage = GrdbStorage(databaseFilePath: databaseFilePath)
+        let apiSyncStateManager = ApiSyncStateManager(storage: storage, restoreFromApi: network.syncableFromApi && syncMode != BitcoinCore.SyncMode.full)
+
+        let apiTransactionProvider: IApiTransactionProvider
+        switch networkType {
+            case .mainNet:
+                let apiTransactionProviderUrl = "https://chronik.fabien.cash/"
+
+                if case .blockchair(let key) = syncMode {
+                    let blockchairApi = BlockchairApi(secretKey: key, chainId: network.blockchairChainId, logger: logger)
+                    let blockchairBlockHashFetcher = BlockchairBlockHashFetcher(blockchairApi: blockchairApi)
+                    let blockchairProvider = BlockchairTransactionProvider(blockchairApi: blockchairApi, blockHashFetcher: blockchairBlockHashFetcher)
+                    let chronikApiProvider = ChronikApi(url: apiTransactionProviderUrl, logger: logger)
+
+                    apiTransactionProvider = BiApiBlockProvider(restoreProvider: chronikApiProvider, syncProvider: blockchairProvider, apiSyncStateManager: apiSyncStateManager)
+                } else {
+                    apiTransactionProvider = ChronikApi(url: apiTransactionProviderUrl, logger: logger)
+                }
+
+            case .testNet:
+                apiTransactionProvider = ChronikApi(url: "", logger: logger)
+        }
+
         let paymentAddressParser = PaymentAddressParser(validScheme: validScheme, removeScheme: false)
 
         let difficultyEncoder = DifficultyEncoder()
@@ -103,7 +119,9 @@ public class Kit: AbstractKit {
 
         let bitcoinCore = try BitcoinCoreBuilder(logger: logger)
                 .set(network: network)
-                .set(initialSyncApi: initialSyncApi)
+                .set(apiTransactionProvider: apiTransactionProvider)
+                .set(checkpoint: Checkpoint.resolveCheckpoint(network: network, syncMode: syncMode, storage: storage))
+                .set(apiSyncStateManager: apiSyncStateManager)
                 .set(extendedKey: extendedKey)
                 .set(paymentAddressParser: paymentAddressParser)
                 .set(walletId: walletId)

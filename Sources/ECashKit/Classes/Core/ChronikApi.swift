@@ -1,5 +1,5 @@
-import Foundation
 import BitcoinCore
+import Foundation
 import HsToolKit
 import SwiftProtobuf
 
@@ -12,7 +12,7 @@ public class ChronikApi {
         networkManager = NetworkManager(interRequestInterval: 0.1, logger: logger)
     }
 
-    private func itemsRecursive(address: String, items: [SyncTransactionItem] = [], pageCount: Int = 1, index: Int = 0) async throws -> [SyncTransactionItem] {
+    private func itemsRecursive(address: String, items: [ApiTransactionItem] = [], pageCount: Int = 1, index: Int = 0) async throws -> [ApiTransactionItem] {
         guard index < pageCount else {
             return items
         }
@@ -42,15 +42,16 @@ public class ChronikApi {
             let historyPage = try Chronik_TxHistoryPage(contiguousBytes: data)
             numPages = Int(historyPage.numPages)
             items.append(contentsOf: historyPage.txs.map {
-                SyncTransactionItem(
-                        hash: $0.block.hash.hs.reversedHex,
-                        height: Int($0.block.height),
-                        txOutputs: $0.outputs.map {
-                            SyncTransactionOutputItem(
-                                    script: $0.outputScript.hs.reversedHex,
-                                    address: ""
-                            )
-                        })
+                ApiTransactionItem(
+                    blockHash: $0.block.hash.hs.reversedHex,
+                    blockHeight: Int($0.block.height),
+                    apiAddressItems: $0.outputs.map {
+                        ApiAddressItem(
+                            script: $0.outputScript.hs.reversedHex,
+                            address: ""
+                        )
+                    }
+                )
             })
         } catch {
             print("Error: \(error))")
@@ -59,7 +60,7 @@ public class ChronikApi {
         return try await itemsRecursive(address: address, items: items, pageCount: numPages, index: index + 1)
     }
 
-    private func transactionsRecursive(items: [SyncTransactionItem] = [], addresses: [String], index: Int = 0) async throws -> [SyncTransactionItem] {
+    private func transactionsRecursive(items: [ApiTransactionItem] = [], addresses: [String], index: Int = 0) async throws -> [ApiTransactionItem] {
         guard index < addresses.count else {
             return items
         }
@@ -68,13 +69,10 @@ public class ChronikApi {
 
         return try await transactionsRecursive(items: items + newItems, addresses: addresses, index: index + 1)
     }
-
 }
 
-extension ChronikApi: ISyncTransactionApi {
-
-    public func transactions(addresses: [String]) async throws -> [SyncTransactionItem] {
+extension ChronikApi: IApiTransactionProvider {
+    public func transactions(addresses: [String], stopHeight: Int?) async throws -> [ApiTransactionItem] {
         try await transactionsRecursive(addresses: addresses)
     }
-
 }

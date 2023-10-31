@@ -15,6 +15,7 @@ public class MainNet: INetwork {
     public let coinType: UInt32 = 899
     public let sigHash: SigHashType = .bitcoinCashAll
     public var syncableFromApi: Bool = true
+    public var blockchairChainId: String = "ecash"
 
     public let dnsSeeds = [
         "x5.seed.bitcoinabc.org",                   // Bitcoin ABC seeder
