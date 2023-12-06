@@ -15,3125 +15,3139 @@ import SwiftProtobuf
 // incompatible with the version of SwiftProtobuf to which you are linking.
 // Please ensure that you are building against the same version of the API
 // that was used to generate this file.
-fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
-  struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
-  typealias Version = _2
+private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVersionCheck {
+    struct _2: SwiftProtobuf.ProtobufAPIVersion_2 {}
+    typealias Version = _2
 }
 
 enum Chronik_SlpTokenType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
-  case fungible // = 0
-  case nft1Group // = 1
-  case nft1Child // = 2
-  case unknownTokenType // = 3
-  case UNRECOGNIZED(Int)
+    typealias RawValue = Int
+    case fungible // = 0
+    case nft1Group // = 1
+    case nft1Child // = 2
+    case unknownTokenType // = 3
+    case UNRECOGNIZED(Int)
 
-  init() {
-    self = .fungible
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .fungible
-    case 1: self = .nft1Group
-    case 2: self = .nft1Child
-    case 3: self = .unknownTokenType
-    default: self = .UNRECOGNIZED(rawValue)
+    init() {
+        self = .fungible
     }
-  }
 
-  var rawValue: Int {
-    switch self {
-    case .fungible: return 0
-    case .nft1Group: return 1
-    case .nft1Child: return 2
-    case .unknownTokenType: return 3
-    case .UNRECOGNIZED(let i): return i
+    init?(rawValue: Int) {
+        switch rawValue {
+        case 0: self = .fungible
+        case 1: self = .nft1Group
+        case 2: self = .nft1Child
+        case 3: self = .unknownTokenType
+        default: self = .UNRECOGNIZED(rawValue)
+        }
     }
-  }
 
+    var rawValue: Int {
+        switch self {
+        case .fungible: return 0
+        case .nft1Group: return 1
+        case .nft1Child: return 2
+        case .unknownTokenType: return 3
+        case let .UNRECOGNIZED(i): return i
+        }
+    }
 }
 
 #if swift(>=4.2)
 
-extension Chronik_SlpTokenType: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Chronik_SlpTokenType] = [
-    .fungible,
-    .nft1Group,
-    .nft1Child,
-    .unknownTokenType,
-  ]
-}
+    extension Chronik_SlpTokenType: CaseIterable {
+        // The compiler won't synthesize support with the UNRECOGNIZED case.
+        static var allCases: [Chronik_SlpTokenType] = [
+            .fungible,
+            .nft1Group,
+            .nft1Child,
+            .unknownTokenType,
+        ]
+    }
 
-#endif  // swift(>=4.2)
+#endif // swift(>=4.2)
 
 enum Chronik_SlpTxType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
-  case genesis // = 0
-  case send // = 1
-  case mint // = 2
-  case burn // = 4
-  case unknownTxType // = 3
-  case UNRECOGNIZED(Int)
+    typealias RawValue = Int
+    case genesis // = 0
+    case send // = 1
+    case mint // = 2
+    case burn // = 4
+    case unknownTxType // = 3
+    case UNRECOGNIZED(Int)
 
-  init() {
-    self = .genesis
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .genesis
-    case 1: self = .send
-    case 2: self = .mint
-    case 3: self = .unknownTxType
-    case 4: self = .burn
-    default: self = .UNRECOGNIZED(rawValue)
+    init() {
+        self = .genesis
     }
-  }
 
-  var rawValue: Int {
-    switch self {
-    case .genesis: return 0
-    case .send: return 1
-    case .mint: return 2
-    case .unknownTxType: return 3
-    case .burn: return 4
-    case .UNRECOGNIZED(let i): return i
+    init?(rawValue: Int) {
+        switch rawValue {
+        case 0: self = .genesis
+        case 1: self = .send
+        case 2: self = .mint
+        case 3: self = .unknownTxType
+        case 4: self = .burn
+        default: self = .UNRECOGNIZED(rawValue)
+        }
     }
-  }
 
+    var rawValue: Int {
+        switch self {
+        case .genesis: return 0
+        case .send: return 1
+        case .mint: return 2
+        case .unknownTxType: return 3
+        case .burn: return 4
+        case let .UNRECOGNIZED(i): return i
+        }
+    }
 }
 
 #if swift(>=4.2)
 
-extension Chronik_SlpTxType: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Chronik_SlpTxType] = [
-    .genesis,
-    .send,
-    .mint,
-    .burn,
-    .unknownTxType,
-  ]
-}
+    extension Chronik_SlpTxType: CaseIterable {
+        // The compiler won't synthesize support with the UNRECOGNIZED case.
+        static var allCases: [Chronik_SlpTxType] = [
+            .genesis,
+            .send,
+            .mint,
+            .burn,
+            .unknownTxType,
+        ]
+    }
 
-#endif  // swift(>=4.2)
+#endif // swift(>=4.2)
 
 enum Chronik_Network: SwiftProtobuf.Enum {
-  typealias RawValue = Int
-  case bch // = 0
-  case xec // = 1
-  case xpi // = 2
-  case xrg // = 3
-  case UNRECOGNIZED(Int)
+    typealias RawValue = Int
+    case bch // = 0
+    case xec // = 1
+    case xpi // = 2
+    case xrg // = 3
+    case UNRECOGNIZED(Int)
 
-  init() {
-    self = .bch
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .bch
-    case 1: self = .xec
-    case 2: self = .xpi
-    case 3: self = .xrg
-    default: self = .UNRECOGNIZED(rawValue)
+    init() {
+        self = .bch
     }
-  }
 
-  var rawValue: Int {
-    switch self {
-    case .bch: return 0
-    case .xec: return 1
-    case .xpi: return 2
-    case .xrg: return 3
-    case .UNRECOGNIZED(let i): return i
+    init?(rawValue: Int) {
+        switch rawValue {
+        case 0: self = .bch
+        case 1: self = .xec
+        case 2: self = .xpi
+        case 3: self = .xrg
+        default: self = .UNRECOGNIZED(rawValue)
+        }
     }
-  }
 
+    var rawValue: Int {
+        switch self {
+        case .bch: return 0
+        case .xec: return 1
+        case .xpi: return 2
+        case .xrg: return 3
+        case let .UNRECOGNIZED(i): return i
+        }
+    }
 }
 
 #if swift(>=4.2)
 
-extension Chronik_Network: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Chronik_Network] = [
-    .bch,
-    .xec,
-    .xpi,
-    .xrg,
-  ]
-}
+    extension Chronik_Network: CaseIterable {
+        // The compiler won't synthesize support with the UNRECOGNIZED case.
+        static var allCases: [Chronik_Network] = [
+            .bch,
+            .xec,
+            .xpi,
+            .xrg,
+        ]
+    }
 
-#endif  // swift(>=4.2)
+#endif // swift(>=4.2)
 
 enum Chronik_UtxoStateVariant: SwiftProtobuf.Enum {
-  typealias RawValue = Int
-  case unspent // = 0
-  case spent // = 1
-  case noSuchTx // = 2
-  case noSuchOutput // = 3
-  case UNRECOGNIZED(Int)
+    typealias RawValue = Int
+    case unspent // = 0
+    case spent // = 1
+    case noSuchTx // = 2
+    case noSuchOutput // = 3
+    case UNRECOGNIZED(Int)
 
-  init() {
-    self = .unspent
-  }
-
-  init?(rawValue: Int) {
-    switch rawValue {
-    case 0: self = .unspent
-    case 1: self = .spent
-    case 2: self = .noSuchTx
-    case 3: self = .noSuchOutput
-    default: self = .UNRECOGNIZED(rawValue)
+    init() {
+        self = .unspent
     }
-  }
 
-  var rawValue: Int {
-    switch self {
-    case .unspent: return 0
-    case .spent: return 1
-    case .noSuchTx: return 2
-    case .noSuchOutput: return 3
-    case .UNRECOGNIZED(let i): return i
+    init?(rawValue: Int) {
+        switch rawValue {
+        case 0: self = .unspent
+        case 1: self = .spent
+        case 2: self = .noSuchTx
+        case 3: self = .noSuchOutput
+        default: self = .UNRECOGNIZED(rawValue)
+        }
     }
-  }
 
+    var rawValue: Int {
+        switch self {
+        case .unspent: return 0
+        case .spent: return 1
+        case .noSuchTx: return 2
+        case .noSuchOutput: return 3
+        case let .UNRECOGNIZED(i): return i
+        }
+    }
 }
 
 #if swift(>=4.2)
 
-extension Chronik_UtxoStateVariant: CaseIterable {
-  // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Chronik_UtxoStateVariant] = [
-    .unspent,
-    .spent,
-    .noSuchTx,
-    .noSuchOutput,
-  ]
-}
+    extension Chronik_UtxoStateVariant: CaseIterable {
+        // The compiler won't synthesize support with the UNRECOGNIZED case.
+        static var allCases: [Chronik_UtxoStateVariant] = [
+            .unspent,
+            .spent,
+            .noSuchTx,
+            .noSuchOutput,
+        ]
+    }
 
-#endif  // swift(>=4.2)
+#endif // swift(>=4.2)
 
 struct Chronik_ValidateUtxoRequest {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var outpoints: [Chronik_OutPoint] = []
+    var outpoints: [Chronik_OutPoint] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_ValidateUtxoResponse {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var utxoStates: [Chronik_UtxoState] = []
+    var utxoStates: [Chronik_UtxoState] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_BroadcastTxRequest {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var rawTx: Data = Data()
+    var rawTx: Data = .init()
 
-  var skipSlpCheck: Bool = false
+    var skipSlpCheck: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_BroadcastTxResponse {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var txid: Data = Data()
+    var txid: Data = .init()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_BroadcastTxsRequest {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var rawTxs: [Data] = []
+    var rawTxs: [Data] = []
 
-  var skipSlpCheck: Bool = false
+    var skipSlpCheck: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_BroadcastTxsResponse {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var txids: [Data] = []
+    var txids: [Data] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_BlockchainInfo {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var tipHash: Data = Data()
+    var tipHash: Data = .init()
 
-  var tipHeight: Int32 = 0
+    var tipHeight: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_Tx {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var txid: Data {
-    get {return _storage._txid}
-    set {_uniqueStorage()._txid = newValue}
-  }
+    var txid: Data {
+        get { _storage._txid }
+        set { _uniqueStorage()._txid = newValue }
+    }
 
-  var version: Int32 {
-    get {return _storage._version}
-    set {_uniqueStorage()._version = newValue}
-  }
+    var version: Int32 {
+        get { _storage._version }
+        set { _uniqueStorage()._version = newValue }
+    }
 
-  var inputs: [Chronik_TxInput] {
-    get {return _storage._inputs}
-    set {_uniqueStorage()._inputs = newValue}
-  }
+    var inputs: [Chronik_TxInput] {
+        get { _storage._inputs }
+        set { _uniqueStorage()._inputs = newValue }
+    }
 
-  var outputs: [Chronik_TxOutput] {
-    get {return _storage._outputs}
-    set {_uniqueStorage()._outputs = newValue}
-  }
+    var outputs: [Chronik_TxOutput] {
+        get { _storage._outputs }
+        set { _uniqueStorage()._outputs = newValue }
+    }
 
-  var lockTime: UInt32 {
-    get {return _storage._lockTime}
-    set {_uniqueStorage()._lockTime = newValue}
-  }
+    var lockTime: UInt32 {
+        get { _storage._lockTime }
+        set { _uniqueStorage()._lockTime = newValue }
+    }
 
-  var slpTxData: Chronik_SlpTxData {
-    get {return _storage._slpTxData ?? Chronik_SlpTxData()}
-    set {_uniqueStorage()._slpTxData = newValue}
-  }
-  /// Returns true if `slpTxData` has been explicitly set.
-  var hasSlpTxData: Bool {return _storage._slpTxData != nil}
-  /// Clears the value of `slpTxData`. Subsequent reads from it will return its default value.
-  mutating func clearSlpTxData() {_uniqueStorage()._slpTxData = nil}
+    var slpTxData: Chronik_SlpTxData {
+        get { _storage._slpTxData ?? Chronik_SlpTxData() }
+        set { _uniqueStorage()._slpTxData = newValue }
+    }
 
-  var slpErrorMsg: String {
-    get {return _storage._slpErrorMsg}
-    set {_uniqueStorage()._slpErrorMsg = newValue}
-  }
+    /// Returns true if `slpTxData` has been explicitly set.
+    var hasSlpTxData: Bool { _storage._slpTxData != nil }
+    /// Clears the value of `slpTxData`. Subsequent reads from it will return its default value.
+    mutating func clearSlpTxData() { _uniqueStorage()._slpTxData = nil }
 
-  var block: Chronik_BlockMetadata {
-    get {return _storage._block ?? Chronik_BlockMetadata()}
-    set {_uniqueStorage()._block = newValue}
-  }
-  /// Returns true if `block` has been explicitly set.
-  var hasBlock: Bool {return _storage._block != nil}
-  /// Clears the value of `block`. Subsequent reads from it will return its default value.
-  mutating func clearBlock() {_uniqueStorage()._block = nil}
+    var slpErrorMsg: String {
+        get { _storage._slpErrorMsg }
+        set { _uniqueStorage()._slpErrorMsg = newValue }
+    }
 
-  var timeFirstSeen: Int64 {
-    get {return _storage._timeFirstSeen}
-    set {_uniqueStorage()._timeFirstSeen = newValue}
-  }
+    var block: Chronik_BlockMetadata {
+        get { _storage._block ?? Chronik_BlockMetadata() }
+        set { _uniqueStorage()._block = newValue }
+    }
 
-  var size: UInt32 {
-    get {return _storage._size}
-    set {_uniqueStorage()._size = newValue}
-  }
+    /// Returns true if `block` has been explicitly set.
+    var hasBlock: Bool { _storage._block != nil }
+    /// Clears the value of `block`. Subsequent reads from it will return its default value.
+    mutating func clearBlock() { _uniqueStorage()._block = nil }
 
-  var isCoinbase: Bool {
-    get {return _storage._isCoinbase}
-    set {_uniqueStorage()._isCoinbase = newValue}
-  }
+    var timeFirstSeen: Int64 {
+        get { _storage._timeFirstSeen }
+        set { _uniqueStorage()._timeFirstSeen = newValue }
+    }
 
-  var network: Chronik_Network {
-    get {return _storage._network}
-    set {_uniqueStorage()._network = newValue}
-  }
+    var size: UInt32 {
+        get { _storage._size }
+        set { _uniqueStorage()._size = newValue }
+    }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var isCoinbase: Bool {
+        get { _storage._isCoinbase }
+        set { _uniqueStorage()._isCoinbase = newValue }
+    }
 
-  init() {}
+    var network: Chronik_Network {
+        get { _storage._network }
+        set { _uniqueStorage()._network = newValue }
+    }
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct Chronik_Utxo {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var outpoint: Chronik_OutPoint {
-    get {return _outpoint ?? Chronik_OutPoint()}
-    set {_outpoint = newValue}
-  }
-  /// Returns true if `outpoint` has been explicitly set.
-  var hasOutpoint: Bool {return self._outpoint != nil}
-  /// Clears the value of `outpoint`. Subsequent reads from it will return its default value.
-  mutating func clearOutpoint() {self._outpoint = nil}
+    var outpoint: Chronik_OutPoint {
+        get { _outpoint ?? Chronik_OutPoint() }
+        set { _outpoint = newValue }
+    }
 
-  var blockHeight: Int32 = 0
+    /// Returns true if `outpoint` has been explicitly set.
+    var hasOutpoint: Bool { _outpoint != nil }
+    /// Clears the value of `outpoint`. Subsequent reads from it will return its default value.
+    mutating func clearOutpoint() { _outpoint = nil }
 
-  var isCoinbase: Bool = false
+    var blockHeight: Int32 = 0
 
-  var value: Int64 = 0
+    var isCoinbase: Bool = false
 
-  var slpMeta: Chronik_SlpMeta {
-    get {return _slpMeta ?? Chronik_SlpMeta()}
-    set {_slpMeta = newValue}
-  }
-  /// Returns true if `slpMeta` has been explicitly set.
-  var hasSlpMeta: Bool {return self._slpMeta != nil}
-  /// Clears the value of `slpMeta`. Subsequent reads from it will return its default value.
-  mutating func clearSlpMeta() {self._slpMeta = nil}
+    var value: Int64 = 0
 
-  var slpToken: Chronik_SlpToken {
-    get {return _slpToken ?? Chronik_SlpToken()}
-    set {_slpToken = newValue}
-  }
-  /// Returns true if `slpToken` has been explicitly set.
-  var hasSlpToken: Bool {return self._slpToken != nil}
-  /// Clears the value of `slpToken`. Subsequent reads from it will return its default value.
-  mutating func clearSlpToken() {self._slpToken = nil}
+    var slpMeta: Chronik_SlpMeta {
+        get { _slpMeta ?? Chronik_SlpMeta() }
+        set { _slpMeta = newValue }
+    }
 
-  var network: Chronik_Network = .bch
+    /// Returns true if `slpMeta` has been explicitly set.
+    var hasSlpMeta: Bool { _slpMeta != nil }
+    /// Clears the value of `slpMeta`. Subsequent reads from it will return its default value.
+    mutating func clearSlpMeta() { _slpMeta = nil }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var slpToken: Chronik_SlpToken {
+        get { _slpToken ?? Chronik_SlpToken() }
+        set { _slpToken = newValue }
+    }
 
-  init() {}
+    /// Returns true if `slpToken` has been explicitly set.
+    var hasSlpToken: Bool { _slpToken != nil }
+    /// Clears the value of `slpToken`. Subsequent reads from it will return its default value.
+    mutating func clearSlpToken() { _slpToken = nil }
 
-  fileprivate var _outpoint: Chronik_OutPoint? = nil
-  fileprivate var _slpMeta: Chronik_SlpMeta? = nil
-  fileprivate var _slpToken: Chronik_SlpToken? = nil
+    var network: Chronik_Network = .bch
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    private var _outpoint: Chronik_OutPoint?
+    fileprivate var _slpMeta: Chronik_SlpMeta?
+    fileprivate var _slpToken: Chronik_SlpToken?
 }
 
 struct Chronik_Token {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var slpTxData: Chronik_SlpTxData {
-    get {return _storage._slpTxData ?? Chronik_SlpTxData()}
-    set {_uniqueStorage()._slpTxData = newValue}
-  }
-  /// Returns true if `slpTxData` has been explicitly set.
-  var hasSlpTxData: Bool {return _storage._slpTxData != nil}
-  /// Clears the value of `slpTxData`. Subsequent reads from it will return its default value.
-  mutating func clearSlpTxData() {_uniqueStorage()._slpTxData = nil}
+    var slpTxData: Chronik_SlpTxData {
+        get { _storage._slpTxData ?? Chronik_SlpTxData() }
+        set { _uniqueStorage()._slpTxData = newValue }
+    }
 
-  var tokenStats: Chronik_TokenStats {
-    get {return _storage._tokenStats ?? Chronik_TokenStats()}
-    set {_uniqueStorage()._tokenStats = newValue}
-  }
-  /// Returns true if `tokenStats` has been explicitly set.
-  var hasTokenStats: Bool {return _storage._tokenStats != nil}
-  /// Clears the value of `tokenStats`. Subsequent reads from it will return its default value.
-  mutating func clearTokenStats() {_uniqueStorage()._tokenStats = nil}
+    /// Returns true if `slpTxData` has been explicitly set.
+    var hasSlpTxData: Bool { _storage._slpTxData != nil }
+    /// Clears the value of `slpTxData`. Subsequent reads from it will return its default value.
+    mutating func clearSlpTxData() { _uniqueStorage()._slpTxData = nil }
 
-  var block: Chronik_BlockMetadata {
-    get {return _storage._block ?? Chronik_BlockMetadata()}
-    set {_uniqueStorage()._block = newValue}
-  }
-  /// Returns true if `block` has been explicitly set.
-  var hasBlock: Bool {return _storage._block != nil}
-  /// Clears the value of `block`. Subsequent reads from it will return its default value.
-  mutating func clearBlock() {_uniqueStorage()._block = nil}
+    var tokenStats: Chronik_TokenStats {
+        get { _storage._tokenStats ?? Chronik_TokenStats() }
+        set { _uniqueStorage()._tokenStats = newValue }
+    }
 
-  var timeFirstSeen: Int64 {
-    get {return _storage._timeFirstSeen}
-    set {_uniqueStorage()._timeFirstSeen = newValue}
-  }
+    /// Returns true if `tokenStats` has been explicitly set.
+    var hasTokenStats: Bool { _storage._tokenStats != nil }
+    /// Clears the value of `tokenStats`. Subsequent reads from it will return its default value.
+    mutating func clearTokenStats() { _uniqueStorage()._tokenStats = nil }
 
-  var initialTokenQuantity: UInt64 {
-    get {return _storage._initialTokenQuantity}
-    set {_uniqueStorage()._initialTokenQuantity = newValue}
-  }
+    var block: Chronik_BlockMetadata {
+        get { _storage._block ?? Chronik_BlockMetadata() }
+        set { _uniqueStorage()._block = newValue }
+    }
 
-  var containsBaton: Bool {
-    get {return _storage._containsBaton}
-    set {_uniqueStorage()._containsBaton = newValue}
-  }
+    /// Returns true if `block` has been explicitly set.
+    var hasBlock: Bool { _storage._block != nil }
+    /// Clears the value of `block`. Subsequent reads from it will return its default value.
+    mutating func clearBlock() { _uniqueStorage()._block = nil }
 
-  var network: Chronik_Network {
-    get {return _storage._network}
-    set {_uniqueStorage()._network = newValue}
-  }
+    var timeFirstSeen: Int64 {
+        get { _storage._timeFirstSeen }
+        set { _uniqueStorage()._timeFirstSeen = newValue }
+    }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var initialTokenQuantity: UInt64 {
+        get { _storage._initialTokenQuantity }
+        set { _uniqueStorage()._initialTokenQuantity = newValue }
+    }
 
-  init() {}
+    var containsBaton: Bool {
+        get { _storage._containsBaton }
+        set { _uniqueStorage()._containsBaton = newValue }
+    }
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+    var network: Chronik_Network {
+        get { _storage._network }
+        set { _uniqueStorage()._network = newValue }
+    }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct Chronik_BlockInfo {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var hash: Data = Data()
+    var hash: Data = .init()
 
-  var prevHash: Data = Data()
+    var prevHash: Data = .init()
 
-  var height: Int32 = 0
+    var height: Int32 = 0
 
-  var nBits: UInt32 = 0
+    var nBits: UInt32 = 0
 
-  var timestamp: Int64 = 0
+    var timestamp: Int64 = 0
 
-  /// Block size of this block in bytes (including headers etc.)
-  var blockSize: UInt64 = 0
+    /// Block size of this block in bytes (including headers etc.)
+    var blockSize: UInt64 = 0
 
-  /// Number of txs in this block
-  var numTxs: UInt64 = 0
+    /// Number of txs in this block
+    var numTxs: UInt64 = 0
 
-  /// Total number of tx inputs in block (including coinbase)
-  var numInputs: UInt64 = 0
+    /// Total number of tx inputs in block (including coinbase)
+    var numInputs: UInt64 = 0
 
-  /// Total number of tx output in block (including coinbase)
-  var numOutputs: UInt64 = 0
+    /// Total number of tx output in block (including coinbase)
+    var numOutputs: UInt64 = 0
 
-  /// Total number of satoshis spent by tx inputs
-  var sumInputSats: Int64 = 0
+    /// Total number of satoshis spent by tx inputs
+    var sumInputSats: Int64 = 0
 
-  /// Block reward for this block
-  var sumCoinbaseOutputSats: Int64 = 0
+    /// Block reward for this block
+    var sumCoinbaseOutputSats: Int64 = 0
 
-  /// Total number of satoshis in non-coinbase tx outputs
-  var sumNormalOutputSats: Int64 = 0
+    /// Total number of satoshis in non-coinbase tx outputs
+    var sumNormalOutputSats: Int64 = 0
 
-  /// Total number of satoshis burned using OP_RETURN
-  var sumBurnedSats: Int64 = 0
+    /// Total number of satoshis burned using OP_RETURN
+    var sumBurnedSats: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_BlockDetails {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var version: Int32 = 0
+    var version: Int32 = 0
 
-  var merkleRoot: Data = Data()
+    var merkleRoot: Data = .init()
 
-  var nonce: UInt64 = 0
+    var nonce: UInt64 = 0
 
-  var medianTimestamp: Int64 = 0
+    var medianTimestamp: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_Block {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var blockInfo: Chronik_BlockInfo {
-    get {return _storage._blockInfo ?? Chronik_BlockInfo()}
-    set {_uniqueStorage()._blockInfo = newValue}
-  }
-  /// Returns true if `blockInfo` has been explicitly set.
-  var hasBlockInfo: Bool {return _storage._blockInfo != nil}
-  /// Clears the value of `blockInfo`. Subsequent reads from it will return its default value.
-  mutating func clearBlockInfo() {_uniqueStorage()._blockInfo = nil}
+    var blockInfo: Chronik_BlockInfo {
+        get { _storage._blockInfo ?? Chronik_BlockInfo() }
+        set { _uniqueStorage()._blockInfo = newValue }
+    }
 
-  var blockDetails: Chronik_BlockDetails {
-    get {return _storage._blockDetails ?? Chronik_BlockDetails()}
-    set {_uniqueStorage()._blockDetails = newValue}
-  }
-  /// Returns true if `blockDetails` has been explicitly set.
-  var hasBlockDetails: Bool {return _storage._blockDetails != nil}
-  /// Clears the value of `blockDetails`. Subsequent reads from it will return its default value.
-  mutating func clearBlockDetails() {_uniqueStorage()._blockDetails = nil}
+    /// Returns true if `blockInfo` has been explicitly set.
+    var hasBlockInfo: Bool { _storage._blockInfo != nil }
+    /// Clears the value of `blockInfo`. Subsequent reads from it will return its default value.
+    mutating func clearBlockInfo() { _uniqueStorage()._blockInfo = nil }
 
-  var rawHeader: Data {
-    get {return _storage._rawHeader}
-    set {_uniqueStorage()._rawHeader = newValue}
-  }
+    var blockDetails: Chronik_BlockDetails {
+        get { _storage._blockDetails ?? Chronik_BlockDetails() }
+        set { _uniqueStorage()._blockDetails = newValue }
+    }
 
-  var txs: [Chronik_Tx] {
-    get {return _storage._txs}
-    set {_uniqueStorage()._txs = newValue}
-  }
+    /// Returns true if `blockDetails` has been explicitly set.
+    var hasBlockDetails: Bool { _storage._blockDetails != nil }
+    /// Clears the value of `blockDetails`. Subsequent reads from it will return its default value.
+    mutating func clearBlockDetails() { _uniqueStorage()._blockDetails = nil }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var rawHeader: Data {
+        get { _storage._rawHeader }
+        set { _uniqueStorage()._rawHeader = newValue }
+    }
 
-  init() {}
+    var txs: [Chronik_Tx] {
+        get { _storage._txs }
+        set { _uniqueStorage()._txs = newValue }
+    }
 
-  fileprivate var _storage = _StorageClass.defaultInstance
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 struct Chronik_ScriptUtxos {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var outputScript: Data = Data()
+    var outputScript: Data = .init()
 
-  var utxos: [Chronik_Utxo] = []
+    var utxos: [Chronik_Utxo] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_TxHistoryPage {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var txs: [Chronik_Tx] = []
+    var txs: [Chronik_Tx] = []
 
-  var numPages: UInt32 = 0
+    var numPages: UInt32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_Utxos {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var scriptUtxos: [Chronik_ScriptUtxos] = []
+    var scriptUtxos: [Chronik_ScriptUtxos] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_Blocks {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var blocks: [Chronik_BlockInfo] = []
+    var blocks: [Chronik_BlockInfo] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_SlpTxData {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var slpMeta: Chronik_SlpMeta {
-    get {return _slpMeta ?? Chronik_SlpMeta()}
-    set {_slpMeta = newValue}
-  }
-  /// Returns true if `slpMeta` has been explicitly set.
-  var hasSlpMeta: Bool {return self._slpMeta != nil}
-  /// Clears the value of `slpMeta`. Subsequent reads from it will return its default value.
-  mutating func clearSlpMeta() {self._slpMeta = nil}
+    var slpMeta: Chronik_SlpMeta {
+        get { _slpMeta ?? Chronik_SlpMeta() }
+        set { _slpMeta = newValue }
+    }
 
-  var genesisInfo: Chronik_SlpGenesisInfo {
-    get {return _genesisInfo ?? Chronik_SlpGenesisInfo()}
-    set {_genesisInfo = newValue}
-  }
-  /// Returns true if `genesisInfo` has been explicitly set.
-  var hasGenesisInfo: Bool {return self._genesisInfo != nil}
-  /// Clears the value of `genesisInfo`. Subsequent reads from it will return its default value.
-  mutating func clearGenesisInfo() {self._genesisInfo = nil}
+    /// Returns true if `slpMeta` has been explicitly set.
+    var hasSlpMeta: Bool { _slpMeta != nil }
+    /// Clears the value of `slpMeta`. Subsequent reads from it will return its default value.
+    mutating func clearSlpMeta() { _slpMeta = nil }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var genesisInfo: Chronik_SlpGenesisInfo {
+        get { _genesisInfo ?? Chronik_SlpGenesisInfo() }
+        set { _genesisInfo = newValue }
+    }
 
-  init() {}
+    /// Returns true if `genesisInfo` has been explicitly set.
+    var hasGenesisInfo: Bool { _genesisInfo != nil }
+    /// Clears the value of `genesisInfo`. Subsequent reads from it will return its default value.
+    mutating func clearGenesisInfo() { _genesisInfo = nil }
 
-  fileprivate var _slpMeta: Chronik_SlpMeta? = nil
-  fileprivate var _genesisInfo: Chronik_SlpGenesisInfo? = nil
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    fileprivate var _slpMeta: Chronik_SlpMeta?
+    fileprivate var _genesisInfo: Chronik_SlpGenesisInfo?
 }
 
 struct Chronik_SlpMeta {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var tokenType: Chronik_SlpTokenType = .fungible
+    var tokenType: Chronik_SlpTokenType = .fungible
 
-  var txType: Chronik_SlpTxType = .genesis
+    var txType: Chronik_SlpTxType = .genesis
 
-  var tokenID: Data = Data()
+    var tokenID: Data = .init()
 
-  var groupTokenID: Data = Data()
+    var groupTokenID: Data = .init()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_TokenStats {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  /// This doesn't fit into uint64, so we use a string with the decimal
-  /// representation. If available, use i128 to parse, otherwise some
-  /// BigNumber library.
-  var totalMinted: String = String()
+    /// This doesn't fit into uint64, so we use a string with the decimal
+    /// representation. If available, use i128 to parse, otherwise some
+    /// BigNumber library.
+    var totalMinted: String = .init()
 
-  var totalBurned: String = String()
+    var totalBurned: String = .init()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_TxInput {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var prevOut: Chronik_OutPoint {
-    get {return _prevOut ?? Chronik_OutPoint()}
-    set {_prevOut = newValue}
-  }
-  /// Returns true if `prevOut` has been explicitly set.
-  var hasPrevOut: Bool {return self._prevOut != nil}
-  /// Clears the value of `prevOut`. Subsequent reads from it will return its default value.
-  mutating func clearPrevOut() {self._prevOut = nil}
+    var prevOut: Chronik_OutPoint {
+        get { _prevOut ?? Chronik_OutPoint() }
+        set { _prevOut = newValue }
+    }
 
-  var inputScript: Data = Data()
+    /// Returns true if `prevOut` has been explicitly set.
+    var hasPrevOut: Bool { _prevOut != nil }
+    /// Clears the value of `prevOut`. Subsequent reads from it will return its default value.
+    mutating func clearPrevOut() { _prevOut = nil }
 
-  var outputScript: Data = Data()
+    var inputScript: Data = .init()
 
-  var value: Int64 = 0
+    var outputScript: Data = .init()
 
-  var sequenceNo: UInt32 = 0
+    var value: Int64 = 0
 
-  var slpBurn: Chronik_SlpBurn {
-    get {return _slpBurn ?? Chronik_SlpBurn()}
-    set {_slpBurn = newValue}
-  }
-  /// Returns true if `slpBurn` has been explicitly set.
-  var hasSlpBurn: Bool {return self._slpBurn != nil}
-  /// Clears the value of `slpBurn`. Subsequent reads from it will return its default value.
-  mutating func clearSlpBurn() {self._slpBurn = nil}
+    var sequenceNo: UInt32 = 0
 
-  var slpToken: Chronik_SlpToken {
-    get {return _slpToken ?? Chronik_SlpToken()}
-    set {_slpToken = newValue}
-  }
-  /// Returns true if `slpToken` has been explicitly set.
-  var hasSlpToken: Bool {return self._slpToken != nil}
-  /// Clears the value of `slpToken`. Subsequent reads from it will return its default value.
-  mutating func clearSlpToken() {self._slpToken = nil}
+    var slpBurn: Chronik_SlpBurn {
+        get { _slpBurn ?? Chronik_SlpBurn() }
+        set { _slpBurn = newValue }
+    }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    /// Returns true if `slpBurn` has been explicitly set.
+    var hasSlpBurn: Bool { _slpBurn != nil }
+    /// Clears the value of `slpBurn`. Subsequent reads from it will return its default value.
+    mutating func clearSlpBurn() { _slpBurn = nil }
 
-  init() {}
+    var slpToken: Chronik_SlpToken {
+        get { _slpToken ?? Chronik_SlpToken() }
+        set { _slpToken = newValue }
+    }
 
-  fileprivate var _prevOut: Chronik_OutPoint? = nil
-  fileprivate var _slpBurn: Chronik_SlpBurn? = nil
-  fileprivate var _slpToken: Chronik_SlpToken? = nil
+    /// Returns true if `slpToken` has been explicitly set.
+    var hasSlpToken: Bool { _slpToken != nil }
+    /// Clears the value of `slpToken`. Subsequent reads from it will return its default value.
+    mutating func clearSlpToken() { _slpToken = nil }
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    private var _prevOut: Chronik_OutPoint?
+    private var _slpBurn: Chronik_SlpBurn?
+    fileprivate var _slpToken: Chronik_SlpToken?
 }
 
 struct Chronik_TxOutput {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var value: Int64 = 0
+    var value: Int64 = 0
 
-  var outputScript: Data = Data()
+    var outputScript: Data = .init()
 
-  var slpToken: Chronik_SlpToken {
-    get {return _slpToken ?? Chronik_SlpToken()}
-    set {_slpToken = newValue}
-  }
-  /// Returns true if `slpToken` has been explicitly set.
-  var hasSlpToken: Bool {return self._slpToken != nil}
-  /// Clears the value of `slpToken`. Subsequent reads from it will return its default value.
-  mutating func clearSlpToken() {self._slpToken = nil}
+    var slpToken: Chronik_SlpToken {
+        get { _slpToken ?? Chronik_SlpToken() }
+        set { _slpToken = newValue }
+    }
 
-  var spentBy: Chronik_OutPoint {
-    get {return _spentBy ?? Chronik_OutPoint()}
-    set {_spentBy = newValue}
-  }
-  /// Returns true if `spentBy` has been explicitly set.
-  var hasSpentBy: Bool {return self._spentBy != nil}
-  /// Clears the value of `spentBy`. Subsequent reads from it will return its default value.
-  mutating func clearSpentBy() {self._spentBy = nil}
+    /// Returns true if `slpToken` has been explicitly set.
+    var hasSlpToken: Bool { _slpToken != nil }
+    /// Clears the value of `slpToken`. Subsequent reads from it will return its default value.
+    mutating func clearSlpToken() { _slpToken = nil }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var spentBy: Chronik_OutPoint {
+        get { _spentBy ?? Chronik_OutPoint() }
+        set { _spentBy = newValue }
+    }
 
-  init() {}
+    /// Returns true if `spentBy` has been explicitly set.
+    var hasSpentBy: Bool { _spentBy != nil }
+    /// Clears the value of `spentBy`. Subsequent reads from it will return its default value.
+    mutating func clearSpentBy() { _spentBy = nil }
 
-  fileprivate var _slpToken: Chronik_SlpToken? = nil
-  fileprivate var _spentBy: Chronik_OutPoint? = nil
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+
+    fileprivate var _slpToken: Chronik_SlpToken?
+    private var _spentBy: Chronik_OutPoint?
 }
 
 struct Chronik_BlockMetadata {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var height: Int32 = 0
+    var height: Int32 = 0
 
-  var hash: Data = Data()
+    var hash: Data = .init()
 
-  var timestamp: Int64 = 0
+    var timestamp: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_OutPoint {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var txid: Data = Data()
+    var txid: Data = .init()
 
-  var outIdx: UInt32 = 0
+    var outIdx: UInt32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_SlpToken {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var amount: UInt64 = 0
+    var amount: UInt64 = 0
 
-  var isMintBaton: Bool = false
+    var isMintBaton: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_SlpBurn {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var token: Chronik_SlpToken {
-    get {return _token ?? Chronik_SlpToken()}
-    set {_token = newValue}
-  }
-  /// Returns true if `token` has been explicitly set.
-  var hasToken: Bool {return self._token != nil}
-  /// Clears the value of `token`. Subsequent reads from it will return its default value.
-  mutating func clearToken() {self._token = nil}
+    var token: Chronik_SlpToken {
+        get { _token ?? Chronik_SlpToken() }
+        set { _token = newValue }
+    }
 
-  var tokenID: Data = Data()
+    /// Returns true if `token` has been explicitly set.
+    var hasToken: Bool { _token != nil }
+    /// Clears the value of `token`. Subsequent reads from it will return its default value.
+    mutating func clearToken() { _token = nil }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var tokenID: Data = .init()
 
-  init() {}
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  fileprivate var _token: Chronik_SlpToken? = nil
+    init() {}
+
+    fileprivate var _token: Chronik_SlpToken?
 }
 
 struct Chronik_SlpGenesisInfo {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var tokenTicker: Data = Data()
+    var tokenTicker: Data = .init()
 
-  var tokenName: Data = Data()
+    var tokenName: Data = .init()
 
-  var tokenDocumentURL: Data = Data()
+    var tokenDocumentURL: Data = .init()
 
-  var tokenDocumentHash: Data = Data()
+    var tokenDocumentHash: Data = .init()
 
-  var decimals: UInt32 = 0
+    var decimals: UInt32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_UtxoState {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var height: Int32 = 0
+    var height: Int32 = 0
 
-  var isConfirmed: Bool = false
+    var isConfirmed: Bool = false
 
-  var state: Chronik_UtxoStateVariant = .unspent
+    var state: Chronik_UtxoStateVariant = .unspent
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_Subscription {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var scriptType: String = String()
+    var scriptType: String = .init()
 
-  var payload: Data = Data()
+    var payload: Data = .init()
 
-  var isSubscribe: Bool = false
+    var isSubscribe: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_SubscribeMsg {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var msgType: Chronik_SubscribeMsg.OneOf_MsgType? = nil
+    var msgType: Chronik_SubscribeMsg.OneOf_MsgType?
 
-  var error: Chronik_Error {
-    get {
-      if case .error(let v)? = msgType {return v}
-      return Chronik_Error()
+    var error: Chronik_Error {
+        get {
+            if case let .error(v)? = msgType { return v }
+            return Chronik_Error()
+        }
+        set { msgType = .error(newValue) }
     }
-    set {msgType = .error(newValue)}
-  }
 
-  var addedToMempool: Chronik_MsgAddedToMempool {
-    get {
-      if case .addedToMempool(let v)? = msgType {return v}
-      return Chronik_MsgAddedToMempool()
+    var addedToMempool: Chronik_MsgAddedToMempool {
+        get {
+            if case let .addedToMempool(v)? = msgType { return v }
+            return Chronik_MsgAddedToMempool()
+        }
+        set { msgType = .addedToMempool(newValue) }
     }
-    set {msgType = .addedToMempool(newValue)}
-  }
 
-  var removedFromMempool: Chronik_MsgRemovedFromMempool {
-    get {
-      if case .removedFromMempool(let v)? = msgType {return v}
-      return Chronik_MsgRemovedFromMempool()
+    var removedFromMempool: Chronik_MsgRemovedFromMempool {
+        get {
+            if case let .removedFromMempool(v)? = msgType { return v }
+            return Chronik_MsgRemovedFromMempool()
+        }
+        set { msgType = .removedFromMempool(newValue) }
     }
-    set {msgType = .removedFromMempool(newValue)}
-  }
 
-  var confirmed: Chronik_MsgConfirmed {
-    get {
-      if case .confirmed(let v)? = msgType {return v}
-      return Chronik_MsgConfirmed()
+    var confirmed: Chronik_MsgConfirmed {
+        get {
+            if case let .confirmed(v)? = msgType { return v }
+            return Chronik_MsgConfirmed()
+        }
+        set { msgType = .confirmed(newValue) }
     }
-    set {msgType = .confirmed(newValue)}
-  }
 
-  var reorg: Chronik_MsgReorg {
-    get {
-      if case .reorg(let v)? = msgType {return v}
-      return Chronik_MsgReorg()
+    var reorg: Chronik_MsgReorg {
+        get {
+            if case let .reorg(v)? = msgType { return v }
+            return Chronik_MsgReorg()
+        }
+        set { msgType = .reorg(newValue) }
     }
-    set {msgType = .reorg(newValue)}
-  }
 
-  var blockConnected: Chronik_MsgBlockConnected {
-    get {
-      if case .blockConnected(let v)? = msgType {return v}
-      return Chronik_MsgBlockConnected()
+    var blockConnected: Chronik_MsgBlockConnected {
+        get {
+            if case let .blockConnected(v)? = msgType { return v }
+            return Chronik_MsgBlockConnected()
+        }
+        set { msgType = .blockConnected(newValue) }
     }
-    set {msgType = .blockConnected(newValue)}
-  }
 
-  var blockDisconnected: Chronik_MsgBlockDisconnected {
-    get {
-      if case .blockDisconnected(let v)? = msgType {return v}
-      return Chronik_MsgBlockDisconnected()
+    var blockDisconnected: Chronik_MsgBlockDisconnected {
+        get {
+            if case let .blockDisconnected(v)? = msgType { return v }
+            return Chronik_MsgBlockDisconnected()
+        }
+        set { msgType = .blockDisconnected(newValue) }
     }
-    set {msgType = .blockDisconnected(newValue)}
-  }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_MsgType: Equatable {
-    case error(Chronik_Error)
-    case addedToMempool(Chronik_MsgAddedToMempool)
-    case removedFromMempool(Chronik_MsgRemovedFromMempool)
-    case confirmed(Chronik_MsgConfirmed)
-    case reorg(Chronik_MsgReorg)
-    case blockConnected(Chronik_MsgBlockConnected)
-    case blockDisconnected(Chronik_MsgBlockDisconnected)
+    enum OneOf_MsgType: Equatable {
+        case error(Chronik_Error)
+        case addedToMempool(Chronik_MsgAddedToMempool)
+        case removedFromMempool(Chronik_MsgRemovedFromMempool)
+        case confirmed(Chronik_MsgConfirmed)
+        case reorg(Chronik_MsgReorg)
+        case blockConnected(Chronik_MsgBlockConnected)
+        case blockDisconnected(Chronik_MsgBlockDisconnected)
 
-  #if !swift(>=4.1)
-    static func ==(lhs: Chronik_SubscribeMsg.OneOf_MsgType, rhs: Chronik_SubscribeMsg.OneOf_MsgType) -> Bool {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch (lhs, rhs) {
-      case (.error, .error): return {
-        guard case .error(let l) = lhs, case .error(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.addedToMempool, .addedToMempool): return {
-        guard case .addedToMempool(let l) = lhs, case .addedToMempool(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.removedFromMempool, .removedFromMempool): return {
-        guard case .removedFromMempool(let l) = lhs, case .removedFromMempool(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.confirmed, .confirmed): return {
-        guard case .confirmed(let l) = lhs, case .confirmed(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.reorg, .reorg): return {
-        guard case .reorg(let l) = lhs, case .reorg(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.blockConnected, .blockConnected): return {
-        guard case .blockConnected(let l) = lhs, case .blockConnected(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      case (.blockDisconnected, .blockDisconnected): return {
-        guard case .blockDisconnected(let l) = lhs, case .blockDisconnected(let r) = rhs else { preconditionFailure() }
-        return l == r
-      }()
-      default: return false
-      }
+        #if !swift(>=4.1)
+            static func == (lhs: Chronik_SubscribeMsg.OneOf_MsgType, rhs: Chronik_SubscribeMsg.OneOf_MsgType) -> Bool {
+                // The use of inline closures is to circumvent an issue where the compiler
+                // allocates stack space for every case branch when no optimizations are
+                // enabled. https://github.com/apple/swift-protobuf/issues/1034
+                switch (lhs, rhs) {
+                case (.error, .error): return {
+                        guard case let .error(l) = lhs, case let .error(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                case (.addedToMempool, .addedToMempool): return {
+                        guard case let .addedToMempool(l) = lhs, case let .addedToMempool(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                case (.removedFromMempool, .removedFromMempool): return {
+                        guard case let .removedFromMempool(l) = lhs, case let .removedFromMempool(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                case (.confirmed, .confirmed): return {
+                        guard case let .confirmed(l) = lhs, case let .confirmed(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                case (.reorg, .reorg): return {
+                        guard case let .reorg(l) = lhs, case let .reorg(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                case (.blockConnected, .blockConnected): return {
+                        guard case let .blockConnected(l) = lhs, case let .blockConnected(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                case (.blockDisconnected, .blockDisconnected): return {
+                        guard case let .blockDisconnected(l) = lhs, case let .blockDisconnected(r) = rhs else { preconditionFailure() }
+                        return l == r
+                    }()
+                default: return false
+                }
+            }
+        #endif
     }
-  #endif
-  }
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_MsgAddedToMempool {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var txid: Data = Data()
+    var txid: Data = .init()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_MsgRemovedFromMempool {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var txid: Data = Data()
+    var txid: Data = .init()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_MsgConfirmed {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var txid: Data = Data()
+    var txid: Data = .init()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_MsgReorg {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var txid: Data = Data()
+    var txid: Data = .init()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_MsgBlockConnected {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var blockHash: Data = Data()
+    var blockHash: Data = .init()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_MsgBlockDisconnected {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var blockHash: Data = Data()
+    var blockHash: Data = .init()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 struct Chronik_Error {
-  // SwiftProtobuf.Message conformance is added in an extension below. See the
-  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-  // methods supported on all messages.
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
 
-  var errorCode: String = String()
+    var errorCode: String = .init()
 
-  var msg: String = String()
+    var msg: String = .init()
 
-  var isUserError: Bool = false
+    var isUserError: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+    var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+    init() {}
 }
 
 #if swift(>=5.5) && canImport(_Concurrency)
-extension Chronik_SlpTokenType: @unchecked Sendable {}
-extension Chronik_SlpTxType: @unchecked Sendable {}
-extension Chronik_Network: @unchecked Sendable {}
-extension Chronik_UtxoStateVariant: @unchecked Sendable {}
-extension Chronik_ValidateUtxoRequest: @unchecked Sendable {}
-extension Chronik_ValidateUtxoResponse: @unchecked Sendable {}
-extension Chronik_BroadcastTxRequest: @unchecked Sendable {}
-extension Chronik_BroadcastTxResponse: @unchecked Sendable {}
-extension Chronik_BroadcastTxsRequest: @unchecked Sendable {}
-extension Chronik_BroadcastTxsResponse: @unchecked Sendable {}
-extension Chronik_BlockchainInfo: @unchecked Sendable {}
-extension Chronik_Tx: @unchecked Sendable {}
-extension Chronik_Utxo: @unchecked Sendable {}
-extension Chronik_Token: @unchecked Sendable {}
-extension Chronik_BlockInfo: @unchecked Sendable {}
-extension Chronik_BlockDetails: @unchecked Sendable {}
-extension Chronik_Block: @unchecked Sendable {}
-extension Chronik_ScriptUtxos: @unchecked Sendable {}
-extension Chronik_TxHistoryPage: @unchecked Sendable {}
-extension Chronik_Utxos: @unchecked Sendable {}
-extension Chronik_Blocks: @unchecked Sendable {}
-extension Chronik_SlpTxData: @unchecked Sendable {}
-extension Chronik_SlpMeta: @unchecked Sendable {}
-extension Chronik_TokenStats: @unchecked Sendable {}
-extension Chronik_TxInput: @unchecked Sendable {}
-extension Chronik_TxOutput: @unchecked Sendable {}
-extension Chronik_BlockMetadata: @unchecked Sendable {}
-extension Chronik_OutPoint: @unchecked Sendable {}
-extension Chronik_SlpToken: @unchecked Sendable {}
-extension Chronik_SlpBurn: @unchecked Sendable {}
-extension Chronik_SlpGenesisInfo: @unchecked Sendable {}
-extension Chronik_UtxoState: @unchecked Sendable {}
-extension Chronik_Subscription: @unchecked Sendable {}
-extension Chronik_SubscribeMsg: @unchecked Sendable {}
-extension Chronik_SubscribeMsg.OneOf_MsgType: @unchecked Sendable {}
-extension Chronik_MsgAddedToMempool: @unchecked Sendable {}
-extension Chronik_MsgRemovedFromMempool: @unchecked Sendable {}
-extension Chronik_MsgConfirmed: @unchecked Sendable {}
-extension Chronik_MsgReorg: @unchecked Sendable {}
-extension Chronik_MsgBlockConnected: @unchecked Sendable {}
-extension Chronik_MsgBlockDisconnected: @unchecked Sendable {}
-extension Chronik_Error: @unchecked Sendable {}
-#endif  // swift(>=5.5) && canImport(_Concurrency)
+    extension Chronik_SlpTokenType: @unchecked Sendable {}
+    extension Chronik_SlpTxType: @unchecked Sendable {}
+    extension Chronik_Network: @unchecked Sendable {}
+    extension Chronik_UtxoStateVariant: @unchecked Sendable {}
+    extension Chronik_ValidateUtxoRequest: @unchecked Sendable {}
+    extension Chronik_ValidateUtxoResponse: @unchecked Sendable {}
+    extension Chronik_BroadcastTxRequest: @unchecked Sendable {}
+    extension Chronik_BroadcastTxResponse: @unchecked Sendable {}
+    extension Chronik_BroadcastTxsRequest: @unchecked Sendable {}
+    extension Chronik_BroadcastTxsResponse: @unchecked Sendable {}
+    extension Chronik_BlockchainInfo: @unchecked Sendable {}
+    extension Chronik_Tx: @unchecked Sendable {}
+    extension Chronik_Utxo: @unchecked Sendable {}
+    extension Chronik_Token: @unchecked Sendable {}
+    extension Chronik_BlockInfo: @unchecked Sendable {}
+    extension Chronik_BlockDetails: @unchecked Sendable {}
+    extension Chronik_Block: @unchecked Sendable {}
+    extension Chronik_ScriptUtxos: @unchecked Sendable {}
+    extension Chronik_TxHistoryPage: @unchecked Sendable {}
+    extension Chronik_Utxos: @unchecked Sendable {}
+    extension Chronik_Blocks: @unchecked Sendable {}
+    extension Chronik_SlpTxData: @unchecked Sendable {}
+    extension Chronik_SlpMeta: @unchecked Sendable {}
+    extension Chronik_TokenStats: @unchecked Sendable {}
+    extension Chronik_TxInput: @unchecked Sendable {}
+    extension Chronik_TxOutput: @unchecked Sendable {}
+    extension Chronik_BlockMetadata: @unchecked Sendable {}
+    extension Chronik_OutPoint: @unchecked Sendable {}
+    extension Chronik_SlpToken: @unchecked Sendable {}
+    extension Chronik_SlpBurn: @unchecked Sendable {}
+    extension Chronik_SlpGenesisInfo: @unchecked Sendable {}
+    extension Chronik_UtxoState: @unchecked Sendable {}
+    extension Chronik_Subscription: @unchecked Sendable {}
+    extension Chronik_SubscribeMsg: @unchecked Sendable {}
+    extension Chronik_SubscribeMsg.OneOf_MsgType: @unchecked Sendable {}
+    extension Chronik_MsgAddedToMempool: @unchecked Sendable {}
+    extension Chronik_MsgRemovedFromMempool: @unchecked Sendable {}
+    extension Chronik_MsgConfirmed: @unchecked Sendable {}
+    extension Chronik_MsgReorg: @unchecked Sendable {}
+    extension Chronik_MsgBlockConnected: @unchecked Sendable {}
+    extension Chronik_MsgBlockDisconnected: @unchecked Sendable {}
+    extension Chronik_Error: @unchecked Sendable {}
+#endif // swift(>=5.5) && canImport(_Concurrency)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
-fileprivate let _protobuf_package = "chronik"
+private let _protobuf_package = "chronik"
 
 extension Chronik_SlpTokenType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "FUNGIBLE"),
-    1: .same(proto: "NFT1_GROUP"),
-    2: .same(proto: "NFT1_CHILD"),
-    3: .same(proto: "UNKNOWN_TOKEN_TYPE"),
-  ]
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        0: .same(proto: "FUNGIBLE"),
+        1: .same(proto: "NFT1_GROUP"),
+        2: .same(proto: "NFT1_CHILD"),
+        3: .same(proto: "UNKNOWN_TOKEN_TYPE"),
+    ]
 }
 
 extension Chronik_SlpTxType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "GENESIS"),
-    1: .same(proto: "SEND"),
-    2: .same(proto: "MINT"),
-    3: .same(proto: "UNKNOWN_TX_TYPE"),
-    4: .same(proto: "BURN"),
-  ]
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        0: .same(proto: "GENESIS"),
+        1: .same(proto: "SEND"),
+        2: .same(proto: "MINT"),
+        3: .same(proto: "UNKNOWN_TX_TYPE"),
+        4: .same(proto: "BURN"),
+    ]
 }
 
 extension Chronik_Network: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "BCH"),
-    1: .same(proto: "XEC"),
-    2: .same(proto: "XPI"),
-    3: .same(proto: "XRG"),
-  ]
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        0: .same(proto: "BCH"),
+        1: .same(proto: "XEC"),
+        2: .same(proto: "XPI"),
+        3: .same(proto: "XRG"),
+    ]
 }
 
 extension Chronik_UtxoStateVariant: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    0: .same(proto: "UNSPENT"),
-    1: .same(proto: "SPENT"),
-    2: .same(proto: "NO_SUCH_TX"),
-    3: .same(proto: "NO_SUCH_OUTPUT"),
-  ]
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        0: .same(proto: "UNSPENT"),
+        1: .same(proto: "SPENT"),
+        2: .same(proto: "NO_SUCH_TX"),
+        3: .same(proto: "NO_SUCH_OUTPUT"),
+    ]
 }
 
 extension Chronik_ValidateUtxoRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ValidateUtxoRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "outpoints"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".ValidateUtxoRequest"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "outpoints"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.outpoints) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeRepeatedMessageField(value: &outpoints)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.outpoints.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.outpoints, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if !outpoints.isEmpty {
+            try visitor.visitRepeatedMessageField(value: outpoints, fieldNumber: 1)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_ValidateUtxoRequest, rhs: Chronik_ValidateUtxoRequest) -> Bool {
-    if lhs.outpoints != rhs.outpoints {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_ValidateUtxoRequest, rhs: Chronik_ValidateUtxoRequest) -> Bool {
+        if lhs.outpoints != rhs.outpoints { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_ValidateUtxoResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ValidateUtxoResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "utxo_states"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".ValidateUtxoResponse"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .standard(proto: "utxo_states"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.utxoStates) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeRepeatedMessageField(value: &utxoStates)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.utxoStates.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.utxoStates, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if !utxoStates.isEmpty {
+            try visitor.visitRepeatedMessageField(value: utxoStates, fieldNumber: 1)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_ValidateUtxoResponse, rhs: Chronik_ValidateUtxoResponse) -> Bool {
-    if lhs.utxoStates != rhs.utxoStates {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_ValidateUtxoResponse, rhs: Chronik_ValidateUtxoResponse) -> Bool {
+        if lhs.utxoStates != rhs.utxoStates { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_BroadcastTxRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BroadcastTxRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "raw_tx"),
-    2: .standard(proto: "skip_slp_check"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".BroadcastTxRequest"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .standard(proto: "raw_tx"),
+        2: .standard(proto: "skip_slp_check"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularBytesField(value: &self.rawTx) }()
-      case 2: try { try decoder.decodeSingularBoolField(value: &self.skipSlpCheck) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeSingularBytesField(value: &rawTx)
+            case 2: try decoder.decodeSingularBoolField(value: &skipSlpCheck)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.rawTx.isEmpty {
-      try visitor.visitSingularBytesField(value: self.rawTx, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if !rawTx.isEmpty {
+            try visitor.visitSingularBytesField(value: rawTx, fieldNumber: 1)
+        }
+        if skipSlpCheck != false {
+            try visitor.visitSingularBoolField(value: skipSlpCheck, fieldNumber: 2)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if self.skipSlpCheck != false {
-      try visitor.visitSingularBoolField(value: self.skipSlpCheck, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_BroadcastTxRequest, rhs: Chronik_BroadcastTxRequest) -> Bool {
-    if lhs.rawTx != rhs.rawTx {return false}
-    if lhs.skipSlpCheck != rhs.skipSlpCheck {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_BroadcastTxRequest, rhs: Chronik_BroadcastTxRequest) -> Bool {
+        if lhs.rawTx != rhs.rawTx { return false }
+        if lhs.skipSlpCheck != rhs.skipSlpCheck { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_BroadcastTxResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BroadcastTxResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "txid"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".BroadcastTxResponse"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "txid"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularBytesField(value: &self.txid) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeSingularBytesField(value: &txid)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.txid.isEmpty {
-      try visitor.visitSingularBytesField(value: self.txid, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if !txid.isEmpty {
+            try visitor.visitSingularBytesField(value: txid, fieldNumber: 1)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_BroadcastTxResponse, rhs: Chronik_BroadcastTxResponse) -> Bool {
-    if lhs.txid != rhs.txid {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_BroadcastTxResponse, rhs: Chronik_BroadcastTxResponse) -> Bool {
+        if lhs.txid != rhs.txid { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_BroadcastTxsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BroadcastTxsRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "raw_txs"),
-    2: .standard(proto: "skip_slp_check"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".BroadcastTxsRequest"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .standard(proto: "raw_txs"),
+        2: .standard(proto: "skip_slp_check"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeRepeatedBytesField(value: &self.rawTxs) }()
-      case 2: try { try decoder.decodeSingularBoolField(value: &self.skipSlpCheck) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeRepeatedBytesField(value: &rawTxs)
+            case 2: try decoder.decodeSingularBoolField(value: &skipSlpCheck)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.rawTxs.isEmpty {
-      try visitor.visitRepeatedBytesField(value: self.rawTxs, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if !rawTxs.isEmpty {
+            try visitor.visitRepeatedBytesField(value: rawTxs, fieldNumber: 1)
+        }
+        if skipSlpCheck != false {
+            try visitor.visitSingularBoolField(value: skipSlpCheck, fieldNumber: 2)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if self.skipSlpCheck != false {
-      try visitor.visitSingularBoolField(value: self.skipSlpCheck, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_BroadcastTxsRequest, rhs: Chronik_BroadcastTxsRequest) -> Bool {
-    if lhs.rawTxs != rhs.rawTxs {return false}
-    if lhs.skipSlpCheck != rhs.skipSlpCheck {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_BroadcastTxsRequest, rhs: Chronik_BroadcastTxsRequest) -> Bool {
+        if lhs.rawTxs != rhs.rawTxs { return false }
+        if lhs.skipSlpCheck != rhs.skipSlpCheck { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_BroadcastTxsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BroadcastTxsResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "txids"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".BroadcastTxsResponse"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "txids"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeRepeatedBytesField(value: &self.txids) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeRepeatedBytesField(value: &txids)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.txids.isEmpty {
-      try visitor.visitRepeatedBytesField(value: self.txids, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if !txids.isEmpty {
+            try visitor.visitRepeatedBytesField(value: txids, fieldNumber: 1)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_BroadcastTxsResponse, rhs: Chronik_BroadcastTxsResponse) -> Bool {
-    if lhs.txids != rhs.txids {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_BroadcastTxsResponse, rhs: Chronik_BroadcastTxsResponse) -> Bool {
+        if lhs.txids != rhs.txids { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_BlockchainInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BlockchainInfo"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "tip_hash"),
-    2: .standard(proto: "tip_height"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".BlockchainInfo"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .standard(proto: "tip_hash"),
+        2: .standard(proto: "tip_height"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularBytesField(value: &self.tipHash) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.tipHeight) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeSingularBytesField(value: &tipHash)
+            case 2: try decoder.decodeSingularInt32Field(value: &tipHeight)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.tipHash.isEmpty {
-      try visitor.visitSingularBytesField(value: self.tipHash, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if !tipHash.isEmpty {
+            try visitor.visitSingularBytesField(value: tipHash, fieldNumber: 1)
+        }
+        if tipHeight != 0 {
+            try visitor.visitSingularInt32Field(value: tipHeight, fieldNumber: 2)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if self.tipHeight != 0 {
-      try visitor.visitSingularInt32Field(value: self.tipHeight, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_BlockchainInfo, rhs: Chronik_BlockchainInfo) -> Bool {
-    if lhs.tipHash != rhs.tipHash {return false}
-    if lhs.tipHeight != rhs.tipHeight {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_BlockchainInfo, rhs: Chronik_BlockchainInfo) -> Bool {
+        if lhs.tipHash != rhs.tipHash { return false }
+        if lhs.tipHeight != rhs.tipHeight { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_Tx: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Tx"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "txid"),
-    2: .same(proto: "version"),
-    3: .same(proto: "inputs"),
-    4: .same(proto: "outputs"),
-    5: .standard(proto: "lock_time"),
-    6: .standard(proto: "slp_tx_data"),
-    7: .standard(proto: "slp_error_msg"),
-    8: .same(proto: "block"),
-    9: .standard(proto: "time_first_seen"),
-    11: .same(proto: "size"),
-    12: .standard(proto: "is_coinbase"),
-    10: .same(proto: "network"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".Tx"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "txid"),
+        2: .same(proto: "version"),
+        3: .same(proto: "inputs"),
+        4: .same(proto: "outputs"),
+        5: .standard(proto: "lock_time"),
+        6: .standard(proto: "slp_tx_data"),
+        7: .standard(proto: "slp_error_msg"),
+        8: .same(proto: "block"),
+        9: .standard(proto: "time_first_seen"),
+        11: .same(proto: "size"),
+        12: .standard(proto: "is_coinbase"),
+        10: .same(proto: "network"),
+    ]
 
-  fileprivate class _StorageClass {
-    var _txid: Data = Data()
-    var _version: Int32 = 0
-    var _inputs: [Chronik_TxInput] = []
-    var _outputs: [Chronik_TxOutput] = []
-    var _lockTime: UInt32 = 0
-    var _slpTxData: Chronik_SlpTxData? = nil
-    var _slpErrorMsg: String = String()
-    var _block: Chronik_BlockMetadata? = nil
-    var _timeFirstSeen: Int64 = 0
-    var _size: UInt32 = 0
-    var _isCoinbase: Bool = false
-    var _network: Chronik_Network = .bch
+    fileprivate class _StorageClass {
+        var _txid: Data = .init()
+        var _version: Int32 = 0
+        var _inputs: [Chronik_TxInput] = []
+        var _outputs: [Chronik_TxOutput] = []
+        var _lockTime: UInt32 = 0
+        var _slpTxData: Chronik_SlpTxData?
+        var _slpErrorMsg: String = .init()
+        var _block: Chronik_BlockMetadata?
+        var _timeFirstSeen: Int64 = 0
+        var _size: UInt32 = 0
+        var _isCoinbase: Bool = false
+        var _network: Chronik_Network = .bch
 
-    static let defaultInstance = _StorageClass()
+        static let defaultInstance = _StorageClass()
 
-    private init() {}
+        private init() {}
 
-    init(copying source: _StorageClass) {
-      _txid = source._txid
-      _version = source._version
-      _inputs = source._inputs
-      _outputs = source._outputs
-      _lockTime = source._lockTime
-      _slpTxData = source._slpTxData
-      _slpErrorMsg = source._slpErrorMsg
-      _block = source._block
-      _timeFirstSeen = source._timeFirstSeen
-      _size = source._size
-      _isCoinbase = source._isCoinbase
-      _network = source._network
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        // The use of inline closures is to circumvent an issue where the compiler
-        // allocates stack space for every case branch when no optimizations are
-        // enabled. https://github.com/apple/swift-protobuf/issues/1034
-        switch fieldNumber {
-        case 1: try { try decoder.decodeSingularBytesField(value: &_storage._txid) }()
-        case 2: try { try decoder.decodeSingularInt32Field(value: &_storage._version) }()
-        case 3: try { try decoder.decodeRepeatedMessageField(value: &_storage._inputs) }()
-        case 4: try { try decoder.decodeRepeatedMessageField(value: &_storage._outputs) }()
-        case 5: try { try decoder.decodeSingularUInt32Field(value: &_storage._lockTime) }()
-        case 6: try { try decoder.decodeSingularMessageField(value: &_storage._slpTxData) }()
-        case 7: try { try decoder.decodeSingularStringField(value: &_storage._slpErrorMsg) }()
-        case 8: try { try decoder.decodeSingularMessageField(value: &_storage._block) }()
-        case 9: try { try decoder.decodeSingularInt64Field(value: &_storage._timeFirstSeen) }()
-        case 10: try { try decoder.decodeSingularEnumField(value: &_storage._network) }()
-        case 11: try { try decoder.decodeSingularUInt32Field(value: &_storage._size) }()
-        case 12: try { try decoder.decodeSingularBoolField(value: &_storage._isCoinbase) }()
-        default: break
+        init(copying source: _StorageClass) {
+            _txid = source._txid
+            _version = source._version
+            _inputs = source._inputs
+            _outputs = source._outputs
+            _lockTime = source._lockTime
+            _slpTxData = source._slpTxData
+            _slpErrorMsg = source._slpErrorMsg
+            _block = source._block
+            _timeFirstSeen = source._timeFirstSeen
+            _size = source._size
+            _isCoinbase = source._isCoinbase
+            _network = source._network
         }
-      }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every if/case branch local when no optimizations
-      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-      // https://github.com/apple/swift-protobuf/issues/1182
-      if !_storage._txid.isEmpty {
-        try visitor.visitSingularBytesField(value: _storage._txid, fieldNumber: 1)
-      }
-      if _storage._version != 0 {
-        try visitor.visitSingularInt32Field(value: _storage._version, fieldNumber: 2)
-      }
-      if !_storage._inputs.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _storage._inputs, fieldNumber: 3)
-      }
-      if !_storage._outputs.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _storage._outputs, fieldNumber: 4)
-      }
-      if _storage._lockTime != 0 {
-        try visitor.visitSingularUInt32Field(value: _storage._lockTime, fieldNumber: 5)
-      }
-      try { if let v = _storage._slpTxData {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-      } }()
-      if !_storage._slpErrorMsg.isEmpty {
-        try visitor.visitSingularStringField(value: _storage._slpErrorMsg, fieldNumber: 7)
-      }
-      try { if let v = _storage._block {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
-      } }()
-      if _storage._timeFirstSeen != 0 {
-        try visitor.visitSingularInt64Field(value: _storage._timeFirstSeen, fieldNumber: 9)
-      }
-      if _storage._network != .bch {
-        try visitor.visitSingularEnumField(value: _storage._network, fieldNumber: 10)
-      }
-      if _storage._size != 0 {
-        try visitor.visitSingularUInt32Field(value: _storage._size, fieldNumber: 11)
-      }
-      if _storage._isCoinbase != false {
-        try visitor.visitSingularBoolField(value: _storage._isCoinbase, fieldNumber: 12)
-      }
+    fileprivate mutating func _uniqueStorage() -> _StorageClass {
+        if !isKnownUniquelyReferenced(&_storage) {
+            _storage = _StorageClass(copying: _storage)
+        }
+        return _storage
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_Tx, rhs: Chronik_Tx) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._txid != rhs_storage._txid {return false}
-        if _storage._version != rhs_storage._version {return false}
-        if _storage._inputs != rhs_storage._inputs {return false}
-        if _storage._outputs != rhs_storage._outputs {return false}
-        if _storage._lockTime != rhs_storage._lockTime {return false}
-        if _storage._slpTxData != rhs_storage._slpTxData {return false}
-        if _storage._slpErrorMsg != rhs_storage._slpErrorMsg {return false}
-        if _storage._block != rhs_storage._block {return false}
-        if _storage._timeFirstSeen != rhs_storage._timeFirstSeen {return false}
-        if _storage._size != rhs_storage._size {return false}
-        if _storage._isCoinbase != rhs_storage._isCoinbase {return false}
-        if _storage._network != rhs_storage._network {return false}
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        _ = _uniqueStorage()
+        try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+            while let fieldNumber = try decoder.nextFieldNumber() {
+                // The use of inline closures is to circumvent an issue where the compiler
+                // allocates stack space for every case branch when no optimizations are
+                // enabled. https://github.com/apple/swift-protobuf/issues/1034
+                switch fieldNumber {
+                case 1: try decoder.decodeSingularBytesField(value: &_storage._txid)
+                case 2: try decoder.decodeSingularInt32Field(value: &_storage._version)
+                case 3: try decoder.decodeRepeatedMessageField(value: &_storage._inputs)
+                case 4: try decoder.decodeRepeatedMessageField(value: &_storage._outputs)
+                case 5: try decoder.decodeSingularUInt32Field(value: &_storage._lockTime)
+                case 6: try decoder.decodeSingularMessageField(value: &_storage._slpTxData)
+                case 7: try decoder.decodeSingularStringField(value: &_storage._slpErrorMsg)
+                case 8: try decoder.decodeSingularMessageField(value: &_storage._block)
+                case 9: try decoder.decodeSingularInt64Field(value: &_storage._timeFirstSeen)
+                case 10: try decoder.decodeSingularEnumField(value: &_storage._network)
+                case 11: try decoder.decodeSingularUInt32Field(value: &_storage._size)
+                case 12: try decoder.decodeSingularBoolField(value: &_storage._isCoinbase)
+                default: break
+                }
+            }
+        }
+    }
+
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every if/case branch local when no optimizations
+            // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+            // https://github.com/apple/swift-protobuf/issues/1182
+            if !_storage._txid.isEmpty {
+                try visitor.visitSingularBytesField(value: _storage._txid, fieldNumber: 1)
+            }
+            if _storage._version != 0 {
+                try visitor.visitSingularInt32Field(value: _storage._version, fieldNumber: 2)
+            }
+            if !_storage._inputs.isEmpty {
+                try visitor.visitRepeatedMessageField(value: _storage._inputs, fieldNumber: 3)
+            }
+            if !_storage._outputs.isEmpty {
+                try visitor.visitRepeatedMessageField(value: _storage._outputs, fieldNumber: 4)
+            }
+            if _storage._lockTime != 0 {
+                try visitor.visitSingularUInt32Field(value: _storage._lockTime, fieldNumber: 5)
+            }
+            try { if let v = _storage._slpTxData {
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+            } }()
+            if !_storage._slpErrorMsg.isEmpty {
+                try visitor.visitSingularStringField(value: _storage._slpErrorMsg, fieldNumber: 7)
+            }
+            try { if let v = _storage._block {
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 8)
+            } }()
+            if _storage._timeFirstSeen != 0 {
+                try visitor.visitSingularInt64Field(value: _storage._timeFirstSeen, fieldNumber: 9)
+            }
+            if _storage._network != .bch {
+                try visitor.visitSingularEnumField(value: _storage._network, fieldNumber: 10)
+            }
+            if _storage._size != 0 {
+                try visitor.visitSingularUInt32Field(value: _storage._size, fieldNumber: 11)
+            }
+            if _storage._isCoinbase != false {
+                try visitor.visitSingularBoolField(value: _storage._isCoinbase, fieldNumber: 12)
+            }
+        }
+        try unknownFields.traverse(visitor: &visitor)
+    }
+
+    static func == (lhs: Chronik_Tx, rhs: Chronik_Tx) -> Bool {
+        if lhs._storage !== rhs._storage {
+            let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+                let _storage = _args.0
+                let rhs_storage = _args.1
+                if _storage._txid != rhs_storage._txid { return false }
+                if _storage._version != rhs_storage._version { return false }
+                if _storage._inputs != rhs_storage._inputs { return false }
+                if _storage._outputs != rhs_storage._outputs { return false }
+                if _storage._lockTime != rhs_storage._lockTime { return false }
+                if _storage._slpTxData != rhs_storage._slpTxData { return false }
+                if _storage._slpErrorMsg != rhs_storage._slpErrorMsg { return false }
+                if _storage._block != rhs_storage._block { return false }
+                if _storage._timeFirstSeen != rhs_storage._timeFirstSeen { return false }
+                if _storage._size != rhs_storage._size { return false }
+                if _storage._isCoinbase != rhs_storage._isCoinbase { return false }
+                if _storage._network != rhs_storage._network { return false }
+                return true
+            }
+            if !storagesAreEqual { return false }
+        }
+        if lhs.unknownFields != rhs.unknownFields { return false }
         return true
-      }
-      if !storagesAreEqual {return false}
     }
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
 }
 
 extension Chronik_Utxo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Utxo"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "outpoint"),
-    2: .standard(proto: "block_height"),
-    3: .standard(proto: "is_coinbase"),
-    5: .same(proto: "value"),
-    6: .standard(proto: "slp_meta"),
-    7: .standard(proto: "slp_token"),
-    9: .same(proto: "network"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".Utxo"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "outpoint"),
+        2: .standard(proto: "block_height"),
+        3: .standard(proto: "is_coinbase"),
+        5: .same(proto: "value"),
+        6: .standard(proto: "slp_meta"),
+        7: .standard(proto: "slp_token"),
+        9: .same(proto: "network"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularMessageField(value: &self._outpoint) }()
-      case 2: try { try decoder.decodeSingularInt32Field(value: &self.blockHeight) }()
-      case 3: try { try decoder.decodeSingularBoolField(value: &self.isCoinbase) }()
-      case 5: try { try decoder.decodeSingularInt64Field(value: &self.value) }()
-      case 6: try { try decoder.decodeSingularMessageField(value: &self._slpMeta) }()
-      case 7: try { try decoder.decodeSingularMessageField(value: &self._slpToken) }()
-      case 9: try { try decoder.decodeSingularEnumField(value: &self.network) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeSingularMessageField(value: &_outpoint)
+            case 2: try decoder.decodeSingularInt32Field(value: &blockHeight)
+            case 3: try decoder.decodeSingularBoolField(value: &isCoinbase)
+            case 5: try decoder.decodeSingularInt64Field(value: &value)
+            case 6: try decoder.decodeSingularMessageField(value: &_slpMeta)
+            case 7: try decoder.decodeSingularMessageField(value: &_slpToken)
+            case 9: try decoder.decodeSingularEnumField(value: &network)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._outpoint {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    } }()
-    if self.blockHeight != 0 {
-      try visitor.visitSingularInt32Field(value: self.blockHeight, fieldNumber: 2)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every if/case branch local when no optimizations
+        // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+        // https://github.com/apple/swift-protobuf/issues/1182
+        try { if let v = self._outpoint {
+            try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+        } }()
+        if blockHeight != 0 {
+            try visitor.visitSingularInt32Field(value: blockHeight, fieldNumber: 2)
+        }
+        if isCoinbase != false {
+            try visitor.visitSingularBoolField(value: isCoinbase, fieldNumber: 3)
+        }
+        if value != 0 {
+            try visitor.visitSingularInt64Field(value: value, fieldNumber: 5)
+        }
+        try { if let v = self._slpMeta {
+            try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+        } }()
+        try { if let v = self._slpToken {
+            try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
+        } }()
+        if network != .bch {
+            try visitor.visitSingularEnumField(value: network, fieldNumber: 9)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if self.isCoinbase != false {
-      try visitor.visitSingularBoolField(value: self.isCoinbase, fieldNumber: 3)
-    }
-    if self.value != 0 {
-      try visitor.visitSingularInt64Field(value: self.value, fieldNumber: 5)
-    }
-    try { if let v = self._slpMeta {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-    } }()
-    try { if let v = self._slpToken {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
-    } }()
-    if self.network != .bch {
-      try visitor.visitSingularEnumField(value: self.network, fieldNumber: 9)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_Utxo, rhs: Chronik_Utxo) -> Bool {
-    if lhs._outpoint != rhs._outpoint {return false}
-    if lhs.blockHeight != rhs.blockHeight {return false}
-    if lhs.isCoinbase != rhs.isCoinbase {return false}
-    if lhs.value != rhs.value {return false}
-    if lhs._slpMeta != rhs._slpMeta {return false}
-    if lhs._slpToken != rhs._slpToken {return false}
-    if lhs.network != rhs.network {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_Utxo, rhs: Chronik_Utxo) -> Bool {
+        if lhs._outpoint != rhs._outpoint { return false }
+        if lhs.blockHeight != rhs.blockHeight { return false }
+        if lhs.isCoinbase != rhs.isCoinbase { return false }
+        if lhs.value != rhs.value { return false }
+        if lhs._slpMeta != rhs._slpMeta { return false }
+        if lhs._slpToken != rhs._slpToken { return false }
+        if lhs.network != rhs.network { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_Token: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Token"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "slp_tx_data"),
-    2: .standard(proto: "token_stats"),
-    3: .same(proto: "block"),
-    4: .standard(proto: "time_first_seen"),
-    5: .standard(proto: "initial_token_quantity"),
-    6: .standard(proto: "contains_baton"),
-    7: .same(proto: "network"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".Token"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .standard(proto: "slp_tx_data"),
+        2: .standard(proto: "token_stats"),
+        3: .same(proto: "block"),
+        4: .standard(proto: "time_first_seen"),
+        5: .standard(proto: "initial_token_quantity"),
+        6: .standard(proto: "contains_baton"),
+        7: .same(proto: "network"),
+    ]
 
-  fileprivate class _StorageClass {
-    var _slpTxData: Chronik_SlpTxData? = nil
-    var _tokenStats: Chronik_TokenStats? = nil
-    var _block: Chronik_BlockMetadata? = nil
-    var _timeFirstSeen: Int64 = 0
-    var _initialTokenQuantity: UInt64 = 0
-    var _containsBaton: Bool = false
-    var _network: Chronik_Network = .bch
+    fileprivate class _StorageClass {
+        var _slpTxData: Chronik_SlpTxData?
+        var _tokenStats: Chronik_TokenStats?
+        var _block: Chronik_BlockMetadata?
+        var _timeFirstSeen: Int64 = 0
+        var _initialTokenQuantity: UInt64 = 0
+        var _containsBaton: Bool = false
+        var _network: Chronik_Network = .bch
 
-    static let defaultInstance = _StorageClass()
+        static let defaultInstance = _StorageClass()
 
-    private init() {}
+        private init() {}
 
-    init(copying source: _StorageClass) {
-      _slpTxData = source._slpTxData
-      _tokenStats = source._tokenStats
-      _block = source._block
-      _timeFirstSeen = source._timeFirstSeen
-      _initialTokenQuantity = source._initialTokenQuantity
-      _containsBaton = source._containsBaton
-      _network = source._network
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        // The use of inline closures is to circumvent an issue where the compiler
-        // allocates stack space for every case branch when no optimizations are
-        // enabled. https://github.com/apple/swift-protobuf/issues/1034
-        switch fieldNumber {
-        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._slpTxData) }()
-        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._tokenStats) }()
-        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._block) }()
-        case 4: try { try decoder.decodeSingularInt64Field(value: &_storage._timeFirstSeen) }()
-        case 5: try { try decoder.decodeSingularUInt64Field(value: &_storage._initialTokenQuantity) }()
-        case 6: try { try decoder.decodeSingularBoolField(value: &_storage._containsBaton) }()
-        case 7: try { try decoder.decodeSingularEnumField(value: &_storage._network) }()
-        default: break
+        init(copying source: _StorageClass) {
+            _slpTxData = source._slpTxData
+            _tokenStats = source._tokenStats
+            _block = source._block
+            _timeFirstSeen = source._timeFirstSeen
+            _initialTokenQuantity = source._initialTokenQuantity
+            _containsBaton = source._containsBaton
+            _network = source._network
         }
-      }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every if/case branch local when no optimizations
-      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-      // https://github.com/apple/swift-protobuf/issues/1182
-      try { if let v = _storage._slpTxData {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      } }()
-      try { if let v = _storage._tokenStats {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-      } }()
-      try { if let v = _storage._block {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      } }()
-      if _storage._timeFirstSeen != 0 {
-        try visitor.visitSingularInt64Field(value: _storage._timeFirstSeen, fieldNumber: 4)
-      }
-      if _storage._initialTokenQuantity != 0 {
-        try visitor.visitSingularUInt64Field(value: _storage._initialTokenQuantity, fieldNumber: 5)
-      }
-      if _storage._containsBaton != false {
-        try visitor.visitSingularBoolField(value: _storage._containsBaton, fieldNumber: 6)
-      }
-      if _storage._network != .bch {
-        try visitor.visitSingularEnumField(value: _storage._network, fieldNumber: 7)
-      }
+    fileprivate mutating func _uniqueStorage() -> _StorageClass {
+        if !isKnownUniquelyReferenced(&_storage) {
+            _storage = _StorageClass(copying: _storage)
+        }
+        return _storage
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_Token, rhs: Chronik_Token) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._slpTxData != rhs_storage._slpTxData {return false}
-        if _storage._tokenStats != rhs_storage._tokenStats {return false}
-        if _storage._block != rhs_storage._block {return false}
-        if _storage._timeFirstSeen != rhs_storage._timeFirstSeen {return false}
-        if _storage._initialTokenQuantity != rhs_storage._initialTokenQuantity {return false}
-        if _storage._containsBaton != rhs_storage._containsBaton {return false}
-        if _storage._network != rhs_storage._network {return false}
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        _ = _uniqueStorage()
+        try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+            while let fieldNumber = try decoder.nextFieldNumber() {
+                // The use of inline closures is to circumvent an issue where the compiler
+                // allocates stack space for every case branch when no optimizations are
+                // enabled. https://github.com/apple/swift-protobuf/issues/1034
+                switch fieldNumber {
+                case 1: try decoder.decodeSingularMessageField(value: &_storage._slpTxData)
+                case 2: try decoder.decodeSingularMessageField(value: &_storage._tokenStats)
+                case 3: try decoder.decodeSingularMessageField(value: &_storage._block)
+                case 4: try decoder.decodeSingularInt64Field(value: &_storage._timeFirstSeen)
+                case 5: try decoder.decodeSingularUInt64Field(value: &_storage._initialTokenQuantity)
+                case 6: try decoder.decodeSingularBoolField(value: &_storage._containsBaton)
+                case 7: try decoder.decodeSingularEnumField(value: &_storage._network)
+                default: break
+                }
+            }
+        }
+    }
+
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every if/case branch local when no optimizations
+            // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+            // https://github.com/apple/swift-protobuf/issues/1182
+            try { if let v = _storage._slpTxData {
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+            } }()
+            try { if let v = _storage._tokenStats {
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+            } }()
+            try { if let v = _storage._block {
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+            } }()
+            if _storage._timeFirstSeen != 0 {
+                try visitor.visitSingularInt64Field(value: _storage._timeFirstSeen, fieldNumber: 4)
+            }
+            if _storage._initialTokenQuantity != 0 {
+                try visitor.visitSingularUInt64Field(value: _storage._initialTokenQuantity, fieldNumber: 5)
+            }
+            if _storage._containsBaton != false {
+                try visitor.visitSingularBoolField(value: _storage._containsBaton, fieldNumber: 6)
+            }
+            if _storage._network != .bch {
+                try visitor.visitSingularEnumField(value: _storage._network, fieldNumber: 7)
+            }
+        }
+        try unknownFields.traverse(visitor: &visitor)
+    }
+
+    static func == (lhs: Chronik_Token, rhs: Chronik_Token) -> Bool {
+        if lhs._storage !== rhs._storage {
+            let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+                let _storage = _args.0
+                let rhs_storage = _args.1
+                if _storage._slpTxData != rhs_storage._slpTxData { return false }
+                if _storage._tokenStats != rhs_storage._tokenStats { return false }
+                if _storage._block != rhs_storage._block { return false }
+                if _storage._timeFirstSeen != rhs_storage._timeFirstSeen { return false }
+                if _storage._initialTokenQuantity != rhs_storage._initialTokenQuantity { return false }
+                if _storage._containsBaton != rhs_storage._containsBaton { return false }
+                if _storage._network != rhs_storage._network { return false }
+                return true
+            }
+            if !storagesAreEqual { return false }
+        }
+        if lhs.unknownFields != rhs.unknownFields { return false }
         return true
-      }
-      if !storagesAreEqual {return false}
     }
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
 }
 
 extension Chronik_BlockInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BlockInfo"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "hash"),
-    2: .standard(proto: "prev_hash"),
-    3: .same(proto: "height"),
-    4: .standard(proto: "n_bits"),
-    5: .same(proto: "timestamp"),
-    6: .standard(proto: "block_size"),
-    7: .standard(proto: "num_txs"),
-    8: .standard(proto: "num_inputs"),
-    9: .standard(proto: "num_outputs"),
-    10: .standard(proto: "sum_input_sats"),
-    11: .standard(proto: "sum_coinbase_output_sats"),
-    12: .standard(proto: "sum_normal_output_sats"),
-    13: .standard(proto: "sum_burned_sats"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".BlockInfo"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "hash"),
+        2: .standard(proto: "prev_hash"),
+        3: .same(proto: "height"),
+        4: .standard(proto: "n_bits"),
+        5: .same(proto: "timestamp"),
+        6: .standard(proto: "block_size"),
+        7: .standard(proto: "num_txs"),
+        8: .standard(proto: "num_inputs"),
+        9: .standard(proto: "num_outputs"),
+        10: .standard(proto: "sum_input_sats"),
+        11: .standard(proto: "sum_coinbase_output_sats"),
+        12: .standard(proto: "sum_normal_output_sats"),
+        13: .standard(proto: "sum_burned_sats"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularBytesField(value: &self.hash) }()
-      case 2: try { try decoder.decodeSingularBytesField(value: &self.prevHash) }()
-      case 3: try { try decoder.decodeSingularInt32Field(value: &self.height) }()
-      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.nBits) }()
-      case 5: try { try decoder.decodeSingularInt64Field(value: &self.timestamp) }()
-      case 6: try { try decoder.decodeSingularUInt64Field(value: &self.blockSize) }()
-      case 7: try { try decoder.decodeSingularUInt64Field(value: &self.numTxs) }()
-      case 8: try { try decoder.decodeSingularUInt64Field(value: &self.numInputs) }()
-      case 9: try { try decoder.decodeSingularUInt64Field(value: &self.numOutputs) }()
-      case 10: try { try decoder.decodeSingularInt64Field(value: &self.sumInputSats) }()
-      case 11: try { try decoder.decodeSingularInt64Field(value: &self.sumCoinbaseOutputSats) }()
-      case 12: try { try decoder.decodeSingularInt64Field(value: &self.sumNormalOutputSats) }()
-      case 13: try { try decoder.decodeSingularInt64Field(value: &self.sumBurnedSats) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeSingularBytesField(value: &hash)
+            case 2: try decoder.decodeSingularBytesField(value: &prevHash)
+            case 3: try decoder.decodeSingularInt32Field(value: &height)
+            case 4: try decoder.decodeSingularUInt32Field(value: &nBits)
+            case 5: try decoder.decodeSingularInt64Field(value: &timestamp)
+            case 6: try decoder.decodeSingularUInt64Field(value: &blockSize)
+            case 7: try decoder.decodeSingularUInt64Field(value: &numTxs)
+            case 8: try decoder.decodeSingularUInt64Field(value: &numInputs)
+            case 9: try decoder.decodeSingularUInt64Field(value: &numOutputs)
+            case 10: try decoder.decodeSingularInt64Field(value: &sumInputSats)
+            case 11: try decoder.decodeSingularInt64Field(value: &sumCoinbaseOutputSats)
+            case 12: try decoder.decodeSingularInt64Field(value: &sumNormalOutputSats)
+            case 13: try decoder.decodeSingularInt64Field(value: &sumBurnedSats)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.hash.isEmpty {
-      try visitor.visitSingularBytesField(value: self.hash, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if !hash.isEmpty {
+            try visitor.visitSingularBytesField(value: hash, fieldNumber: 1)
+        }
+        if !prevHash.isEmpty {
+            try visitor.visitSingularBytesField(value: prevHash, fieldNumber: 2)
+        }
+        if height != 0 {
+            try visitor.visitSingularInt32Field(value: height, fieldNumber: 3)
+        }
+        if nBits != 0 {
+            try visitor.visitSingularUInt32Field(value: nBits, fieldNumber: 4)
+        }
+        if timestamp != 0 {
+            try visitor.visitSingularInt64Field(value: timestamp, fieldNumber: 5)
+        }
+        if blockSize != 0 {
+            try visitor.visitSingularUInt64Field(value: blockSize, fieldNumber: 6)
+        }
+        if numTxs != 0 {
+            try visitor.visitSingularUInt64Field(value: numTxs, fieldNumber: 7)
+        }
+        if numInputs != 0 {
+            try visitor.visitSingularUInt64Field(value: numInputs, fieldNumber: 8)
+        }
+        if numOutputs != 0 {
+            try visitor.visitSingularUInt64Field(value: numOutputs, fieldNumber: 9)
+        }
+        if sumInputSats != 0 {
+            try visitor.visitSingularInt64Field(value: sumInputSats, fieldNumber: 10)
+        }
+        if sumCoinbaseOutputSats != 0 {
+            try visitor.visitSingularInt64Field(value: sumCoinbaseOutputSats, fieldNumber: 11)
+        }
+        if sumNormalOutputSats != 0 {
+            try visitor.visitSingularInt64Field(value: sumNormalOutputSats, fieldNumber: 12)
+        }
+        if sumBurnedSats != 0 {
+            try visitor.visitSingularInt64Field(value: sumBurnedSats, fieldNumber: 13)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if !self.prevHash.isEmpty {
-      try visitor.visitSingularBytesField(value: self.prevHash, fieldNumber: 2)
-    }
-    if self.height != 0 {
-      try visitor.visitSingularInt32Field(value: self.height, fieldNumber: 3)
-    }
-    if self.nBits != 0 {
-      try visitor.visitSingularUInt32Field(value: self.nBits, fieldNumber: 4)
-    }
-    if self.timestamp != 0 {
-      try visitor.visitSingularInt64Field(value: self.timestamp, fieldNumber: 5)
-    }
-    if self.blockSize != 0 {
-      try visitor.visitSingularUInt64Field(value: self.blockSize, fieldNumber: 6)
-    }
-    if self.numTxs != 0 {
-      try visitor.visitSingularUInt64Field(value: self.numTxs, fieldNumber: 7)
-    }
-    if self.numInputs != 0 {
-      try visitor.visitSingularUInt64Field(value: self.numInputs, fieldNumber: 8)
-    }
-    if self.numOutputs != 0 {
-      try visitor.visitSingularUInt64Field(value: self.numOutputs, fieldNumber: 9)
-    }
-    if self.sumInputSats != 0 {
-      try visitor.visitSingularInt64Field(value: self.sumInputSats, fieldNumber: 10)
-    }
-    if self.sumCoinbaseOutputSats != 0 {
-      try visitor.visitSingularInt64Field(value: self.sumCoinbaseOutputSats, fieldNumber: 11)
-    }
-    if self.sumNormalOutputSats != 0 {
-      try visitor.visitSingularInt64Field(value: self.sumNormalOutputSats, fieldNumber: 12)
-    }
-    if self.sumBurnedSats != 0 {
-      try visitor.visitSingularInt64Field(value: self.sumBurnedSats, fieldNumber: 13)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_BlockInfo, rhs: Chronik_BlockInfo) -> Bool {
-    if lhs.hash != rhs.hash {return false}
-    if lhs.prevHash != rhs.prevHash {return false}
-    if lhs.height != rhs.height {return false}
-    if lhs.nBits != rhs.nBits {return false}
-    if lhs.timestamp != rhs.timestamp {return false}
-    if lhs.blockSize != rhs.blockSize {return false}
-    if lhs.numTxs != rhs.numTxs {return false}
-    if lhs.numInputs != rhs.numInputs {return false}
-    if lhs.numOutputs != rhs.numOutputs {return false}
-    if lhs.sumInputSats != rhs.sumInputSats {return false}
-    if lhs.sumCoinbaseOutputSats != rhs.sumCoinbaseOutputSats {return false}
-    if lhs.sumNormalOutputSats != rhs.sumNormalOutputSats {return false}
-    if lhs.sumBurnedSats != rhs.sumBurnedSats {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_BlockInfo, rhs: Chronik_BlockInfo) -> Bool {
+        if lhs.hash != rhs.hash { return false }
+        if lhs.prevHash != rhs.prevHash { return false }
+        if lhs.height != rhs.height { return false }
+        if lhs.nBits != rhs.nBits { return false }
+        if lhs.timestamp != rhs.timestamp { return false }
+        if lhs.blockSize != rhs.blockSize { return false }
+        if lhs.numTxs != rhs.numTxs { return false }
+        if lhs.numInputs != rhs.numInputs { return false }
+        if lhs.numOutputs != rhs.numOutputs { return false }
+        if lhs.sumInputSats != rhs.sumInputSats { return false }
+        if lhs.sumCoinbaseOutputSats != rhs.sumCoinbaseOutputSats { return false }
+        if lhs.sumNormalOutputSats != rhs.sumNormalOutputSats { return false }
+        if lhs.sumBurnedSats != rhs.sumBurnedSats { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_BlockDetails: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BlockDetails"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "version"),
-    2: .standard(proto: "merkle_root"),
-    3: .same(proto: "nonce"),
-    4: .standard(proto: "median_timestamp"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".BlockDetails"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "version"),
+        2: .standard(proto: "merkle_root"),
+        3: .same(proto: "nonce"),
+        4: .standard(proto: "median_timestamp"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.version) }()
-      case 2: try { try decoder.decodeSingularBytesField(value: &self.merkleRoot) }()
-      case 3: try { try decoder.decodeSingularUInt64Field(value: &self.nonce) }()
-      case 4: try { try decoder.decodeSingularInt64Field(value: &self.medianTimestamp) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeSingularInt32Field(value: &version)
+            case 2: try decoder.decodeSingularBytesField(value: &merkleRoot)
+            case 3: try decoder.decodeSingularUInt64Field(value: &nonce)
+            case 4: try decoder.decodeSingularInt64Field(value: &medianTimestamp)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.version != 0 {
-      try visitor.visitSingularInt32Field(value: self.version, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if version != 0 {
+            try visitor.visitSingularInt32Field(value: version, fieldNumber: 1)
+        }
+        if !merkleRoot.isEmpty {
+            try visitor.visitSingularBytesField(value: merkleRoot, fieldNumber: 2)
+        }
+        if nonce != 0 {
+            try visitor.visitSingularUInt64Field(value: nonce, fieldNumber: 3)
+        }
+        if medianTimestamp != 0 {
+            try visitor.visitSingularInt64Field(value: medianTimestamp, fieldNumber: 4)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if !self.merkleRoot.isEmpty {
-      try visitor.visitSingularBytesField(value: self.merkleRoot, fieldNumber: 2)
-    }
-    if self.nonce != 0 {
-      try visitor.visitSingularUInt64Field(value: self.nonce, fieldNumber: 3)
-    }
-    if self.medianTimestamp != 0 {
-      try visitor.visitSingularInt64Field(value: self.medianTimestamp, fieldNumber: 4)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_BlockDetails, rhs: Chronik_BlockDetails) -> Bool {
-    if lhs.version != rhs.version {return false}
-    if lhs.merkleRoot != rhs.merkleRoot {return false}
-    if lhs.nonce != rhs.nonce {return false}
-    if lhs.medianTimestamp != rhs.medianTimestamp {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_BlockDetails, rhs: Chronik_BlockDetails) -> Bool {
+        if lhs.version != rhs.version { return false }
+        if lhs.merkleRoot != rhs.merkleRoot { return false }
+        if lhs.nonce != rhs.nonce { return false }
+        if lhs.medianTimestamp != rhs.medianTimestamp { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_Block: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Block"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "block_info"),
-    3: .standard(proto: "block_details"),
-    4: .standard(proto: "raw_header"),
-    2: .same(proto: "txs"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".Block"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .standard(proto: "block_info"),
+        3: .standard(proto: "block_details"),
+        4: .standard(proto: "raw_header"),
+        2: .same(proto: "txs"),
+    ]
 
-  fileprivate class _StorageClass {
-    var _blockInfo: Chronik_BlockInfo? = nil
-    var _blockDetails: Chronik_BlockDetails? = nil
-    var _rawHeader: Data = Data()
-    var _txs: [Chronik_Tx] = []
+    fileprivate class _StorageClass {
+        var _blockInfo: Chronik_BlockInfo?
+        var _blockDetails: Chronik_BlockDetails?
+        var _rawHeader: Data = .init()
+        var _txs: [Chronik_Tx] = []
 
-    static let defaultInstance = _StorageClass()
+        static let defaultInstance = _StorageClass()
 
-    private init() {}
+        private init() {}
 
-    init(copying source: _StorageClass) {
-      _blockInfo = source._blockInfo
-      _blockDetails = source._blockDetails
-      _rawHeader = source._rawHeader
-      _txs = source._txs
-    }
-  }
-
-  fileprivate mutating func _uniqueStorage() -> _StorageClass {
-    if !isKnownUniquelyReferenced(&_storage) {
-      _storage = _StorageClass(copying: _storage)
-    }
-    return _storage
-  }
-
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    _ = _uniqueStorage()
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      while let fieldNumber = try decoder.nextFieldNumber() {
-        // The use of inline closures is to circumvent an issue where the compiler
-        // allocates stack space for every case branch when no optimizations are
-        // enabled. https://github.com/apple/swift-protobuf/issues/1034
-        switch fieldNumber {
-        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._blockInfo) }()
-        case 2: try { try decoder.decodeRepeatedMessageField(value: &_storage._txs) }()
-        case 3: try { try decoder.decodeSingularMessageField(value: &_storage._blockDetails) }()
-        case 4: try { try decoder.decodeSingularBytesField(value: &_storage._rawHeader) }()
-        default: break
+        init(copying source: _StorageClass) {
+            _blockInfo = source._blockInfo
+            _blockDetails = source._blockDetails
+            _rawHeader = source._rawHeader
+            _txs = source._txs
         }
-      }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every if/case branch local when no optimizations
-      // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-      // https://github.com/apple/swift-protobuf/issues/1182
-      try { if let v = _storage._blockInfo {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-      } }()
-      if !_storage._txs.isEmpty {
-        try visitor.visitRepeatedMessageField(value: _storage._txs, fieldNumber: 2)
-      }
-      try { if let v = _storage._blockDetails {
-        try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-      } }()
-      if !_storage._rawHeader.isEmpty {
-        try visitor.visitSingularBytesField(value: _storage._rawHeader, fieldNumber: 4)
-      }
+    fileprivate mutating func _uniqueStorage() -> _StorageClass {
+        if !isKnownUniquelyReferenced(&_storage) {
+            _storage = _StorageClass(copying: _storage)
+        }
+        return _storage
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_Block, rhs: Chronik_Block) -> Bool {
-    if lhs._storage !== rhs._storage {
-      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
-        let _storage = _args.0
-        let rhs_storage = _args.1
-        if _storage._blockInfo != rhs_storage._blockInfo {return false}
-        if _storage._blockDetails != rhs_storage._blockDetails {return false}
-        if _storage._rawHeader != rhs_storage._rawHeader {return false}
-        if _storage._txs != rhs_storage._txs {return false}
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        _ = _uniqueStorage()
+        try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+            while let fieldNumber = try decoder.nextFieldNumber() {
+                // The use of inline closures is to circumvent an issue where the compiler
+                // allocates stack space for every case branch when no optimizations are
+                // enabled. https://github.com/apple/swift-protobuf/issues/1034
+                switch fieldNumber {
+                case 1: try decoder.decodeSingularMessageField(value: &_storage._blockInfo)
+                case 2: try decoder.decodeRepeatedMessageField(value: &_storage._txs)
+                case 3: try decoder.decodeSingularMessageField(value: &_storage._blockDetails)
+                case 4: try decoder.decodeSingularBytesField(value: &_storage._rawHeader)
+                default: break
+                }
+            }
+        }
+    }
+
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every if/case branch local when no optimizations
+            // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+            // https://github.com/apple/swift-protobuf/issues/1182
+            try { if let v = _storage._blockInfo {
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+            } }()
+            if !_storage._txs.isEmpty {
+                try visitor.visitRepeatedMessageField(value: _storage._txs, fieldNumber: 2)
+            }
+            try { if let v = _storage._blockDetails {
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+            } }()
+            if !_storage._rawHeader.isEmpty {
+                try visitor.visitSingularBytesField(value: _storage._rawHeader, fieldNumber: 4)
+            }
+        }
+        try unknownFields.traverse(visitor: &visitor)
+    }
+
+    static func == (lhs: Chronik_Block, rhs: Chronik_Block) -> Bool {
+        if lhs._storage !== rhs._storage {
+            let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+                let _storage = _args.0
+                let rhs_storage = _args.1
+                if _storage._blockInfo != rhs_storage._blockInfo { return false }
+                if _storage._blockDetails != rhs_storage._blockDetails { return false }
+                if _storage._rawHeader != rhs_storage._rawHeader { return false }
+                if _storage._txs != rhs_storage._txs { return false }
+                return true
+            }
+            if !storagesAreEqual { return false }
+        }
+        if lhs.unknownFields != rhs.unknownFields { return false }
         return true
-      }
-      if !storagesAreEqual {return false}
     }
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
 }
 
 extension Chronik_ScriptUtxos: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ScriptUtxos"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "output_script"),
-    2: .same(proto: "utxos"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".ScriptUtxos"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .standard(proto: "output_script"),
+        2: .same(proto: "utxos"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularBytesField(value: &self.outputScript) }()
-      case 2: try { try decoder.decodeRepeatedMessageField(value: &self.utxos) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeSingularBytesField(value: &outputScript)
+            case 2: try decoder.decodeRepeatedMessageField(value: &utxos)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.outputScript.isEmpty {
-      try visitor.visitSingularBytesField(value: self.outputScript, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if !outputScript.isEmpty {
+            try visitor.visitSingularBytesField(value: outputScript, fieldNumber: 1)
+        }
+        if !utxos.isEmpty {
+            try visitor.visitRepeatedMessageField(value: utxos, fieldNumber: 2)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if !self.utxos.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.utxos, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_ScriptUtxos, rhs: Chronik_ScriptUtxos) -> Bool {
-    if lhs.outputScript != rhs.outputScript {return false}
-    if lhs.utxos != rhs.utxos {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_ScriptUtxos, rhs: Chronik_ScriptUtxos) -> Bool {
+        if lhs.outputScript != rhs.outputScript { return false }
+        if lhs.utxos != rhs.utxos { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_TxHistoryPage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".TxHistoryPage"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "txs"),
-    2: .standard(proto: "num_pages"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".TxHistoryPage"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "txs"),
+        2: .standard(proto: "num_pages"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.txs) }()
-      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.numPages) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeRepeatedMessageField(value: &txs)
+            case 2: try decoder.decodeSingularUInt32Field(value: &numPages)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.txs.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.txs, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if !txs.isEmpty {
+            try visitor.visitRepeatedMessageField(value: txs, fieldNumber: 1)
+        }
+        if numPages != 0 {
+            try visitor.visitSingularUInt32Field(value: numPages, fieldNumber: 2)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if self.numPages != 0 {
-      try visitor.visitSingularUInt32Field(value: self.numPages, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_TxHistoryPage, rhs: Chronik_TxHistoryPage) -> Bool {
-    if lhs.txs != rhs.txs {return false}
-    if lhs.numPages != rhs.numPages {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_TxHistoryPage, rhs: Chronik_TxHistoryPage) -> Bool {
+        if lhs.txs != rhs.txs { return false }
+        if lhs.numPages != rhs.numPages { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_Utxos: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Utxos"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "script_utxos"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".Utxos"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .standard(proto: "script_utxos"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.scriptUtxos) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeRepeatedMessageField(value: &scriptUtxos)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.scriptUtxos.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.scriptUtxos, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if !scriptUtxos.isEmpty {
+            try visitor.visitRepeatedMessageField(value: scriptUtxos, fieldNumber: 1)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_Utxos, rhs: Chronik_Utxos) -> Bool {
-    if lhs.scriptUtxos != rhs.scriptUtxos {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_Utxos, rhs: Chronik_Utxos) -> Bool {
+        if lhs.scriptUtxos != rhs.scriptUtxos { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_Blocks: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Blocks"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "blocks"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".Blocks"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "blocks"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.blocks) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeRepeatedMessageField(value: &blocks)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.blocks.isEmpty {
-      try visitor.visitRepeatedMessageField(value: self.blocks, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if !blocks.isEmpty {
+            try visitor.visitRepeatedMessageField(value: blocks, fieldNumber: 1)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_Blocks, rhs: Chronik_Blocks) -> Bool {
-    if lhs.blocks != rhs.blocks {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_Blocks, rhs: Chronik_Blocks) -> Bool {
+        if lhs.blocks != rhs.blocks { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_SlpTxData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SlpTxData"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "slp_meta"),
-    2: .standard(proto: "genesis_info"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".SlpTxData"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .standard(proto: "slp_meta"),
+        2: .standard(proto: "genesis_info"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularMessageField(value: &self._slpMeta) }()
-      case 2: try { try decoder.decodeSingularMessageField(value: &self._genesisInfo) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeSingularMessageField(value: &_slpMeta)
+            case 2: try decoder.decodeSingularMessageField(value: &_genesisInfo)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._slpMeta {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    } }()
-    try { if let v = self._genesisInfo {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every if/case branch local when no optimizations
+        // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+        // https://github.com/apple/swift-protobuf/issues/1182
+        try { if let v = self._slpMeta {
+            try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+        } }()
+        try { if let v = self._genesisInfo {
+            try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+        } }()
+        try unknownFields.traverse(visitor: &visitor)
+    }
 
-  static func ==(lhs: Chronik_SlpTxData, rhs: Chronik_SlpTxData) -> Bool {
-    if lhs._slpMeta != rhs._slpMeta {return false}
-    if lhs._genesisInfo != rhs._genesisInfo {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_SlpTxData, rhs: Chronik_SlpTxData) -> Bool {
+        if lhs._slpMeta != rhs._slpMeta { return false }
+        if lhs._genesisInfo != rhs._genesisInfo { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_SlpMeta: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SlpMeta"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "token_type"),
-    2: .standard(proto: "tx_type"),
-    3: .standard(proto: "token_id"),
-    4: .standard(proto: "group_token_id"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".SlpMeta"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .standard(proto: "token_type"),
+        2: .standard(proto: "tx_type"),
+        3: .standard(proto: "token_id"),
+        4: .standard(proto: "group_token_id"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularEnumField(value: &self.tokenType) }()
-      case 2: try { try decoder.decodeSingularEnumField(value: &self.txType) }()
-      case 3: try { try decoder.decodeSingularBytesField(value: &self.tokenID) }()
-      case 4: try { try decoder.decodeSingularBytesField(value: &self.groupTokenID) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeSingularEnumField(value: &tokenType)
+            case 2: try decoder.decodeSingularEnumField(value: &txType)
+            case 3: try decoder.decodeSingularBytesField(value: &tokenID)
+            case 4: try decoder.decodeSingularBytesField(value: &groupTokenID)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.tokenType != .fungible {
-      try visitor.visitSingularEnumField(value: self.tokenType, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if tokenType != .fungible {
+            try visitor.visitSingularEnumField(value: tokenType, fieldNumber: 1)
+        }
+        if txType != .genesis {
+            try visitor.visitSingularEnumField(value: txType, fieldNumber: 2)
+        }
+        if !tokenID.isEmpty {
+            try visitor.visitSingularBytesField(value: tokenID, fieldNumber: 3)
+        }
+        if !groupTokenID.isEmpty {
+            try visitor.visitSingularBytesField(value: groupTokenID, fieldNumber: 4)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if self.txType != .genesis {
-      try visitor.visitSingularEnumField(value: self.txType, fieldNumber: 2)
-    }
-    if !self.tokenID.isEmpty {
-      try visitor.visitSingularBytesField(value: self.tokenID, fieldNumber: 3)
-    }
-    if !self.groupTokenID.isEmpty {
-      try visitor.visitSingularBytesField(value: self.groupTokenID, fieldNumber: 4)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_SlpMeta, rhs: Chronik_SlpMeta) -> Bool {
-    if lhs.tokenType != rhs.tokenType {return false}
-    if lhs.txType != rhs.txType {return false}
-    if lhs.tokenID != rhs.tokenID {return false}
-    if lhs.groupTokenID != rhs.groupTokenID {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_SlpMeta, rhs: Chronik_SlpMeta) -> Bool {
+        if lhs.tokenType != rhs.tokenType { return false }
+        if lhs.txType != rhs.txType { return false }
+        if lhs.tokenID != rhs.tokenID { return false }
+        if lhs.groupTokenID != rhs.groupTokenID { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_TokenStats: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".TokenStats"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "total_minted"),
-    2: .standard(proto: "total_burned"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".TokenStats"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .standard(proto: "total_minted"),
+        2: .standard(proto: "total_burned"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.totalMinted) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.totalBurned) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeSingularStringField(value: &totalMinted)
+            case 2: try decoder.decodeSingularStringField(value: &totalBurned)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.totalMinted.isEmpty {
-      try visitor.visitSingularStringField(value: self.totalMinted, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if !totalMinted.isEmpty {
+            try visitor.visitSingularStringField(value: totalMinted, fieldNumber: 1)
+        }
+        if !totalBurned.isEmpty {
+            try visitor.visitSingularStringField(value: totalBurned, fieldNumber: 2)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if !self.totalBurned.isEmpty {
-      try visitor.visitSingularStringField(value: self.totalBurned, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_TokenStats, rhs: Chronik_TokenStats) -> Bool {
-    if lhs.totalMinted != rhs.totalMinted {return false}
-    if lhs.totalBurned != rhs.totalBurned {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_TokenStats, rhs: Chronik_TokenStats) -> Bool {
+        if lhs.totalMinted != rhs.totalMinted { return false }
+        if lhs.totalBurned != rhs.totalBurned { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_TxInput: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".TxInput"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "prev_out"),
-    2: .standard(proto: "input_script"),
-    3: .standard(proto: "output_script"),
-    4: .same(proto: "value"),
-    5: .standard(proto: "sequence_no"),
-    6: .standard(proto: "slp_burn"),
-    7: .standard(proto: "slp_token"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".TxInput"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .standard(proto: "prev_out"),
+        2: .standard(proto: "input_script"),
+        3: .standard(proto: "output_script"),
+        4: .same(proto: "value"),
+        5: .standard(proto: "sequence_no"),
+        6: .standard(proto: "slp_burn"),
+        7: .standard(proto: "slp_token"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularMessageField(value: &self._prevOut) }()
-      case 2: try { try decoder.decodeSingularBytesField(value: &self.inputScript) }()
-      case 3: try { try decoder.decodeSingularBytesField(value: &self.outputScript) }()
-      case 4: try { try decoder.decodeSingularInt64Field(value: &self.value) }()
-      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.sequenceNo) }()
-      case 6: try { try decoder.decodeSingularMessageField(value: &self._slpBurn) }()
-      case 7: try { try decoder.decodeSingularMessageField(value: &self._slpToken) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeSingularMessageField(value: &_prevOut)
+            case 2: try decoder.decodeSingularBytesField(value: &inputScript)
+            case 3: try decoder.decodeSingularBytesField(value: &outputScript)
+            case 4: try decoder.decodeSingularInt64Field(value: &value)
+            case 5: try decoder.decodeSingularUInt32Field(value: &sequenceNo)
+            case 6: try decoder.decodeSingularMessageField(value: &_slpBurn)
+            case 7: try decoder.decodeSingularMessageField(value: &_slpToken)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._prevOut {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    } }()
-    if !self.inputScript.isEmpty {
-      try visitor.visitSingularBytesField(value: self.inputScript, fieldNumber: 2)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every if/case branch local when no optimizations
+        // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+        // https://github.com/apple/swift-protobuf/issues/1182
+        try { if let v = self._prevOut {
+            try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+        } }()
+        if !inputScript.isEmpty {
+            try visitor.visitSingularBytesField(value: inputScript, fieldNumber: 2)
+        }
+        if !outputScript.isEmpty {
+            try visitor.visitSingularBytesField(value: outputScript, fieldNumber: 3)
+        }
+        if value != 0 {
+            try visitor.visitSingularInt64Field(value: value, fieldNumber: 4)
+        }
+        if sequenceNo != 0 {
+            try visitor.visitSingularUInt32Field(value: sequenceNo, fieldNumber: 5)
+        }
+        try { if let v = self._slpBurn {
+            try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+        } }()
+        try { if let v = self._slpToken {
+            try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
+        } }()
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if !self.outputScript.isEmpty {
-      try visitor.visitSingularBytesField(value: self.outputScript, fieldNumber: 3)
-    }
-    if self.value != 0 {
-      try visitor.visitSingularInt64Field(value: self.value, fieldNumber: 4)
-    }
-    if self.sequenceNo != 0 {
-      try visitor.visitSingularUInt32Field(value: self.sequenceNo, fieldNumber: 5)
-    }
-    try { if let v = self._slpBurn {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-    } }()
-    try { if let v = self._slpToken {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_TxInput, rhs: Chronik_TxInput) -> Bool {
-    if lhs._prevOut != rhs._prevOut {return false}
-    if lhs.inputScript != rhs.inputScript {return false}
-    if lhs.outputScript != rhs.outputScript {return false}
-    if lhs.value != rhs.value {return false}
-    if lhs.sequenceNo != rhs.sequenceNo {return false}
-    if lhs._slpBurn != rhs._slpBurn {return false}
-    if lhs._slpToken != rhs._slpToken {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_TxInput, rhs: Chronik_TxInput) -> Bool {
+        if lhs._prevOut != rhs._prevOut { return false }
+        if lhs.inputScript != rhs.inputScript { return false }
+        if lhs.outputScript != rhs.outputScript { return false }
+        if lhs.value != rhs.value { return false }
+        if lhs.sequenceNo != rhs.sequenceNo { return false }
+        if lhs._slpBurn != rhs._slpBurn { return false }
+        if lhs._slpToken != rhs._slpToken { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_TxOutput: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".TxOutput"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "value"),
-    2: .standard(proto: "output_script"),
-    3: .standard(proto: "slp_token"),
-    4: .standard(proto: "spent_by"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".TxOutput"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "value"),
+        2: .standard(proto: "output_script"),
+        3: .standard(proto: "slp_token"),
+        4: .standard(proto: "spent_by"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt64Field(value: &self.value) }()
-      case 2: try { try decoder.decodeSingularBytesField(value: &self.outputScript) }()
-      case 3: try { try decoder.decodeSingularMessageField(value: &self._slpToken) }()
-      case 4: try { try decoder.decodeSingularMessageField(value: &self._spentBy) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeSingularInt64Field(value: &value)
+            case 2: try decoder.decodeSingularBytesField(value: &outputScript)
+            case 3: try decoder.decodeSingularMessageField(value: &_slpToken)
+            case 4: try decoder.decodeSingularMessageField(value: &_spentBy)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    if self.value != 0 {
-      try visitor.visitSingularInt64Field(value: self.value, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every if/case branch local when no optimizations
+        // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+        // https://github.com/apple/swift-protobuf/issues/1182
+        if value != 0 {
+            try visitor.visitSingularInt64Field(value: value, fieldNumber: 1)
+        }
+        if !outputScript.isEmpty {
+            try visitor.visitSingularBytesField(value: outputScript, fieldNumber: 2)
+        }
+        try { if let v = self._slpToken {
+            try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+        } }()
+        try { if let v = self._spentBy {
+            try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+        } }()
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if !self.outputScript.isEmpty {
-      try visitor.visitSingularBytesField(value: self.outputScript, fieldNumber: 2)
-    }
-    try { if let v = self._slpToken {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    } }()
-    try { if let v = self._spentBy {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-    } }()
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_TxOutput, rhs: Chronik_TxOutput) -> Bool {
-    if lhs.value != rhs.value {return false}
-    if lhs.outputScript != rhs.outputScript {return false}
-    if lhs._slpToken != rhs._slpToken {return false}
-    if lhs._spentBy != rhs._spentBy {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_TxOutput, rhs: Chronik_TxOutput) -> Bool {
+        if lhs.value != rhs.value { return false }
+        if lhs.outputScript != rhs.outputScript { return false }
+        if lhs._slpToken != rhs._slpToken { return false }
+        if lhs._spentBy != rhs._spentBy { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_BlockMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BlockMetadata"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "height"),
-    2: .same(proto: "hash"),
-    3: .same(proto: "timestamp"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".BlockMetadata"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "height"),
+        2: .same(proto: "hash"),
+        3: .same(proto: "timestamp"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.height) }()
-      case 2: try { try decoder.decodeSingularBytesField(value: &self.hash) }()
-      case 3: try { try decoder.decodeSingularInt64Field(value: &self.timestamp) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeSingularInt32Field(value: &height)
+            case 2: try decoder.decodeSingularBytesField(value: &hash)
+            case 3: try decoder.decodeSingularInt64Field(value: &timestamp)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.height != 0 {
-      try visitor.visitSingularInt32Field(value: self.height, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if height != 0 {
+            try visitor.visitSingularInt32Field(value: height, fieldNumber: 1)
+        }
+        if !hash.isEmpty {
+            try visitor.visitSingularBytesField(value: hash, fieldNumber: 2)
+        }
+        if timestamp != 0 {
+            try visitor.visitSingularInt64Field(value: timestamp, fieldNumber: 3)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if !self.hash.isEmpty {
-      try visitor.visitSingularBytesField(value: self.hash, fieldNumber: 2)
-    }
-    if self.timestamp != 0 {
-      try visitor.visitSingularInt64Field(value: self.timestamp, fieldNumber: 3)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_BlockMetadata, rhs: Chronik_BlockMetadata) -> Bool {
-    if lhs.height != rhs.height {return false}
-    if lhs.hash != rhs.hash {return false}
-    if lhs.timestamp != rhs.timestamp {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_BlockMetadata, rhs: Chronik_BlockMetadata) -> Bool {
+        if lhs.height != rhs.height { return false }
+        if lhs.hash != rhs.hash { return false }
+        if lhs.timestamp != rhs.timestamp { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_OutPoint: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".OutPoint"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "txid"),
-    2: .standard(proto: "out_idx"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".OutPoint"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "txid"),
+        2: .standard(proto: "out_idx"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularBytesField(value: &self.txid) }()
-      case 2: try { try decoder.decodeSingularUInt32Field(value: &self.outIdx) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeSingularBytesField(value: &txid)
+            case 2: try decoder.decodeSingularUInt32Field(value: &outIdx)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.txid.isEmpty {
-      try visitor.visitSingularBytesField(value: self.txid, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if !txid.isEmpty {
+            try visitor.visitSingularBytesField(value: txid, fieldNumber: 1)
+        }
+        if outIdx != 0 {
+            try visitor.visitSingularUInt32Field(value: outIdx, fieldNumber: 2)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if self.outIdx != 0 {
-      try visitor.visitSingularUInt32Field(value: self.outIdx, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_OutPoint, rhs: Chronik_OutPoint) -> Bool {
-    if lhs.txid != rhs.txid {return false}
-    if lhs.outIdx != rhs.outIdx {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_OutPoint, rhs: Chronik_OutPoint) -> Bool {
+        if lhs.txid != rhs.txid { return false }
+        if lhs.outIdx != rhs.outIdx { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_SlpToken: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SlpToken"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "amount"),
-    2: .standard(proto: "is_mint_baton"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".SlpToken"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "amount"),
+        2: .standard(proto: "is_mint_baton"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularUInt64Field(value: &self.amount) }()
-      case 2: try { try decoder.decodeSingularBoolField(value: &self.isMintBaton) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeSingularUInt64Field(value: &amount)
+            case 2: try decoder.decodeSingularBoolField(value: &isMintBaton)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.amount != 0 {
-      try visitor.visitSingularUInt64Field(value: self.amount, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if amount != 0 {
+            try visitor.visitSingularUInt64Field(value: amount, fieldNumber: 1)
+        }
+        if isMintBaton != false {
+            try visitor.visitSingularBoolField(value: isMintBaton, fieldNumber: 2)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if self.isMintBaton != false {
-      try visitor.visitSingularBoolField(value: self.isMintBaton, fieldNumber: 2)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_SlpToken, rhs: Chronik_SlpToken) -> Bool {
-    if lhs.amount != rhs.amount {return false}
-    if lhs.isMintBaton != rhs.isMintBaton {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_SlpToken, rhs: Chronik_SlpToken) -> Bool {
+        if lhs.amount != rhs.amount { return false }
+        if lhs.isMintBaton != rhs.isMintBaton { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_SlpBurn: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SlpBurn"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "token"),
-    2: .standard(proto: "token_id"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".SlpBurn"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "token"),
+        2: .standard(proto: "token_id"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularMessageField(value: &self._token) }()
-      case 2: try { try decoder.decodeSingularBytesField(value: &self.tokenID) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeSingularMessageField(value: &_token)
+            case 2: try decoder.decodeSingularBytesField(value: &tokenID)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    try { if let v = self._token {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    } }()
-    if !self.tokenID.isEmpty {
-      try visitor.visitSingularBytesField(value: self.tokenID, fieldNumber: 2)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every if/case branch local when no optimizations
+        // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+        // https://github.com/apple/swift-protobuf/issues/1182
+        try { if let v = self._token {
+            try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+        } }()
+        if !tokenID.isEmpty {
+            try visitor.visitSingularBytesField(value: tokenID, fieldNumber: 2)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_SlpBurn, rhs: Chronik_SlpBurn) -> Bool {
-    if lhs._token != rhs._token {return false}
-    if lhs.tokenID != rhs.tokenID {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_SlpBurn, rhs: Chronik_SlpBurn) -> Bool {
+        if lhs._token != rhs._token { return false }
+        if lhs.tokenID != rhs.tokenID { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_SlpGenesisInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SlpGenesisInfo"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "token_ticker"),
-    2: .standard(proto: "token_name"),
-    3: .standard(proto: "token_document_url"),
-    4: .standard(proto: "token_document_hash"),
-    5: .same(proto: "decimals"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".SlpGenesisInfo"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .standard(proto: "token_ticker"),
+        2: .standard(proto: "token_name"),
+        3: .standard(proto: "token_document_url"),
+        4: .standard(proto: "token_document_hash"),
+        5: .same(proto: "decimals"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularBytesField(value: &self.tokenTicker) }()
-      case 2: try { try decoder.decodeSingularBytesField(value: &self.tokenName) }()
-      case 3: try { try decoder.decodeSingularBytesField(value: &self.tokenDocumentURL) }()
-      case 4: try { try decoder.decodeSingularBytesField(value: &self.tokenDocumentHash) }()
-      case 5: try { try decoder.decodeSingularUInt32Field(value: &self.decimals) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeSingularBytesField(value: &tokenTicker)
+            case 2: try decoder.decodeSingularBytesField(value: &tokenName)
+            case 3: try decoder.decodeSingularBytesField(value: &tokenDocumentURL)
+            case 4: try decoder.decodeSingularBytesField(value: &tokenDocumentHash)
+            case 5: try decoder.decodeSingularUInt32Field(value: &decimals)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.tokenTicker.isEmpty {
-      try visitor.visitSingularBytesField(value: self.tokenTicker, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if !tokenTicker.isEmpty {
+            try visitor.visitSingularBytesField(value: tokenTicker, fieldNumber: 1)
+        }
+        if !tokenName.isEmpty {
+            try visitor.visitSingularBytesField(value: tokenName, fieldNumber: 2)
+        }
+        if !tokenDocumentURL.isEmpty {
+            try visitor.visitSingularBytesField(value: tokenDocumentURL, fieldNumber: 3)
+        }
+        if !tokenDocumentHash.isEmpty {
+            try visitor.visitSingularBytesField(value: tokenDocumentHash, fieldNumber: 4)
+        }
+        if decimals != 0 {
+            try visitor.visitSingularUInt32Field(value: decimals, fieldNumber: 5)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if !self.tokenName.isEmpty {
-      try visitor.visitSingularBytesField(value: self.tokenName, fieldNumber: 2)
-    }
-    if !self.tokenDocumentURL.isEmpty {
-      try visitor.visitSingularBytesField(value: self.tokenDocumentURL, fieldNumber: 3)
-    }
-    if !self.tokenDocumentHash.isEmpty {
-      try visitor.visitSingularBytesField(value: self.tokenDocumentHash, fieldNumber: 4)
-    }
-    if self.decimals != 0 {
-      try visitor.visitSingularUInt32Field(value: self.decimals, fieldNumber: 5)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_SlpGenesisInfo, rhs: Chronik_SlpGenesisInfo) -> Bool {
-    if lhs.tokenTicker != rhs.tokenTicker {return false}
-    if lhs.tokenName != rhs.tokenName {return false}
-    if lhs.tokenDocumentURL != rhs.tokenDocumentURL {return false}
-    if lhs.tokenDocumentHash != rhs.tokenDocumentHash {return false}
-    if lhs.decimals != rhs.decimals {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_SlpGenesisInfo, rhs: Chronik_SlpGenesisInfo) -> Bool {
+        if lhs.tokenTicker != rhs.tokenTicker { return false }
+        if lhs.tokenName != rhs.tokenName { return false }
+        if lhs.tokenDocumentURL != rhs.tokenDocumentURL { return false }
+        if lhs.tokenDocumentHash != rhs.tokenDocumentHash { return false }
+        if lhs.decimals != rhs.decimals { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_UtxoState: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".UtxoState"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "height"),
-    2: .standard(proto: "is_confirmed"),
-    3: .same(proto: "state"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".UtxoState"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "height"),
+        2: .standard(proto: "is_confirmed"),
+        3: .same(proto: "state"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularInt32Field(value: &self.height) }()
-      case 2: try { try decoder.decodeSingularBoolField(value: &self.isConfirmed) }()
-      case 3: try { try decoder.decodeSingularEnumField(value: &self.state) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeSingularInt32Field(value: &height)
+            case 2: try decoder.decodeSingularBoolField(value: &isConfirmed)
+            case 3: try decoder.decodeSingularEnumField(value: &state)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if self.height != 0 {
-      try visitor.visitSingularInt32Field(value: self.height, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if height != 0 {
+            try visitor.visitSingularInt32Field(value: height, fieldNumber: 1)
+        }
+        if isConfirmed != false {
+            try visitor.visitSingularBoolField(value: isConfirmed, fieldNumber: 2)
+        }
+        if state != .unspent {
+            try visitor.visitSingularEnumField(value: state, fieldNumber: 3)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if self.isConfirmed != false {
-      try visitor.visitSingularBoolField(value: self.isConfirmed, fieldNumber: 2)
-    }
-    if self.state != .unspent {
-      try visitor.visitSingularEnumField(value: self.state, fieldNumber: 3)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_UtxoState, rhs: Chronik_UtxoState) -> Bool {
-    if lhs.height != rhs.height {return false}
-    if lhs.isConfirmed != rhs.isConfirmed {return false}
-    if lhs.state != rhs.state {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_UtxoState, rhs: Chronik_UtxoState) -> Bool {
+        if lhs.height != rhs.height { return false }
+        if lhs.isConfirmed != rhs.isConfirmed { return false }
+        if lhs.state != rhs.state { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_Subscription: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Subscription"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "script_type"),
-    2: .same(proto: "payload"),
-    3: .standard(proto: "is_subscribe"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".Subscription"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .standard(proto: "script_type"),
+        2: .same(proto: "payload"),
+        3: .standard(proto: "is_subscribe"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.scriptType) }()
-      case 2: try { try decoder.decodeSingularBytesField(value: &self.payload) }()
-      case 3: try { try decoder.decodeSingularBoolField(value: &self.isSubscribe) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeSingularStringField(value: &scriptType)
+            case 2: try decoder.decodeSingularBytesField(value: &payload)
+            case 3: try decoder.decodeSingularBoolField(value: &isSubscribe)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.scriptType.isEmpty {
-      try visitor.visitSingularStringField(value: self.scriptType, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if !scriptType.isEmpty {
+            try visitor.visitSingularStringField(value: scriptType, fieldNumber: 1)
+        }
+        if !payload.isEmpty {
+            try visitor.visitSingularBytesField(value: payload, fieldNumber: 2)
+        }
+        if isSubscribe != false {
+            try visitor.visitSingularBoolField(value: isSubscribe, fieldNumber: 3)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if !self.payload.isEmpty {
-      try visitor.visitSingularBytesField(value: self.payload, fieldNumber: 2)
-    }
-    if self.isSubscribe != false {
-      try visitor.visitSingularBoolField(value: self.isSubscribe, fieldNumber: 3)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_Subscription, rhs: Chronik_Subscription) -> Bool {
-    if lhs.scriptType != rhs.scriptType {return false}
-    if lhs.payload != rhs.payload {return false}
-    if lhs.isSubscribe != rhs.isSubscribe {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_Subscription, rhs: Chronik_Subscription) -> Bool {
+        if lhs.scriptType != rhs.scriptType { return false }
+        if lhs.payload != rhs.payload { return false }
+        if lhs.isSubscribe != rhs.isSubscribe { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_SubscribeMsg: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SubscribeMsg"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "error"),
-    2: .same(proto: "AddedToMempool"),
-    3: .same(proto: "RemovedFromMempool"),
-    4: .same(proto: "Confirmed"),
-    5: .same(proto: "Reorg"),
-    6: .same(proto: "BlockConnected"),
-    7: .same(proto: "BlockDisconnected"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".SubscribeMsg"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "error"),
+        2: .same(proto: "AddedToMempool"),
+        3: .same(proto: "RemovedFromMempool"),
+        4: .same(proto: "Confirmed"),
+        5: .same(proto: "Reorg"),
+        6: .same(proto: "BlockConnected"),
+        7: .same(proto: "BlockDisconnected"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try {
-        var v: Chronik_Error?
-        var hadOneofValue = false
-        if let current = self.msgType {
-          hadOneofValue = true
-          if case .error(let m) = current {v = m}
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try {
+                    var v: Chronik_Error?
+                    var hadOneofValue = false
+                    if let current = self.msgType {
+                        hadOneofValue = true
+                        if case let .error(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.msgType = .error(v)
+                    }
+                }()
+            case 2: try {
+                    var v: Chronik_MsgAddedToMempool?
+                    var hadOneofValue = false
+                    if let current = self.msgType {
+                        hadOneofValue = true
+                        if case let .addedToMempool(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.msgType = .addedToMempool(v)
+                    }
+                }()
+            case 3: try {
+                    var v: Chronik_MsgRemovedFromMempool?
+                    var hadOneofValue = false
+                    if let current = self.msgType {
+                        hadOneofValue = true
+                        if case let .removedFromMempool(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.msgType = .removedFromMempool(v)
+                    }
+                }()
+            case 4: try {
+                    var v: Chronik_MsgConfirmed?
+                    var hadOneofValue = false
+                    if let current = self.msgType {
+                        hadOneofValue = true
+                        if case let .confirmed(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.msgType = .confirmed(v)
+                    }
+                }()
+            case 5: try {
+                    var v: Chronik_MsgReorg?
+                    var hadOneofValue = false
+                    if let current = self.msgType {
+                        hadOneofValue = true
+                        if case let .reorg(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.msgType = .reorg(v)
+                    }
+                }()
+            case 6: try {
+                    var v: Chronik_MsgBlockConnected?
+                    var hadOneofValue = false
+                    if let current = self.msgType {
+                        hadOneofValue = true
+                        if case let .blockConnected(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.msgType = .blockConnected(v)
+                    }
+                }()
+            case 7: try {
+                    var v: Chronik_MsgBlockDisconnected?
+                    var hadOneofValue = false
+                    if let current = self.msgType {
+                        hadOneofValue = true
+                        if case let .blockDisconnected(m) = current { v = m }
+                    }
+                    try decoder.decodeSingularMessageField(value: &v)
+                    if let v {
+                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        self.msgType = .blockDisconnected(v)
+                    }
+                }()
+            default: break
+            }
         }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.msgType = .error(v)
-        }
-      }()
-      case 2: try {
-        var v: Chronik_MsgAddedToMempool?
-        var hadOneofValue = false
-        if let current = self.msgType {
-          hadOneofValue = true
-          if case .addedToMempool(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.msgType = .addedToMempool(v)
-        }
-      }()
-      case 3: try {
-        var v: Chronik_MsgRemovedFromMempool?
-        var hadOneofValue = false
-        if let current = self.msgType {
-          hadOneofValue = true
-          if case .removedFromMempool(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.msgType = .removedFromMempool(v)
-        }
-      }()
-      case 4: try {
-        var v: Chronik_MsgConfirmed?
-        var hadOneofValue = false
-        if let current = self.msgType {
-          hadOneofValue = true
-          if case .confirmed(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.msgType = .confirmed(v)
-        }
-      }()
-      case 5: try {
-        var v: Chronik_MsgReorg?
-        var hadOneofValue = false
-        if let current = self.msgType {
-          hadOneofValue = true
-          if case .reorg(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.msgType = .reorg(v)
-        }
-      }()
-      case 6: try {
-        var v: Chronik_MsgBlockConnected?
-        var hadOneofValue = false
-        if let current = self.msgType {
-          hadOneofValue = true
-          if case .blockConnected(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.msgType = .blockConnected(v)
-        }
-      }()
-      case 7: try {
-        var v: Chronik_MsgBlockDisconnected?
-        var hadOneofValue = false
-        if let current = self.msgType {
-          hadOneofValue = true
-          if case .blockDisconnected(let m) = current {v = m}
-        }
-        try decoder.decodeSingularMessageField(value: &v)
-        if let v = v {
-          if hadOneofValue {try decoder.handleConflictingOneOf()}
-          self.msgType = .blockDisconnected(v)
-        }
-      }()
-      default: break
-      }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    // The use of inline closures is to circumvent an issue where the compiler
-    // allocates stack space for every if/case branch local when no optimizations
-    // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
-    // https://github.com/apple/swift-protobuf/issues/1182
-    switch self.msgType {
-    case .error?: try {
-      guard case .error(let v)? = self.msgType else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    }()
-    case .addedToMempool?: try {
-      guard case .addedToMempool(let v)? = self.msgType else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
-    }()
-    case .removedFromMempool?: try {
-      guard case .removedFromMempool(let v)? = self.msgType else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
-    }()
-    case .confirmed?: try {
-      guard case .confirmed(let v)? = self.msgType else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
-    }()
-    case .reorg?: try {
-      guard case .reorg(let v)? = self.msgType else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
-    }()
-    case .blockConnected?: try {
-      guard case .blockConnected(let v)? = self.msgType else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
-    }()
-    case .blockDisconnected?: try {
-      guard case .blockDisconnected(let v)? = self.msgType else { preconditionFailure() }
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
-    }()
-    case nil: break
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every if/case branch local when no optimizations
+        // are enabled. https://github.com/apple/swift-protobuf/issues/1034 and
+        // https://github.com/apple/swift-protobuf/issues/1182
+        switch msgType {
+        case .error?: try {
+                guard case let .error(v)? = self.msgType else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+            }()
+        case .addedToMempool?: try {
+                guard case let .addedToMempool(v)? = self.msgType else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+            }()
+        case .removedFromMempool?: try {
+                guard case let .removedFromMempool(v)? = self.msgType else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+            }()
+        case .confirmed?: try {
+                guard case let .confirmed(v)? = self.msgType else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+            }()
+        case .reorg?: try {
+                guard case let .reorg(v)? = self.msgType else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
+            }()
+        case .blockConnected?: try {
+                guard case let .blockConnected(v)? = self.msgType else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+            }()
+        case .blockDisconnected?: try {
+                guard case let .blockDisconnected(v)? = self.msgType else { preconditionFailure() }
+                try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
+            }()
+        case nil: break
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_SubscribeMsg, rhs: Chronik_SubscribeMsg) -> Bool {
-    if lhs.msgType != rhs.msgType {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_SubscribeMsg, rhs: Chronik_SubscribeMsg) -> Bool {
+        if lhs.msgType != rhs.msgType { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_MsgAddedToMempool: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgAddedToMempool"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "txid"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".MsgAddedToMempool"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "txid"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularBytesField(value: &self.txid) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeSingularBytesField(value: &txid)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.txid.isEmpty {
-      try visitor.visitSingularBytesField(value: self.txid, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if !txid.isEmpty {
+            try visitor.visitSingularBytesField(value: txid, fieldNumber: 1)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_MsgAddedToMempool, rhs: Chronik_MsgAddedToMempool) -> Bool {
-    if lhs.txid != rhs.txid {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_MsgAddedToMempool, rhs: Chronik_MsgAddedToMempool) -> Bool {
+        if lhs.txid != rhs.txid { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_MsgRemovedFromMempool: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgRemovedFromMempool"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "txid"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".MsgRemovedFromMempool"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "txid"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularBytesField(value: &self.txid) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeSingularBytesField(value: &txid)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.txid.isEmpty {
-      try visitor.visitSingularBytesField(value: self.txid, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if !txid.isEmpty {
+            try visitor.visitSingularBytesField(value: txid, fieldNumber: 1)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_MsgRemovedFromMempool, rhs: Chronik_MsgRemovedFromMempool) -> Bool {
-    if lhs.txid != rhs.txid {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_MsgRemovedFromMempool, rhs: Chronik_MsgRemovedFromMempool) -> Bool {
+        if lhs.txid != rhs.txid { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_MsgConfirmed: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgConfirmed"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "txid"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".MsgConfirmed"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "txid"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularBytesField(value: &self.txid) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeSingularBytesField(value: &txid)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.txid.isEmpty {
-      try visitor.visitSingularBytesField(value: self.txid, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if !txid.isEmpty {
+            try visitor.visitSingularBytesField(value: txid, fieldNumber: 1)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_MsgConfirmed, rhs: Chronik_MsgConfirmed) -> Bool {
-    if lhs.txid != rhs.txid {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_MsgConfirmed, rhs: Chronik_MsgConfirmed) -> Bool {
+        if lhs.txid != rhs.txid { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_MsgReorg: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgReorg"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .same(proto: "txid"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".MsgReorg"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "txid"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularBytesField(value: &self.txid) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeSingularBytesField(value: &txid)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.txid.isEmpty {
-      try visitor.visitSingularBytesField(value: self.txid, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if !txid.isEmpty {
+            try visitor.visitSingularBytesField(value: txid, fieldNumber: 1)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_MsgReorg, rhs: Chronik_MsgReorg) -> Bool {
-    if lhs.txid != rhs.txid {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_MsgReorg, rhs: Chronik_MsgReorg) -> Bool {
+        if lhs.txid != rhs.txid { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_MsgBlockConnected: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgBlockConnected"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "block_hash"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".MsgBlockConnected"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .standard(proto: "block_hash"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularBytesField(value: &self.blockHash) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeSingularBytesField(value: &blockHash)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.blockHash.isEmpty {
-      try visitor.visitSingularBytesField(value: self.blockHash, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if !blockHash.isEmpty {
+            try visitor.visitSingularBytesField(value: blockHash, fieldNumber: 1)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_MsgBlockConnected, rhs: Chronik_MsgBlockConnected) -> Bool {
-    if lhs.blockHash != rhs.blockHash {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_MsgBlockConnected, rhs: Chronik_MsgBlockConnected) -> Bool {
+        if lhs.blockHash != rhs.blockHash { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_MsgBlockDisconnected: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgBlockDisconnected"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "block_hash"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".MsgBlockDisconnected"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .standard(proto: "block_hash"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularBytesField(value: &self.blockHash) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeSingularBytesField(value: &blockHash)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.blockHash.isEmpty {
-      try visitor.visitSingularBytesField(value: self.blockHash, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if !blockHash.isEmpty {
+            try visitor.visitSingularBytesField(value: blockHash, fieldNumber: 1)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_MsgBlockDisconnected, rhs: Chronik_MsgBlockDisconnected) -> Bool {
-    if lhs.blockHash != rhs.blockHash {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_MsgBlockDisconnected, rhs: Chronik_MsgBlockDisconnected) -> Bool {
+        if lhs.blockHash != rhs.blockHash { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }
 
 extension Chronik_Error: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Error"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-    1: .standard(proto: "error_code"),
-    2: .same(proto: "msg"),
-    3: .standard(proto: "is_user_error"),
-  ]
+    static let protoMessageName: String = _protobuf_package + ".Error"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .standard(proto: "error_code"),
+        2: .same(proto: "msg"),
+        3: .standard(proto: "is_user_error"),
+    ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularStringField(value: &self.errorCode) }()
-      case 2: try { try decoder.decodeSingularStringField(value: &self.msg) }()
-      case 3: try { try decoder.decodeSingularBoolField(value: &self.isUserError) }()
-      default: break
-      }
+    mutating func decodeMessage(decoder: inout some SwiftProtobuf.Decoder) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try decoder.decodeSingularStringField(value: &errorCode)
+            case 2: try decoder.decodeSingularStringField(value: &msg)
+            case 3: try decoder.decodeSingularBoolField(value: &isUserError)
+            default: break
+            }
+        }
     }
-  }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if !self.errorCode.isEmpty {
-      try visitor.visitSingularStringField(value: self.errorCode, fieldNumber: 1)
+    func traverse(visitor: inout some SwiftProtobuf.Visitor) throws {
+        if !errorCode.isEmpty {
+            try visitor.visitSingularStringField(value: errorCode, fieldNumber: 1)
+        }
+        if !msg.isEmpty {
+            try visitor.visitSingularStringField(value: msg, fieldNumber: 2)
+        }
+        if isUserError != false {
+            try visitor.visitSingularBoolField(value: isUserError, fieldNumber: 3)
+        }
+        try unknownFields.traverse(visitor: &visitor)
     }
-    if !self.msg.isEmpty {
-      try visitor.visitSingularStringField(value: self.msg, fieldNumber: 2)
-    }
-    if self.isUserError != false {
-      try visitor.visitSingularBoolField(value: self.isUserError, fieldNumber: 3)
-    }
-    try unknownFields.traverse(visitor: &visitor)
-  }
 
-  static func ==(lhs: Chronik_Error, rhs: Chronik_Error) -> Bool {
-    if lhs.errorCode != rhs.errorCode {return false}
-    if lhs.msg != rhs.msg {return false}
-    if lhs.isUserError != rhs.isUserError {return false}
-    if lhs.unknownFields != rhs.unknownFields {return false}
-    return true
-  }
+    static func == (lhs: Chronik_Error, rhs: Chronik_Error) -> Bool {
+        if lhs.errorCode != rhs.errorCode { return false }
+        if lhs.msg != rhs.msg { return false }
+        if lhs.isUserError != rhs.isUserError { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
 }

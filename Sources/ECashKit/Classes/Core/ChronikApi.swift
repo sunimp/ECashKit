@@ -72,7 +72,7 @@ public class ChronikApi {
 }
 
 extension ChronikApi: IApiTransactionProvider {
-    public func transactions(addresses: [String], stopHeight: Int?) async throws -> [ApiTransactionItem] {
+    public func transactions(addresses: [String], stopHeight _: Int?) async throws -> [ApiTransactionItem] {
         try await transactionsRecursive(addresses: addresses)
     }
 }

@@ -1,24 +1,24 @@
-import Foundation
-import BitcoinCore
-import HdWalletKit
 import BigInt
-import HsToolKit
 import BitcoinCashKit
+import BitcoinCore
+import Foundation
+import HdWalletKit
+import HsToolKit
 
 public class Kit: AbstractKit {
     private static let name = "ECashKit"
-    private static let svChainForkHeight = 556767                                  // 2018 November 14
-    private static let bchaChainForkHeight = 661648                                // 2020 November 15, 14:13 GMT
+    private static let svChainForkHeight = 556_767 // 2018 November 14
+    private static let bchaChainForkHeight = 661_648 // 2020 November 15, 14:13 GMT
     private static let abcChainForkBlockHash = "0000000000000000004626ff6e3b936941d341c5932ece4357eeccac44e6d56c".reversedData!
     private static let bchaChainForkBlockHash = "000000000000000004284c9d8b2c8ff731efeaec6be50729bdc9bd07f910757d".reversedData!
 
-    private static let legacyHeightInterval = 2016                                    // Default block count in difficulty change circle ( Bitcoin )
-    private static let legacyTargetSpacing = 10 * 60                                  // Time to mining one block ( 10 min. Bitcoin )
-    private static let legacyMaxTargetBits = 0x1d00ffff                               // Initially and max. target difficulty for blocks
+    private static let legacyHeightInterval = 2016 // Default block count in difficulty change circle ( Bitcoin )
+    private static let legacyTargetSpacing = 10 * 60 // Time to mining one block ( 10 min. Bitcoin )
+    private static let legacyMaxTargetBits = 0x1D00_FFFF // Initially and max. target difficulty for blocks
 
-    private static let heightInterval = 144                                     // Blocks count in window for calculating difficulty ( ECashKit )
-    private static let targetSpacing = 10 * 60                                  // Time to mining one block ( 10 min. same as Bitcoin )
-    private static let maxTargetBits = 0x1d00ffff                               // Initially and max. target difficulty for blocks
+    private static let heightInterval = 144 // Blocks count in window for calculating difficulty ( ECashKit )
+    private static let targetSpacing = 10 * 60 // Time to mining one block ( 10 min. same as Bitcoin )
+    private static let maxTargetBits = 0x1D00_FFFF // Initially and max. target difficulty for blocks
 
     public enum NetworkType {
         case mainNet
@@ -26,10 +26,10 @@ public class Kit: AbstractKit {
 
         var network: INetwork {
             switch self {
-                case .mainNet:
-                    return MainNet()
-                case .testNet:
-                    return TestNet()
+            case .mainNet:
+                return MainNet()
+            case .testNet:
+                return TestNet()
             }
         }
 
@@ -53,10 +53,10 @@ public class Kit: AbstractKit {
         let network = networkType.network
         let validScheme: String
         switch networkType {
-            case .mainNet:
-                validScheme = "ecash"
-            case .testNet:
-                validScheme = "ecashtest"
+        case .mainNet:
+            validScheme = "ecash"
+        case .testNet:
+            validScheme = "ecashtest"
         }
 
         let logger = logger ?? Logger(minLogLevel: .verbose)
@@ -66,22 +66,22 @@ public class Kit: AbstractKit {
 
         let apiTransactionProvider: IApiTransactionProvider
         switch networkType {
-            case .mainNet:
-                let apiTransactionProviderUrl = "https://chronik.fabien.cash/"
+        case .mainNet:
+            let apiTransactionProviderUrl = "https://chronik.fabien.cash/"
 
-                if case .blockchair(let key) = syncMode {
-                    let blockchairApi = BlockchairApi(secretKey: key, chainId: network.blockchairChainId, logger: logger)
-                    let blockchairBlockHashFetcher = BlockchairBlockHashFetcher(blockchairApi: blockchairApi)
-                    let blockchairProvider = BlockchairTransactionProvider(blockchairApi: blockchairApi, blockHashFetcher: blockchairBlockHashFetcher)
-                    let chronikApiProvider = ChronikApi(url: apiTransactionProviderUrl, logger: logger)
+            if case let .blockchair(key) = syncMode {
+                let blockchairApi = BlockchairApi(secretKey: key, chainId: network.blockchairChainId, logger: logger)
+                let blockchairBlockHashFetcher = BlockchairBlockHashFetcher(blockchairApi: blockchairApi)
+                let blockchairProvider = BlockchairTransactionProvider(blockchairApi: blockchairApi, blockHashFetcher: blockchairBlockHashFetcher)
+                let chronikApiProvider = ChronikApi(url: apiTransactionProviderUrl, logger: logger)
 
-                    apiTransactionProvider = BiApiBlockProvider(restoreProvider: chronikApiProvider, syncProvider: blockchairProvider, apiSyncStateManager: apiSyncStateManager)
-                } else {
-                    apiTransactionProvider = ChronikApi(url: apiTransactionProviderUrl, logger: logger)
-                }
+                apiTransactionProvider = BiApiBlockProvider(restoreProvider: chronikApiProvider, syncProvider: blockchairProvider, apiSyncStateManager: apiSyncStateManager)
+            } else {
+                apiTransactionProvider = ChronikApi(url: apiTransactionProviderUrl, logger: logger)
+            }
 
-            case .testNet:
-                apiTransactionProvider = ChronikApi(url: "", logger: logger)
+        case .testNet:
+            apiTransactionProvider = ChronikApi(url: "", logger: logger)
         }
 
         let paymentAddressParser = PaymentAddressParser(validScheme: validScheme, removeScheme: false)
@@ -98,15 +98,15 @@ public class Kit: AbstractKit {
         let asertValidator = ASERTValidator(encoder: difficultyEncoder)
 
         switch networkType {
-            case .mainNet:
-                blockValidatorChain.add(blockValidator: ForkValidator(concreteValidator: asertValidator, forkHeight: Kit.bchaChainForkHeight, expectedBlockHash: Kit.bchaChainForkBlockHash))
-                blockValidatorChain.add(blockValidator: asertValidator)
-                blockValidatorChain.add(blockValidator: ForkValidator(concreteValidator: daaValidator, forkHeight: Kit.svChainForkHeight, expectedBlockHash: Kit.abcChainForkBlockHash))
-                blockValidatorChain.add(blockValidator: daaValidator)
-                blockValidatorChain.add(blockValidator: LegacyDifficultyAdjustmentValidator(encoder: difficultyEncoder, blockValidatorHelper: coreBlockHelper, heightInterval: Kit.legacyHeightInterval, targetTimespan: Kit.legacyTargetSpacing * Kit.legacyHeightInterval, maxTargetBits: Kit.legacyMaxTargetBits))
-                blockValidatorChain.add(blockValidator: EDAValidator(encoder: difficultyEncoder, blockHelper: blockHelper, blockMedianTimeHelper: BlockMedianTimeHelper(storage: storage), maxTargetBits: Kit.legacyMaxTargetBits))
-            case .testNet: ()
-                // not use test validators
+        case .mainNet:
+            blockValidatorChain.add(blockValidator: ForkValidator(concreteValidator: asertValidator, forkHeight: Kit.bchaChainForkHeight, expectedBlockHash: Kit.bchaChainForkBlockHash))
+            blockValidatorChain.add(blockValidator: asertValidator)
+            blockValidatorChain.add(blockValidator: ForkValidator(concreteValidator: daaValidator, forkHeight: Kit.svChainForkHeight, expectedBlockHash: Kit.abcChainForkBlockHash))
+            blockValidatorChain.add(blockValidator: daaValidator)
+            blockValidatorChain.add(blockValidator: LegacyDifficultyAdjustmentValidator(encoder: difficultyEncoder, blockValidatorHelper: coreBlockHelper, heightInterval: Kit.legacyHeightInterval, targetTimespan: Kit.legacyTargetSpacing * Kit.legacyHeightInterval, maxTargetBits: Kit.legacyMaxTargetBits))
+            blockValidatorChain.add(blockValidator: EDAValidator(encoder: difficultyEncoder, blockHelper: blockHelper, blockMedianTimeHelper: BlockMedianTimeHelper(storage: storage), maxTargetBits: Kit.legacyMaxTargetBits))
+        case .testNet: ()
+            // not use test validators
         }
 
         blockValidatorSet.add(blockValidator: blockValidatorChain)
@@ -137,11 +137,11 @@ public class Kit: AbstractKit {
         let masterPrivateKey = HDPrivateKey(seed: seed, xPrivKey: Purpose.bip44.rawValue)
 
         try self.init(extendedKey: .private(key: masterPrivateKey),
-                walletId: walletId,
-                syncMode: syncMode,
-                networkType: networkType,
-                confirmationsThreshold: confirmationsThreshold,
-                logger: logger)
+                      walletId: walletId,
+                      syncMode: syncMode,
+                      networkType: networkType,
+                      confirmationsThreshold: confirmationsThreshold,
+                      logger: logger)
     }
 
     public convenience init(extendedKey: HDExtendedKey, walletId: String, syncMode: BitcoinCore.SyncMode = .api, networkType: NetworkType = .mainNet, confirmationsThreshold: Int = 6, logger: Logger?) throws {
@@ -178,11 +178,9 @@ public class Kit: AbstractKit {
 
         bitcoinCore.prepend(addressConverter: bech32AddressConverter)
     }
-
 }
 
 extension Kit {
-
     public static func clear(exceptFor walletIdsToExclude: [String] = []) throws {
         try DirectoryHelper.removeAll(inDirectory: Kit.name, except: walletIdsToExclude)
     }
@@ -190,5 +188,4 @@ extension Kit {
     private static func databaseFileName(walletId: String, networkType: NetworkType, syncMode: BitcoinCore.SyncMode) -> String {
         "\(walletId)-\(networkType.description)-\(syncMode)"
     }
-
 }

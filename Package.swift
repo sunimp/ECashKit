@@ -10,7 +10,8 @@ let package = Package(
     products: [
         .library(
             name: "ECashKit",
-            targets: ["ECashKit"]),
+            targets: ["ECashKit"]
+        ),
     ],
     dependencies: [
         .package(url: "https://github.com/horizontalsystems/BitcoinCore.Swift.git", .upToNextMajor(from: "2.2.0")),
