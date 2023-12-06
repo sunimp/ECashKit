@@ -24,6 +24,15 @@ public class Kit: AbstractKit {
         case mainNet
         case testNet
 
+        var network: INetwork {
+            switch self {
+                case .mainNet:
+                    return MainNet()
+                case .testNet:
+                    return TestNet()
+            }
+        }
+
         var description: String {
             switch self {
             case .mainNet:
@@ -40,27 +49,13 @@ public class Kit: AbstractKit {
         }
     }
 
-    public convenience init(seed: Data, walletId: String, syncMode: BitcoinCore.SyncMode = .api, networkType: NetworkType = .mainNet, confirmationsThreshold: Int = 6, logger: Logger?) throws {
-        let masterPrivateKey = HDPrivateKey(seed: seed, xPrivKey: Purpose.bip44.rawValue)
-
-        try self.init(extendedKey: .private(key: masterPrivateKey),
-                walletId: walletId,
-                syncMode: syncMode,
-                networkType: networkType,
-                confirmationsThreshold: confirmationsThreshold,
-                logger: logger)
-    }
-
-    public init(extendedKey: HDExtendedKey, walletId: String, syncMode: BitcoinCore.SyncMode = .api, networkType: NetworkType = .mainNet, confirmationsThreshold: Int = 6, logger: Logger?) throws {
-        let network: INetwork
-
+    private init(extendedKey: HDExtendedKey?, watchAddressPublicKey: WatchAddressPublicKey?, walletId: String, syncMode: BitcoinCore.SyncMode = .api, networkType: NetworkType = .mainNet, confirmationsThreshold: Int = 6, logger: Logger?) throws {
+        let network = networkType.network
         let validScheme: String
         switch networkType {
             case .mainNet:
-                network = MainNet()
                 validScheme = "ecash"
             case .testNet:
-                network = TestNet()
                 validScheme = "ecashtest"
         }
 
@@ -90,7 +85,6 @@ public class Kit: AbstractKit {
         }
 
         let paymentAddressParser = PaymentAddressParser(validScheme: validScheme, removeScheme: false)
-
         let difficultyEncoder = DifficultyEncoder()
 
         let blockValidatorSet = BlockValidatorSet()
@@ -104,42 +98,85 @@ public class Kit: AbstractKit {
         let asertValidator = ASERTValidator(encoder: difficultyEncoder)
 
         switch networkType {
-        case .mainNet:
-            blockValidatorChain.add(blockValidator: ForkValidator(concreteValidator: asertValidator, forkHeight: Kit.bchaChainForkHeight, expectedBlockHash: Kit.bchaChainForkBlockHash))
-            blockValidatorChain.add(blockValidator: asertValidator)
-            blockValidatorChain.add(blockValidator: ForkValidator(concreteValidator: daaValidator, forkHeight: Kit.svChainForkHeight, expectedBlockHash: Kit.abcChainForkBlockHash))
-            blockValidatorChain.add(blockValidator: daaValidator)
-            blockValidatorChain.add(blockValidator: LegacyDifficultyAdjustmentValidator(encoder: difficultyEncoder, blockValidatorHelper: coreBlockHelper, heightInterval: Kit.legacyHeightInterval, targetTimespan: Kit.legacyTargetSpacing * Kit.legacyHeightInterval, maxTargetBits: Kit.legacyMaxTargetBits))
-            blockValidatorChain.add(blockValidator: EDAValidator(encoder: difficultyEncoder, blockHelper: blockHelper, blockMedianTimeHelper: BlockMedianTimeHelper(storage: storage), maxTargetBits: Kit.legacyMaxTargetBits))
-        case .testNet: ()
+            case .mainNet:
+                blockValidatorChain.add(blockValidator: ForkValidator(concreteValidator: asertValidator, forkHeight: Kit.bchaChainForkHeight, expectedBlockHash: Kit.bchaChainForkBlockHash))
+                blockValidatorChain.add(blockValidator: asertValidator)
+                blockValidatorChain.add(blockValidator: ForkValidator(concreteValidator: daaValidator, forkHeight: Kit.svChainForkHeight, expectedBlockHash: Kit.abcChainForkBlockHash))
+                blockValidatorChain.add(blockValidator: daaValidator)
+                blockValidatorChain.add(blockValidator: LegacyDifficultyAdjustmentValidator(encoder: difficultyEncoder, blockValidatorHelper: coreBlockHelper, heightInterval: Kit.legacyHeightInterval, targetTimespan: Kit.legacyTargetSpacing * Kit.legacyHeightInterval, maxTargetBits: Kit.legacyMaxTargetBits))
+                blockValidatorChain.add(blockValidator: EDAValidator(encoder: difficultyEncoder, blockHelper: blockHelper, blockMedianTimeHelper: BlockMedianTimeHelper(storage: storage), maxTargetBits: Kit.legacyMaxTargetBits))
+            case .testNet: ()
                 // not use test validators
         }
 
         blockValidatorSet.add(blockValidator: blockValidatorChain)
 
         let bitcoinCore = try BitcoinCoreBuilder(logger: logger)
-                .set(network: network)
-                .set(apiTransactionProvider: apiTransactionProvider)
-                .set(checkpoint: Checkpoint.resolveCheckpoint(network: network, syncMode: syncMode, storage: storage))
-                .set(apiSyncStateManager: apiSyncStateManager)
-                .set(extendedKey: extendedKey)
-                .set(paymentAddressParser: paymentAddressParser)
-                .set(walletId: walletId)
-                .set(confirmationsThreshold: confirmationsThreshold)
-                .set(peerSize: 10)
-                .set(purpose: .bip44)
-                .set(syncMode: syncMode)
-                .set(storage: storage)
-                .set(blockValidator: blockValidatorSet)
-                .build()
+            .set(network: network)
+            .set(apiTransactionProvider: apiTransactionProvider)
+            .set(checkpoint: Checkpoint.resolveCheckpoint(network: network, syncMode: syncMode, storage: storage))
+            .set(apiSyncStateManager: apiSyncStateManager)
+            .set(extendedKey: extendedKey)
+            .set(watchAddressPublicKey: watchAddressPublicKey)
+            .set(paymentAddressParser: paymentAddressParser)
+            .set(walletId: walletId)
+            .set(confirmationsThreshold: confirmationsThreshold)
+            .set(peerSize: 10)
+            .set(purpose: .bip44)
+            .set(syncMode: syncMode)
+            .set(storage: storage)
+            .set(blockValidator: blockValidatorSet)
+            .build()
 
         super.init(bitcoinCore: bitcoinCore, network: network)
 
-        // extending BitcoinCore
-        let bech32 = CashBech32AddressConverter(prefix: network.bech32PrefixPattern)
-        bitcoinCore.prepend(addressConverter: bech32)
-
         bitcoinCore.add(restoreKeyConverter: ECashRestoreKeyConverter())
+    }
+
+    public convenience init(seed: Data, walletId: String, syncMode: BitcoinCore.SyncMode = .api, networkType: NetworkType = .mainNet, confirmationsThreshold: Int = 6, logger: Logger?) throws {
+        let masterPrivateKey = HDPrivateKey(seed: seed, xPrivKey: Purpose.bip44.rawValue)
+
+        try self.init(extendedKey: .private(key: masterPrivateKey),
+                walletId: walletId,
+                syncMode: syncMode,
+                networkType: networkType,
+                confirmationsThreshold: confirmationsThreshold,
+                logger: logger)
+    }
+
+    public convenience init(extendedKey: HDExtendedKey, walletId: String, syncMode: BitcoinCore.SyncMode = .api, networkType: NetworkType = .mainNet, confirmationsThreshold: Int = 6, logger: Logger?) throws {
+        let network = networkType.network
+        try self.init(extendedKey: extendedKey, watchAddressPublicKey: nil,
+                      walletId: walletId,
+                      syncMode: syncMode,
+                      networkType: networkType,
+                      confirmationsThreshold: confirmationsThreshold,
+                      logger: logger)
+
+        // extending BitcoinCore
+        let bech32AddressConverter = CashBech32AddressConverter(prefix: network.bech32PrefixPattern)
+        bitcoinCore.prepend(addressConverter: bech32AddressConverter)
+    }
+
+    public convenience init(watchAddress: String, walletId: String, syncMode: BitcoinCore.SyncMode = .api, networkType: NetworkType = .mainNet, confirmationsThreshold: Int = 6, logger: Logger?) throws {
+        let network = networkType.network
+        let base58AddressConverter = Base58AddressConverter(addressVersion: network.pubKeyHash, addressScriptVersion: network.scriptHash)
+        let bech32AddressConverter = CashBech32AddressConverter(prefix: network.bech32PrefixPattern)
+        let parserChain = AddressConverterChain()
+        parserChain.prepend(addressConverter: base58AddressConverter)
+        parserChain.prepend(addressConverter: bech32AddressConverter)
+
+        let address = try parserChain.convert(address: watchAddress)
+        let publicKey = try WatchAddressPublicKey(data: address.lockingScriptPayload, scriptType: address.scriptType)
+
+        try self.init(extendedKey: nil, watchAddressPublicKey: publicKey,
+                      walletId: walletId,
+                      syncMode: syncMode,
+                      networkType: networkType,
+                      confirmationsThreshold: confirmationsThreshold,
+                      logger: logger)
+
+        bitcoinCore.prepend(addressConverter: bech32AddressConverter)
     }
 
 }
