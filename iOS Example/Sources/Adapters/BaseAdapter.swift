@@ -137,11 +137,21 @@ extension BaseAdapter {
 
     func send(to address: String, amount: Decimal, sortType: TransactionDataSortType, pluginData: [UInt8: IPluginData] = [:]) throws {
         let satoshiAmount = convertToSatoshi(value: amount)
-        _ = try abstractKit.send(to: address, value: satoshiAmount, feeRate: feeRate, sortType: sortType, pluginData: pluginData)
+        let params = SendParameters()
+        params.address = address
+        params.value = satoshiAmount
+        params.feeRate = self.feeRate
+        params.sortType = sortType
+        params.pluginData = pluginData
+        _ = try abstractKit.send(params: params)
     }
 
     func availableBalance(for address: String?, pluginData: [UInt8: IPluginData] = [:]) -> Decimal {
-        let amount = (try? abstractKit.maxSpendableValue(toAddress: address, feeRate: feeRate, pluginData: pluginData)) ?? 0
+        let params = SendParameters()
+        params.address = address
+        params.feeRate = self.feeRate
+        params.pluginData = pluginData
+        let amount = (try? abstractKit.maxSpendableValue(params: params)) ?? 0
         return Decimal(amount) / coinRate
     }
 
@@ -154,13 +164,20 @@ extension BaseAdapter {
     }
 
     func minSpendableAmount(for address: String?) -> Decimal {
-        Decimal((try? abstractKit.minSpendableValue(toAddress: address)) ?? 0) / coinRate
+        let params = SendParameters()
+        params.address = address
+        return Decimal((try? abstractKit.minSpendableValue(params: params)) ?? 0) / coinRate
     }
 
     func fee(for value: Decimal, address: String?, pluginData: [UInt8: IPluginData] = [:]) -> Decimal {
         do {
             let amount = convertToSatoshi(value: value)
-            let fee = try abstractKit.fee(for: amount, toAddress: address, feeRate: feeRate, pluginData: pluginData)
+            let params = SendParameters()
+            params.address = address
+            params.value = amount
+            params.feeRate = self.feeRate
+            params.pluginData = pluginData
+            let fee = try abstractKit.sendInfo(params: params).fee
             return Decimal(fee) / coinRate
         } catch {
             return 0

@@ -1,6 +1,6 @@
 # ECashKit.Swift
 
-`ECashKit.Swift` is a package that extends [BitcoinCore.Swift](https://github.com/horizontalsystems/BitcoinCore.Swift) and makes it usable with `BitcoinCash (ABC)` Mainnet and Testnet networks. 
+`ECashKit.Swift` is a package that extends [BitcoinCore.Swift](https://github.com/sunimp/BitcoinCore.Swift) and makes it usable with `BitcoinCash (ABC)` Mainnet and Testnet networks. 
 
 ## Features
 
@@ -11,7 +11,7 @@
 
 ## Usage
 
-Because ECashKit is a fork of BitcoinCash, the usage of this package does not differ much from `BitcoinKit.Swift`. So here, we only describe some differences between these packages. For more usage documentation, please see [BitcoinKit.Swift](https://github.com/horizontalsystems/BitcoinKit.Swift)
+Because ECashKit is a fork of BitcoinCash, the usage of this package does not differ much from `BitcoinKit.Swift`. So here, we only describe some differences between these packages. For more usage documentation, please see [BitcoinKit.Swift](https://github.com/sunimp/BitcoinKit.Swift)
 
 ### Initialization
 
@@ -41,7 +41,7 @@ let ECashKit = try ECashKit.Kit(
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/horizontalsystems/ECashKit.Swift.git", .upToNextMajor(from: "1.0.0"))
+    .package(url: "https://github.com/sunimp/ECashKit.Swift.git", .upToNextMajor(from: "1.0.0"))
 ]
 ```
 
@@ -51,5 +51,5 @@ All features of the library are used in example project. It can be referred as a
 
 ## License
 
-The `ECashKit` toolkit is open source and available under the terms of the [MIT License](https://github.com/horizontalsystems/ECashKit.Swift/blob/master/LICENSE).
+The `ECashKit` toolkit is open source and available under the terms of the [MIT License](https://github.com/sunimp/ECashKit.Swift/blob/master/LICENSE).
 

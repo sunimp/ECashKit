@@ -1,4 +1,4 @@
-import HdWalletKit
+import HDWalletKit
 import UIKit
 
 class WordsController: UIViewController {

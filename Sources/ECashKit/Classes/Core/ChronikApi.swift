@@ -1,6 +1,6 @@
 import BitcoinCore
 import Foundation
-import HsToolKit
+import WWToolKit
 import SwiftProtobuf
 
 public class ChronikApi {
@@ -27,7 +27,7 @@ public class ChronikApi {
         let data: Data
         do {
             data = try await networkManager.fetchData(url: url + path, method: .get, parameters: parameters)
-        } catch let error as HsToolKit.NetworkManager.ResponseError {
+        } catch let error as WWToolKit.NetworkManager.ResponseError {
             if let code = error.statusCode, code == 200, error.rawData == nil {
                 return []
             } else {
@@ -39,15 +39,15 @@ public class ChronikApi {
         var numPages = 1
 
         do {
-            let historyPage = try Chronik_TxHistoryPage(contiguousBytes: data)
+            let historyPage = try Chronik_TxHistoryPage(serializedBytes: data)
             numPages = Int(historyPage.numPages)
             items.append(contentsOf: historyPage.txs.map {
                 ApiTransactionItem(
-                    blockHash: $0.block.hash.hs.reversedHex,
+                    blockHash: $0.block.hash.ww.reversedHex,
                     blockHeight: Int($0.block.height),
                     apiAddressItems: $0.outputs.map {
                         ApiAddressItem(
-                            script: $0.outputScript.hs.reversedHex,
+                            script: $0.outputScript.ww.reversedHex,
                             address: ""
                         )
                     }

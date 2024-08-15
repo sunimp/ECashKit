@@ -1,11 +1,11 @@
 import BitcoinCore
 import Combine
 import Foundation
-import HsToolKit
+import WWToolKit
 
 class Manager {
     static let shared = Manager()
-    private static let syncModes: [BitcoinCore.SyncMode] = [.full, .api, .newWallet]
+    private static let syncModes: [BitcoinCore.SyncMode] = [.full, .api, .blockchair]
 
     private let keyWords = "mnemonic_words"
     private let syncModeKey = "syncMode"

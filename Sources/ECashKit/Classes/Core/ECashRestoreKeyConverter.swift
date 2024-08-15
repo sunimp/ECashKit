@@ -5,7 +5,7 @@ class ECashRestoreKeyConverter: IRestoreKeyConverter {
     init() {}
 
     public func keysForApiRestore(publicKey: PublicKey) -> [String] {
-        [publicKey.hashP2pkh.hs.hex]
+        [publicKey.hashP2pkh.ww.hex]
     }
 
     public func bloomFilterElements(publicKey: PublicKey) -> [Data] {
