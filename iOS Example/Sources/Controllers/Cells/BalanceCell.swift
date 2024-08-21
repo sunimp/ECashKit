@@ -1,5 +1,13 @@
-import BitcoinCore
+//
+//  BalanceCell.swift
+//  ECashKit-Example
+//
+//  Created by Sun on 2024/8/21.
+//
+
 import UIKit
+
+import BitcoinCore
 
 class BalanceCell: UITableViewCell {
     static let dateFormatter: DateFormatter = {

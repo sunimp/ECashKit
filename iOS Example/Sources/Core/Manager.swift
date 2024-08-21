@@ -1,6 +1,14 @@
-import BitcoinCore
-import Combine
+//
+//  Manager.swift
+//  ECashKit-Example
+//
+//  Created by Sun on 2024/8/21.
+//
+
 import Foundation
+import Combine
+
+import BitcoinCore
 import WWToolKit
 
 class Manager {

@@ -1,11 +1,20 @@
+//
+//  Kit.swift
+//  ECashKit
+//
+//  Created by Sun on 2024/8/21.
+//
+
+import Foundation
+
 import BigInt
 import BitcoinCashKit
 import BitcoinCore
-import Foundation
 import HDWalletKit
 import WWToolKit
 
 public class Kit: AbstractKit {
+    
     private static let name = "ECashKit"
     private static let svChainForkHeight = 556_767 // 2018 November 14
     private static let bchaChainForkHeight = 661_648 // 2020 November 15, 14:13 GMT

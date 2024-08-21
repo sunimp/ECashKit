@@ -31,8 +31,8 @@ let ECashKit = try ECashKit.Kit(
 ```
 ## Prerequisites
 
-* Xcode 10.0+
-* Swift 5+
+* Xcode 15.0+
+* Swift 5.5+
 * iOS 13+
 
 ## Installation
@@ -41,7 +41,7 @@ let ECashKit = try ECashKit.Kit(
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/sunimp/ECashKit.Swift.git", .upToNextMajor(from: "1.0.0"))
+    .package(url: "https://github.com/sunimp/ECashKit.Swift.git", .upToNextMajor(from: "3.0.3"))
 ]
 ```
 

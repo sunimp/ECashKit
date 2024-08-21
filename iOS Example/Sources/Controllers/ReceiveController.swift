@@ -1,6 +1,14 @@
-import BitcoinCore
-import Combine
+//
+//  ReceiveController.swift
+//  ECashKit-Example
+//
+//  Created by Sun on 2024/8/21.
+//
+
 import UIKit
+import Combine
+
+import BitcoinCore
 
 class ReceiveController: UIViewController {
     private var cancellables = Set<AnyCancellable>()

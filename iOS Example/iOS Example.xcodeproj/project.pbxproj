@@ -13,6 +13,7 @@
 		6BB5E6D029D411BB00A2C24B /* ECashKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6BB5E6CF29D411BB00A2C24B /* ECashKit */; };
 		6BB5E6D229D43E3F00A2C24B /* BitcoinCashKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6BB5E6D129D43E3F00A2C24B /* BitcoinCashKit */; };
 		6BC11A6528EEEDF80001FDF1 /* ECashAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC11A6428EEEDF80001FDF1 /* ECashAdapter.swift */; };
+		A408060C2C75FEF8003947F1 /* UIExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = A408060B2C75FEF8003947F1 /* UIExtensions */; };
 		D36AAA9823A2125E0065B32B /* BaseAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36AAA7F23A2125D0065B32B /* BaseAdapter.swift */; };
 		D36AAA9923A2125E0065B32B /* SendController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D36AAA8123A2125D0065B32B /* SendController.xib */; };
 		D36AAA9A23A2125E0065B32B /* BalanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36AAA8223A2125D0065B32B /* BalanceController.swift */; };
@@ -69,6 +70,7 @@
 			files = (
 				6BB5E6D229D43E3F00A2C24B /* BitcoinCashKit in Frameworks */,
 				6BB5E6D029D411BB00A2C24B /* ECashKit in Frameworks */,
+				A408060C2C75FEF8003947F1 /* UIExtensions in Frameworks */,
 				6BB5E6CE29D4105400A2C24B /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -191,6 +193,7 @@
 				6BB5E6CD29D4105400A2C24B /* SnapKit */,
 				6BB5E6CF29D411BB00A2C24B /* ECashKit */,
 				6BB5E6D129D43E3F00A2C24B /* BitcoinCashKit */,
+				A408060B2C75FEF8003947F1 /* UIExtensions */,
 			);
 			productName = ECashKit;
 			productReference = 6BB5E6B829D4050B00A2C24B /* ECashKit Demo.app */;
@@ -202,8 +205,9 @@
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 1120;
+				LastUpgradeCheck = 1540;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
@@ -225,6 +229,7 @@
 			packageReferences = (
 				6B7C7E6228EC00770053F11A /* XCRemoteSwiftPackageReference "Cuckoo" */,
 				6BB5E6CC29D4105400A2C24B /* XCRemoteSwiftPackageReference "SnapKit" */,
+				A408060A2C75FEF8003947F1 /* XCRemoteSwiftPackageReference "UIExtensions.Swift" */,
 			);
 			productRefGroup = 607FACC71AFB9204008FA782;
 			projectDirPath = "";
@@ -300,6 +305,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -310,6 +316,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -356,6 +363,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -366,6 +374,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -395,7 +404,7 @@
 					"@executable_path/Frameworks",
 				);
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.horizontalsystems.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sunimp.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "ECashKit Demo";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
@@ -413,7 +422,7 @@
 					"@executable_path/Frameworks",
 				);
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.horizontalsystems.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sunimp.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "ECashKit Demo";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
@@ -449,7 +458,7 @@
 			repositoryURL = "https://github.com/Brightify/Cuckoo";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 2.0.9;
 			};
 		};
 		6BB5E6CC29D4105400A2C24B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
@@ -458,6 +467,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.0.0;
+			};
+		};
+		A408060A2C75FEF8003947F1 /* XCRemoteSwiftPackageReference "UIExtensions.Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sunimp/UIExtensions.Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -475,6 +492,11 @@
 		6BB5E6D129D43E3F00A2C24B /* BitcoinCashKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = BitcoinCashKit;
+		};
+		A408060B2C75FEF8003947F1 /* UIExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A408060A2C75FEF8003947F1 /* XCRemoteSwiftPackageReference "UIExtensions.Swift" */;
+			productName = UIExtensions;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

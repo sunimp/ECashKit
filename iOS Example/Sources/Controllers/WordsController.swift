@@ -1,5 +1,14 @@
-import HDWalletKit
+//
+//  WordsController.swift
+//  ECashKit-Example
+//
+//  Created by Sun on 2024/8/21.
+//
+
 import UIKit
+
+import HDWalletKit
+import UIExtensions
 
 class WordsController: UIViewController {
     @IBOutlet var textView: UITextView?
@@ -56,7 +65,7 @@ class WordsController: UIViewController {
 
             Manager.shared.login(words: words, syncModeIndex: syncModeListControl.selectedSegmentIndex)
 
-            if let window = UIApplication.shared.windows.filter(\.isKeyWindow).first {
+            if let window = UIApplication.shared.activeWindow {
                 UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: {
                     window.rootViewController = MainController()
                 })

@@ -1,6 +1,14 @@
-import BitcoinCore
-import Combine
+//
+//  BaseAdapter.swift
+//  ECashKit-Example
+//
+//  Created by Sun on 2024/8/21.
+//
+
 import Foundation
+import Combine
+
+import BitcoinCore
 
 class BaseAdapter {
     var feeRate: Int { 3 }
