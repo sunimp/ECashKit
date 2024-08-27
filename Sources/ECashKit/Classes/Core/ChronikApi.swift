@@ -8,8 +8,10 @@
 import Foundation
 
 import BitcoinCore
-import WWToolKit
 import SwiftProtobuf
+import WWToolKit
+
+// MARK: - ChronikApi
 
 public class ChronikApi {
     private let url: String
@@ -20,7 +22,12 @@ public class ChronikApi {
         networkManager = NetworkManager(interRequestInterval: 0.1, logger: logger)
     }
 
-    private func itemsRecursive(address: String, items: [ApiTransactionItem] = [], pageCount: Int = 1, index: Int = 0) async throws -> [ApiTransactionItem] {
+    private func itemsRecursive(
+        address: String,
+        items: [ApiTransactionItem] = [],
+        pageCount: Int = 1,
+        index: Int = 0
+    ) async throws -> [ApiTransactionItem] {
         guard index < pageCount else {
             return items
         }
@@ -68,7 +75,11 @@ public class ChronikApi {
         return try await itemsRecursive(address: address, items: items, pageCount: numPages, index: index + 1)
     }
 
-    private func transactionsRecursive(items: [ApiTransactionItem] = [], addresses: [String], index: Int = 0) async throws -> [ApiTransactionItem] {
+    private func transactionsRecursive(
+        items: [ApiTransactionItem] = [],
+        addresses: [String],
+        index: Int = 0
+    ) async throws -> [ApiTransactionItem] {
         guard index < addresses.count else {
             return items
         }
@@ -78,6 +89,8 @@ public class ChronikApi {
         return try await transactionsRecursive(items: items + newItems, addresses: addresses, index: index + 1)
     }
 }
+
+// MARK: IApiTransactionProvider
 
 extension ChronikApi: IApiTransactionProvider {
     public func transactions(addresses: [String], stopHeight _: Int?) async throws -> [ApiTransactionItem] {

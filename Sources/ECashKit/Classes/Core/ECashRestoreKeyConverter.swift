@@ -10,7 +10,7 @@ import Foundation
 import BitcoinCore
 
 class ECashRestoreKeyConverter: IRestoreKeyConverter {
-    init() {}
+    init() { }
 
     public func keysForApiRestore(publicKey: PublicKey) -> [String] {
         [publicKey.hashP2pkh.ww.hex]

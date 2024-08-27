@@ -20,7 +20,7 @@ class ECashAdapter: BaseAdapter {
         guard let seed = Mnemonic.seed(mnemonic: words) else {
             fatalError("Cant make Seed")
         }
-        eCashKit = try! Kit(seed: seed, walletId: "walletId", syncMode: syncMode, networkType: networkType, logger: logger.scoped(with: "ECashKit"))
+        eCashKit = try! Kit(seed: seed, walletID: "walletID", syncMode: syncMode, networkType: networkType, logger: logger.scoped(with: "ECashKit"))
 
         super.init(name: "eCash", coinCode: "XEC", abstractKit: eCashKit)
         eCashKit.delegate = self
