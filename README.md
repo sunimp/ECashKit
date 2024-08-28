@@ -41,7 +41,7 @@ let ECashKit = try ECashKit.Kit(
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/sunimp/ECashKit.Swift.git", .upToNextMajor(from: "3.1.0"))
+    .package(url: "https://github.com/sunimp/ECashKit.Swift.git", .upToNextMajor(from: "3.1.1"))
 ]
 ```
 

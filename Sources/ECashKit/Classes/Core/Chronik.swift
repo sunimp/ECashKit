@@ -459,9 +459,9 @@ struct Chronik_Utxo {
 
     init() { }
 
-    private var _outpoint: Chronik_OutPoint? = nil
-    fileprivate var _slpMeta: Chronik_SlpMeta? = nil
-    fileprivate var _slpToken: Chronik_SlpToken? = nil
+    private var _outpoint: Chronik_OutPoint?
+    fileprivate var _slpMeta: Chronik_SlpMeta?
+    fileprivate var _slpToken: Chronik_SlpToken?
 }
 
 // MARK: - Chronik_Token
@@ -729,8 +729,8 @@ struct Chronik_SlpTxData {
 
     init() { }
 
-    fileprivate var _slpMeta: Chronik_SlpMeta? = nil
-    fileprivate var _genesisInfo: Chronik_SlpGenesisInfo? = nil
+    fileprivate var _slpMeta: Chronik_SlpMeta?
+    fileprivate var _genesisInfo: Chronik_SlpGenesisInfo?
 }
 
 // MARK: - Chronik_SlpMeta
@@ -821,9 +821,9 @@ struct Chronik_TxInput {
 
     init() { }
 
-    private var _prevOut: Chronik_OutPoint? = nil
-    private var _slpBurn: Chronik_SlpBurn? = nil
-    fileprivate var _slpToken: Chronik_SlpToken? = nil
+    private var _prevOut: Chronik_OutPoint?
+    private var _slpBurn: Chronik_SlpBurn?
+    fileprivate var _slpToken: Chronik_SlpToken?
 }
 
 // MARK: - Chronik_TxOutput
@@ -861,8 +861,8 @@ struct Chronik_TxOutput {
 
     init() { }
 
-    fileprivate var _slpToken: Chronik_SlpToken? = nil
-    private var _spentBy: Chronik_OutPoint? = nil
+    fileprivate var _slpToken: Chronik_SlpToken?
+    private var _spentBy: Chronik_OutPoint?
 }
 
 // MARK: - Chronik_BlockMetadata
@@ -892,7 +892,7 @@ struct Chronik_OutPoint {
 
     var txid: Data = .init()
 
-    var outIDx: UInt32 = 0
+    var outIdx: UInt32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -938,7 +938,7 @@ struct Chronik_SlpBurn {
 
     init() { }
 
-    fileprivate var _token: Chronik_SlpToken? = nil
+    fileprivate var _token: Chronik_SlpToken?
 }
 
 // MARK: - Chronik_SlpGenesisInfo
@@ -1006,7 +1006,7 @@ struct Chronik_SubscribeMsg {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
-    var msgType: Chronik_SubscribeMsg.OneOf_MsgType? = nil
+    var msgType: Chronik_SubscribeMsg.OneOf_MsgType?
 
     var error: Chronik_Error {
         get {
@@ -1622,9 +1622,9 @@ extension Chronik_Tx: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
         var _inputs: [Chronik_TxInput] = []
         var _outputs: [Chronik_TxOutput] = []
         var _lockTime: UInt32 = 0
-        var _slpTxData: Chronik_SlpTxData? = nil
+        var _slpTxData: Chronik_SlpTxData?
         var _slpErrorMsg: String = .init()
-        var _block: Chronik_BlockMetadata? = nil
+        var _block: Chronik_BlockMetadata?
         var _timeFirstSeen: Int64 = 0
         var _size: UInt32 = 0
         var _isCoinbase = false
@@ -1847,9 +1847,9 @@ extension Chronik_Token: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     ]
 
     fileprivate class _StorageClass {
-        var _slpTxData: Chronik_SlpTxData? = nil
-        var _tokenStats: Chronik_TokenStats? = nil
-        var _block: Chronik_BlockMetadata? = nil
+        var _slpTxData: Chronik_SlpTxData?
+        var _tokenStats: Chronik_TokenStats?
+        var _block: Chronik_BlockMetadata?
         var _timeFirstSeen: Int64 = 0
         var _initialTokenQuantity: UInt64 = 0
         var _containsBaton = false
@@ -2125,8 +2125,8 @@ extension Chronik_Block: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     ]
 
     fileprivate class _StorageClass {
-        var _blockInfo: Chronik_BlockInfo? = nil
-        var _blockDetails: Chronik_BlockDetails? = nil
+        var _blockInfo: Chronik_BlockInfo?
+        var _blockDetails: Chronik_BlockDetails?
         var _rawHeader: Data = .init()
         var _txs: [Chronik_Tx] = []
 
@@ -2692,7 +2692,7 @@ extension Chronik_OutPoint: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
             // enabled. https://github.com/apple/swift-protobuf/issues/1034
             switch fieldNumber {
             case 1: try decoder.decodeSingularBytesField(value: &txid)
-            case 2: try decoder.decodeSingularUInt32Field(value: &outIDx)
+            case 2: try decoder.decodeSingularUInt32Field(value: &outIdx)
             default: break
             }
         }
@@ -2702,15 +2702,15 @@ extension Chronik_OutPoint: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
         if !txid.isEmpty {
             try visitor.visitSingularBytesField(value: txid, fieldNumber: 1)
         }
-        if outIDx != 0 {
-            try visitor.visitSingularUInt32Field(value: outIDx, fieldNumber: 2)
+        if outIdx != 0 {
+            try visitor.visitSingularUInt32Field(value: outIdx, fieldNumber: 2)
         }
         try unknownFields.traverse(visitor: &visitor)
     }
 
     static func == (lhs: Chronik_OutPoint, rhs: Chronik_OutPoint) -> Bool {
         if lhs.txid != rhs.txid { return false }
-        if lhs.outIDx != rhs.outIDx { return false }
+        if lhs.outIdx != rhs.outIdx { return false }
         if lhs.unknownFields != rhs.unknownFields { return false }
         return true
     }
@@ -2977,7 +2977,7 @@ extension Chronik_SubscribeMsg: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
             // enabled. https://github.com/apple/swift-protobuf/issues/1034
             switch fieldNumber {
             case 1: try {
-                    var v: Chronik_Error? = nil
+                    var v: Chronik_Error?
                     var hadOneofValue = false
                     if let current = self.msgType {
                         hadOneofValue = true
@@ -2991,7 +2991,7 @@ extension Chronik_SubscribeMsg: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
                 }()
 
             case 2: try {
-                    var v: Chronik_MsgAddedToMempool? = nil
+                    var v: Chronik_MsgAddedToMempool?
                     var hadOneofValue = false
                     if let current = self.msgType {
                         hadOneofValue = true
@@ -3005,7 +3005,7 @@ extension Chronik_SubscribeMsg: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
                 }()
 
             case 3: try {
-                    var v: Chronik_MsgRemovedFromMempool? = nil
+                    var v: Chronik_MsgRemovedFromMempool?
                     var hadOneofValue = false
                     if let current = self.msgType {
                         hadOneofValue = true
@@ -3019,7 +3019,7 @@ extension Chronik_SubscribeMsg: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
                 }()
 
             case 4: try {
-                    var v: Chronik_MsgConfirmed? = nil
+                    var v: Chronik_MsgConfirmed?
                     var hadOneofValue = false
                     if let current = self.msgType {
                         hadOneofValue = true
@@ -3033,7 +3033,7 @@ extension Chronik_SubscribeMsg: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
                 }()
 
             case 5: try {
-                    var v: Chronik_MsgReorg? = nil
+                    var v: Chronik_MsgReorg?
                     var hadOneofValue = false
                     if let current = self.msgType {
                         hadOneofValue = true
@@ -3047,7 +3047,7 @@ extension Chronik_SubscribeMsg: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
                 }()
 
             case 6: try {
-                    var v: Chronik_MsgBlockConnected? = nil
+                    var v: Chronik_MsgBlockConnected?
                     var hadOneofValue = false
                     if let current = self.msgType {
                         hadOneofValue = true
@@ -3061,7 +3061,7 @@ extension Chronik_SubscribeMsg: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
                 }()
 
             case 7: try {
-                    var v: Chronik_MsgBlockDisconnected? = nil
+                    var v: Chronik_MsgBlockDisconnected?
                     var hadOneofValue = false
                     if let current = self.msgType {
                         hadOneofValue = true

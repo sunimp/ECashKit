@@ -16,8 +16,8 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.27.0"),
-        .package(url: "https://github.com/sunimp/BitcoinCore.Swift.git", .upToNextMajor(from: "3.1.0")),
-        .package(url: "https://github.com/sunimp/BitcoinCashKit.Swift.git", .upToNextMajor(from: "3.1.0")),
+        .package(url: "https://github.com/sunimp/BitcoinCore.Swift.git", .upToNextMajor(from: "3.1.2")),
+        .package(url: "https://github.com/sunimp/BitcoinCashKit.Swift.git", .upToNextMajor(from: "3.1.1")),
         .package(url: "https://github.com/nicklockwood/SwiftFormat.git", from: "0.54.0"),
     ],
     targets: [

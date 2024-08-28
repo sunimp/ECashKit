@@ -37,7 +37,7 @@ class BaseAdapter {
         for input in transaction.inputs {
             from.append(TransactionInputOutput(
                 mine: input.mine, address: input.address, value: input.value,
-                changeOutput: false, pluginID: nil, pluginData: nil
+                changeOutput: false, pluginId: nil, pluginData: nil
             ))
         }
 
@@ -48,7 +48,7 @@ class BaseAdapter {
 
             to.append(TransactionInputOutput(
                 mine: output.mine, address: output.address, value: output.value,
-                changeOutput: output.changeOutput, pluginID: output.pluginID, pluginData: output.pluginData
+                changeOutput: output.changeOutput, pluginId: output.pluginId, pluginData: output.pluginData
             ))
         }
 
