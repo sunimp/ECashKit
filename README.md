@@ -22,18 +22,18 @@ let seed = Mnemonic.seed(mnemonic: [""], passphrase: "")!
 
 let ECashKit = try ECashKit.Kit(
         seed: seed,
-        walletId: "unique_wallet_id",
+        walletID: "unique_wallet_id",
         syncMode: .full,
         networkType: .mainNet(),
         confirmationsThreshold: 1,
         logger: nil
 )
 ```
-## Prerequisites
+## Requirements
 
-* Xcode 15.0+
+* Xcode 15.4+
 * Swift 5.10+
-* iOS 14+
+* iOS 14.0+
 
 ## Installation
 
@@ -41,7 +41,7 @@ let ECashKit = try ECashKit.Kit(
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/sunimp/ECashKit.Swift.git", .upToNextMajor(from: "3.1.1"))
+    .package(url: "https://github.com/sunimp/ECashKit.Swift.git", .upToNextMajor(from: "3.2.0"))
 ]
 ```
 

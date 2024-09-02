@@ -1,8 +1,7 @@
 //
 //  ChronikApi.swift
-//  ECashKit
 //
-//  Created by Sun on 2024/8/21.
+//  Created by Sun on 2023/3/31.
 //
 
 import Foundation
@@ -14,20 +13,27 @@ import WWToolKit
 // MARK: - ChronikApi
 
 public class ChronikApi {
+    // MARK: Properties
+
     private let url: String
     private let networkManager: NetworkManager
+
+    // MARK: Lifecycle
 
     public init(url: String, logger: Logger? = nil) {
         self.url = url
         networkManager = NetworkManager(interRequestInterval: 0.1, logger: logger)
     }
 
+    // MARK: Functions
+
     private func itemsRecursive(
         address: String,
         items: [ApiTransactionItem] = [],
         pageCount: Int = 1,
         index: Int = 0
-    ) async throws -> [ApiTransactionItem] {
+    ) async throws
+        -> [ApiTransactionItem] {
         guard index < pageCount else {
             return items
         }
@@ -79,7 +85,8 @@ public class ChronikApi {
         items: [ApiTransactionItem] = [],
         addresses: [String],
         index: Int = 0
-    ) async throws -> [ApiTransactionItem] {
+    ) async throws
+        -> [ApiTransactionItem] {
         guard index < addresses.count else {
             return items
         }

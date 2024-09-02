@@ -1,3 +1,9 @@
+//
+//  Chronik.swift
+//
+//  Created by Sun on 2023/3/31.
+//
+
 // DO NOT EDIT.
 // swift-format-ignore-file
 //
@@ -25,12 +31,29 @@ private struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAPIVer
 // MARK: - Chronik_SlpTokenType
 
 enum Chronik_SlpTokenType: SwiftProtobuf.Enum {
-    typealias RawValue = Int
     case fungible // = 0
     case nft1Group // = 1
     case nft1Child // = 2
     case unknownTokenType // = 3
     case UNRECOGNIZED(Int)
+
+    // MARK: Nested Types
+
+    typealias RawValue = Int
+
+    // MARK: Computed Properties
+
+    var rawValue: Int {
+        switch self {
+        case .fungible: 0
+        case .nft1Group: 1
+        case .nft1Child: 2
+        case .unknownTokenType: 3
+        case let .UNRECOGNIZED(i): i
+        }
+    }
+
+    // MARK: Lifecycle
 
     init() {
         self = .fungible
@@ -43,16 +66,6 @@ enum Chronik_SlpTokenType: SwiftProtobuf.Enum {
         case 2: self = .nft1Child
         case 3: self = .unknownTokenType
         default: self = .UNRECOGNIZED(rawValue)
-        }
-    }
-
-    var rawValue: Int {
-        switch self {
-        case .fungible: 0
-        case .nft1Group: 1
-        case .nft1Child: 2
-        case .unknownTokenType: 3
-        case .UNRECOGNIZED(let i): i
         }
     }
 }
@@ -74,13 +87,31 @@ extension Chronik_SlpTokenType: CaseIterable {
 // MARK: - Chronik_SlpTxType
 
 enum Chronik_SlpTxType: SwiftProtobuf.Enum {
-    typealias RawValue = Int
     case genesis // = 0
     case send // = 1
     case mint // = 2
     case burn // = 4
     case unknownTxType // = 3
     case UNRECOGNIZED(Int)
+
+    // MARK: Nested Types
+
+    typealias RawValue = Int
+
+    // MARK: Computed Properties
+
+    var rawValue: Int {
+        switch self {
+        case .genesis: 0
+        case .send: 1
+        case .mint: 2
+        case .unknownTxType: 3
+        case .burn: 4
+        case let .UNRECOGNIZED(i): i
+        }
+    }
+
+    // MARK: Lifecycle
 
     init() {
         self = .genesis
@@ -94,17 +125,6 @@ enum Chronik_SlpTxType: SwiftProtobuf.Enum {
         case 3: self = .unknownTxType
         case 4: self = .burn
         default: self = .UNRECOGNIZED(rawValue)
-        }
-    }
-
-    var rawValue: Int {
-        switch self {
-        case .genesis: 0
-        case .send: 1
-        case .mint: 2
-        case .unknownTxType: 3
-        case .burn: 4
-        case .UNRECOGNIZED(let i): i
         }
     }
 }
@@ -127,12 +147,29 @@ extension Chronik_SlpTxType: CaseIterable {
 // MARK: - Chronik_Network
 
 enum Chronik_Network: SwiftProtobuf.Enum {
-    typealias RawValue = Int
     case bch // = 0
     case xec // = 1
     case xpi // = 2
     case xrg // = 3
     case UNRECOGNIZED(Int)
+
+    // MARK: Nested Types
+
+    typealias RawValue = Int
+
+    // MARK: Computed Properties
+
+    var rawValue: Int {
+        switch self {
+        case .bch: 0
+        case .xec: 1
+        case .xpi: 2
+        case .xrg: 3
+        case let .UNRECOGNIZED(i): i
+        }
+    }
+
+    // MARK: Lifecycle
 
     init() {
         self = .bch
@@ -145,16 +182,6 @@ enum Chronik_Network: SwiftProtobuf.Enum {
         case 2: self = .xpi
         case 3: self = .xrg
         default: self = .UNRECOGNIZED(rawValue)
-        }
-    }
-
-    var rawValue: Int {
-        switch self {
-        case .bch: 0
-        case .xec: 1
-        case .xpi: 2
-        case .xrg: 3
-        case .UNRECOGNIZED(let i): i
         }
     }
 }
@@ -176,12 +203,29 @@ extension Chronik_Network: CaseIterable {
 // MARK: - Chronik_UtxoStateVariant
 
 enum Chronik_UtxoStateVariant: SwiftProtobuf.Enum {
-    typealias RawValue = Int
     case unspent // = 0
     case spent // = 1
     case noSuchTx // = 2
     case noSuchOutput // = 3
     case UNRECOGNIZED(Int)
+
+    // MARK: Nested Types
+
+    typealias RawValue = Int
+
+    // MARK: Computed Properties
+
+    var rawValue: Int {
+        switch self {
+        case .unspent: 0
+        case .spent: 1
+        case .noSuchTx: 2
+        case .noSuchOutput: 3
+        case let .UNRECOGNIZED(i): i
+        }
+    }
+
+    // MARK: Lifecycle
 
     init() {
         self = .unspent
@@ -194,16 +238,6 @@ enum Chronik_UtxoStateVariant: SwiftProtobuf.Enum {
         case 2: self = .noSuchTx
         case 3: self = .noSuchOutput
         default: self = .UNRECOGNIZED(rawValue)
-        }
-    }
-
-    var rawValue: Int {
-        switch self {
-        case .unspent: 0
-        case .spent: 1
-        case .noSuchTx: 2
-        case .noSuchOutput: 3
-        case .UNRECOGNIZED(let i): i
         }
     }
 }
@@ -225,6 +259,8 @@ extension Chronik_UtxoStateVariant: CaseIterable {
 // MARK: - Chronik_ValidateUtxoRequest
 
 struct Chronik_ValidateUtxoRequest {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -233,12 +269,16 @@ struct Chronik_ValidateUtxoRequest {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
+    // MARK: Lifecycle
+
     init() { }
 }
 
 // MARK: - Chronik_ValidateUtxoResponse
 
 struct Chronik_ValidateUtxoResponse {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -247,12 +287,16 @@ struct Chronik_ValidateUtxoResponse {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
+    // MARK: Lifecycle
+
     init() { }
 }
 
 // MARK: - Chronik_BroadcastTxRequest
 
 struct Chronik_BroadcastTxRequest {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -263,12 +307,16 @@ struct Chronik_BroadcastTxRequest {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
+    // MARK: Lifecycle
+
     init() { }
 }
 
 // MARK: - Chronik_BroadcastTxResponse
 
 struct Chronik_BroadcastTxResponse {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -277,12 +325,16 @@ struct Chronik_BroadcastTxResponse {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
+    // MARK: Lifecycle
+
     init() { }
 }
 
 // MARK: - Chronik_BroadcastTxsRequest
 
 struct Chronik_BroadcastTxsRequest {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -293,12 +345,16 @@ struct Chronik_BroadcastTxsRequest {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
+    // MARK: Lifecycle
+
     init() { }
 }
 
 // MARK: - Chronik_BroadcastTxsResponse
 
 struct Chronik_BroadcastTxsResponse {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -307,12 +363,16 @@ struct Chronik_BroadcastTxsResponse {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
+    // MARK: Lifecycle
+
     init() { }
 }
 
 // MARK: - Chronik_BlockchainInfo
 
 struct Chronik_BlockchainInfo {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -323,12 +383,22 @@ struct Chronik_BlockchainInfo {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
+    // MARK: Lifecycle
+
     init() { }
 }
 
 // MARK: - Chronik_Tx
 
 struct Chronik_Tx {
+    // MARK: Properties
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    fileprivate var _storage = _StorageClass.defaultInstance
+
+    // MARK: Computed Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -365,9 +435,6 @@ struct Chronik_Tx {
 
     /// Returns true if `slpTxData` has been explicitly set.
     var hasSlpTxData: Bool { _storage._slpTxData != nil }
-    /// Clears the value of `slpTxData`. Subsequent reads from it will return its default value.
-    mutating func clearSlpTxData() { _uniqueStorage()._slpTxData = nil }
-
     var slpErrorMsg: String {
         get { _storage._slpErrorMsg }
         set { _uniqueStorage()._slpErrorMsg = newValue }
@@ -380,9 +447,6 @@ struct Chronik_Tx {
 
     /// Returns true if `block` has been explicitly set.
     var hasBlock: Bool { _storage._block != nil }
-    /// Clears the value of `block`. Subsequent reads from it will return its default value.
-    mutating func clearBlock() { _uniqueStorage()._block = nil }
-
     var timeFirstSeen: Int64 {
         get { _storage._timeFirstSeen }
         set { _uniqueStorage()._timeFirstSeen = newValue }
@@ -403,16 +467,41 @@ struct Chronik_Tx {
         set { _uniqueStorage()._network = newValue }
     }
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    // MARK: Lifecycle
 
     init() { }
 
-    fileprivate var _storage = _StorageClass.defaultInstance
+    // MARK: Functions
+
+    /// Clears the value of `slpTxData`. Subsequent reads from it will return its default value.
+    mutating func clearSlpTxData() { _uniqueStorage()._slpTxData = nil }
+
+    /// Clears the value of `block`. Subsequent reads from it will return its default value.
+    mutating func clearBlock() { _uniqueStorage()._block = nil }
 }
 
 // MARK: - Chronik_Utxo
 
 struct Chronik_Utxo {
+    // MARK: Properties
+
+    var blockHeight: Int32 = 0
+
+    var isCoinbase = false
+
+    var value: Int64 = 0
+
+    var network: Chronik_Network = .bch
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    fileprivate var _slpMeta: Chronik_SlpMeta?
+    fileprivate var _slpToken: Chronik_SlpToken?
+
+    private var _outpoint: Chronik_OutPoint?
+
+    // MARK: Computed Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -424,15 +513,6 @@ struct Chronik_Utxo {
 
     /// Returns true if `outpoint` has been explicitly set.
     var hasOutpoint: Bool { _outpoint != nil }
-    /// Clears the value of `outpoint`. Subsequent reads from it will return its default value.
-    mutating func clearOutpoint() { _outpoint = nil }
-
-    var blockHeight: Int32 = 0
-
-    var isCoinbase = false
-
-    var value: Int64 = 0
-
     var slpMeta: Chronik_SlpMeta {
         get { _slpMeta ?? Chronik_SlpMeta() }
         set { _slpMeta = newValue }
@@ -440,9 +520,6 @@ struct Chronik_Utxo {
 
     /// Returns true if `slpMeta` has been explicitly set.
     var hasSlpMeta: Bool { _slpMeta != nil }
-    /// Clears the value of `slpMeta`. Subsequent reads from it will return its default value.
-    mutating func clearSlpMeta() { _slpMeta = nil }
-
     var slpToken: Chronik_SlpToken {
         get { _slpToken ?? Chronik_SlpToken() }
         set { _slpToken = newValue }
@@ -450,23 +527,34 @@ struct Chronik_Utxo {
 
     /// Returns true if `slpToken` has been explicitly set.
     var hasSlpToken: Bool { _slpToken != nil }
-    /// Clears the value of `slpToken`. Subsequent reads from it will return its default value.
-    mutating func clearSlpToken() { _slpToken = nil }
 
-    var network: Chronik_Network = .bch
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    // MARK: Lifecycle
 
     init() { }
 
-    private var _outpoint: Chronik_OutPoint?
-    fileprivate var _slpMeta: Chronik_SlpMeta?
-    fileprivate var _slpToken: Chronik_SlpToken?
+    // MARK: Functions
+
+    /// Clears the value of `outpoint`. Subsequent reads from it will return its default value.
+    mutating func clearOutpoint() { _outpoint = nil }
+
+    /// Clears the value of `slpMeta`. Subsequent reads from it will return its default value.
+    mutating func clearSlpMeta() { _slpMeta = nil }
+
+    /// Clears the value of `slpToken`. Subsequent reads from it will return its default value.
+    mutating func clearSlpToken() { _slpToken = nil }
 }
 
 // MARK: - Chronik_Token
 
 struct Chronik_Token {
+    // MARK: Properties
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    fileprivate var _storage = _StorageClass.defaultInstance
+
+    // MARK: Computed Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -478,9 +566,6 @@ struct Chronik_Token {
 
     /// Returns true if `slpTxData` has been explicitly set.
     var hasSlpTxData: Bool { _storage._slpTxData != nil }
-    /// Clears the value of `slpTxData`. Subsequent reads from it will return its default value.
-    mutating func clearSlpTxData() { _uniqueStorage()._slpTxData = nil }
-
     var tokenStats: Chronik_TokenStats {
         get { _storage._tokenStats ?? Chronik_TokenStats() }
         set { _uniqueStorage()._tokenStats = newValue }
@@ -488,9 +573,6 @@ struct Chronik_Token {
 
     /// Returns true if `tokenStats` has been explicitly set.
     var hasTokenStats: Bool { _storage._tokenStats != nil }
-    /// Clears the value of `tokenStats`. Subsequent reads from it will return its default value.
-    mutating func clearTokenStats() { _uniqueStorage()._tokenStats = nil }
-
     var block: Chronik_BlockMetadata {
         get { _storage._block ?? Chronik_BlockMetadata() }
         set { _uniqueStorage()._block = newValue }
@@ -498,9 +580,6 @@ struct Chronik_Token {
 
     /// Returns true if `block` has been explicitly set.
     var hasBlock: Bool { _storage._block != nil }
-    /// Clears the value of `block`. Subsequent reads from it will return its default value.
-    mutating func clearBlock() { _uniqueStorage()._block = nil }
-
     var timeFirstSeen: Int64 {
         get { _storage._timeFirstSeen }
         set { _uniqueStorage()._timeFirstSeen = newValue }
@@ -521,16 +600,27 @@ struct Chronik_Token {
         set { _uniqueStorage()._network = newValue }
     }
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    // MARK: Lifecycle
 
     init() { }
 
-    fileprivate var _storage = _StorageClass.defaultInstance
+    // MARK: Functions
+
+    /// Clears the value of `slpTxData`. Subsequent reads from it will return its default value.
+    mutating func clearSlpTxData() { _uniqueStorage()._slpTxData = nil }
+
+    /// Clears the value of `tokenStats`. Subsequent reads from it will return its default value.
+    mutating func clearTokenStats() { _uniqueStorage()._tokenStats = nil }
+
+    /// Clears the value of `block`. Subsequent reads from it will return its default value.
+    mutating func clearBlock() { _uniqueStorage()._block = nil }
 }
 
 // MARK: - Chronik_BlockInfo
 
 struct Chronik_BlockInfo {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -571,12 +661,16 @@ struct Chronik_BlockInfo {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
+    // MARK: Lifecycle
+
     init() { }
 }
 
 // MARK: - Chronik_BlockDetails
 
 struct Chronik_BlockDetails {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -591,12 +685,22 @@ struct Chronik_BlockDetails {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
+    // MARK: Lifecycle
+
     init() { }
 }
 
 // MARK: - Chronik_Block
 
 struct Chronik_Block {
+    // MARK: Properties
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    fileprivate var _storage = _StorageClass.defaultInstance
+
+    // MARK: Computed Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -608,9 +712,6 @@ struct Chronik_Block {
 
     /// Returns true if `blockInfo` has been explicitly set.
     var hasBlockInfo: Bool { _storage._blockInfo != nil }
-    /// Clears the value of `blockInfo`. Subsequent reads from it will return its default value.
-    mutating func clearBlockInfo() { _uniqueStorage()._blockInfo = nil }
-
     var blockDetails: Chronik_BlockDetails {
         get { _storage._blockDetails ?? Chronik_BlockDetails() }
         set { _uniqueStorage()._blockDetails = newValue }
@@ -618,9 +719,6 @@ struct Chronik_Block {
 
     /// Returns true if `blockDetails` has been explicitly set.
     var hasBlockDetails: Bool { _storage._blockDetails != nil }
-    /// Clears the value of `blockDetails`. Subsequent reads from it will return its default value.
-    mutating func clearBlockDetails() { _uniqueStorage()._blockDetails = nil }
-
     var rawHeader: Data {
         get { _storage._rawHeader }
         set { _uniqueStorage()._rawHeader = newValue }
@@ -631,16 +729,24 @@ struct Chronik_Block {
         set { _uniqueStorage()._txs = newValue }
     }
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    // MARK: Lifecycle
 
     init() { }
 
-    fileprivate var _storage = _StorageClass.defaultInstance
+    // MARK: Functions
+
+    /// Clears the value of `blockInfo`. Subsequent reads from it will return its default value.
+    mutating func clearBlockInfo() { _uniqueStorage()._blockInfo = nil }
+
+    /// Clears the value of `blockDetails`. Subsequent reads from it will return its default value.
+    mutating func clearBlockDetails() { _uniqueStorage()._blockDetails = nil }
 }
 
 // MARK: - Chronik_ScriptUtxos
 
 struct Chronik_ScriptUtxos {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -651,12 +757,16 @@ struct Chronik_ScriptUtxos {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
+    // MARK: Lifecycle
+
     init() { }
 }
 
 // MARK: - Chronik_TxHistoryPage
 
 struct Chronik_TxHistoryPage {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -667,12 +777,16 @@ struct Chronik_TxHistoryPage {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
+    // MARK: Lifecycle
+
     init() { }
 }
 
 // MARK: - Chronik_Utxos
 
 struct Chronik_Utxos {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -681,12 +795,16 @@ struct Chronik_Utxos {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
+    // MARK: Lifecycle
+
     init() { }
 }
 
 // MARK: - Chronik_Blocks
 
 struct Chronik_Blocks {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -695,12 +813,23 @@ struct Chronik_Blocks {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
+    // MARK: Lifecycle
+
     init() { }
 }
 
 // MARK: - Chronik_SlpTxData
 
 struct Chronik_SlpTxData {
+    // MARK: Properties
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    fileprivate var _slpMeta: Chronik_SlpMeta?
+    fileprivate var _genesisInfo: Chronik_SlpGenesisInfo?
+
+    // MARK: Computed Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -712,9 +841,6 @@ struct Chronik_SlpTxData {
 
     /// Returns true if `slpMeta` has been explicitly set.
     var hasSlpMeta: Bool { _slpMeta != nil }
-    /// Clears the value of `slpMeta`. Subsequent reads from it will return its default value.
-    mutating func clearSlpMeta() { _slpMeta = nil }
-
     var genesisInfo: Chronik_SlpGenesisInfo {
         get { _genesisInfo ?? Chronik_SlpGenesisInfo() }
         set { _genesisInfo = newValue }
@@ -722,20 +848,25 @@ struct Chronik_SlpTxData {
 
     /// Returns true if `genesisInfo` has been explicitly set.
     var hasGenesisInfo: Bool { _genesisInfo != nil }
-    /// Clears the value of `genesisInfo`. Subsequent reads from it will return its default value.
-    mutating func clearGenesisInfo() { _genesisInfo = nil }
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    // MARK: Lifecycle
 
     init() { }
 
-    fileprivate var _slpMeta: Chronik_SlpMeta?
-    fileprivate var _genesisInfo: Chronik_SlpGenesisInfo?
+    // MARK: Functions
+
+    /// Clears the value of `slpMeta`. Subsequent reads from it will return its default value.
+    mutating func clearSlpMeta() { _slpMeta = nil }
+
+    /// Clears the value of `genesisInfo`. Subsequent reads from it will return its default value.
+    mutating func clearGenesisInfo() { _genesisInfo = nil }
 }
 
 // MARK: - Chronik_SlpMeta
 
 struct Chronik_SlpMeta {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -750,12 +881,16 @@ struct Chronik_SlpMeta {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
+    // MARK: Lifecycle
+
     init() { }
 }
 
 // MARK: - Chronik_TokenStats
 
 struct Chronik_TokenStats {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -769,12 +904,33 @@ struct Chronik_TokenStats {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
+    // MARK: Lifecycle
+
     init() { }
 }
 
 // MARK: - Chronik_TxInput
 
 struct Chronik_TxInput {
+    // MARK: Properties
+
+    var inputScript: Data = .init()
+
+    var outputScript: Data = .init()
+
+    var value: Int64 = 0
+
+    var sequenceNo: UInt32 = 0
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    fileprivate var _slpToken: Chronik_SlpToken?
+
+    private var _prevOut: Chronik_OutPoint?
+    private var _slpBurn: Chronik_SlpBurn?
+
+    // MARK: Computed Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -786,17 +942,6 @@ struct Chronik_TxInput {
 
     /// Returns true if `prevOut` has been explicitly set.
     var hasPrevOut: Bool { _prevOut != nil }
-    /// Clears the value of `prevOut`. Subsequent reads from it will return its default value.
-    mutating func clearPrevOut() { _prevOut = nil }
-
-    var inputScript: Data = .init()
-
-    var outputScript: Data = .init()
-
-    var value: Int64 = 0
-
-    var sequenceNo: UInt32 = 0
-
     var slpBurn: Chronik_SlpBurn {
         get { _slpBurn ?? Chronik_SlpBurn() }
         set { _slpBurn = newValue }
@@ -804,9 +949,6 @@ struct Chronik_TxInput {
 
     /// Returns true if `slpBurn` has been explicitly set.
     var hasSlpBurn: Bool { _slpBurn != nil }
-    /// Clears the value of `slpBurn`. Subsequent reads from it will return its default value.
-    mutating func clearSlpBurn() { _slpBurn = nil }
-
     var slpToken: Chronik_SlpToken {
         get { _slpToken ?? Chronik_SlpToken() }
         set { _slpToken = newValue }
@@ -814,21 +956,28 @@ struct Chronik_TxInput {
 
     /// Returns true if `slpToken` has been explicitly set.
     var hasSlpToken: Bool { _slpToken != nil }
-    /// Clears the value of `slpToken`. Subsequent reads from it will return its default value.
-    mutating func clearSlpToken() { _slpToken = nil }
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    // MARK: Lifecycle
 
     init() { }
 
-    private var _prevOut: Chronik_OutPoint?
-    private var _slpBurn: Chronik_SlpBurn?
-    fileprivate var _slpToken: Chronik_SlpToken?
+    // MARK: Functions
+
+    /// Clears the value of `prevOut`. Subsequent reads from it will return its default value.
+    mutating func clearPrevOut() { _prevOut = nil }
+
+    /// Clears the value of `slpBurn`. Subsequent reads from it will return its default value.
+    mutating func clearSlpBurn() { _slpBurn = nil }
+
+    /// Clears the value of `slpToken`. Subsequent reads from it will return its default value.
+    mutating func clearSlpToken() { _slpToken = nil }
 }
 
 // MARK: - Chronik_TxOutput
 
 struct Chronik_TxOutput {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -837,6 +986,14 @@ struct Chronik_TxOutput {
 
     var outputScript: Data = .init()
 
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    fileprivate var _slpToken: Chronik_SlpToken?
+
+    private var _spentBy: Chronik_OutPoint?
+
+    // MARK: Computed Properties
+
     var slpToken: Chronik_SlpToken {
         get { _slpToken ?? Chronik_SlpToken() }
         set { _slpToken = newValue }
@@ -844,9 +1001,6 @@ struct Chronik_TxOutput {
 
     /// Returns true if `slpToken` has been explicitly set.
     var hasSlpToken: Bool { _slpToken != nil }
-    /// Clears the value of `slpToken`. Subsequent reads from it will return its default value.
-    mutating func clearSlpToken() { _slpToken = nil }
-
     var spentBy: Chronik_OutPoint {
         get { _spentBy ?? Chronik_OutPoint() }
         set { _spentBy = newValue }
@@ -854,20 +1008,25 @@ struct Chronik_TxOutput {
 
     /// Returns true if `spentBy` has been explicitly set.
     var hasSpentBy: Bool { _spentBy != nil }
-    /// Clears the value of `spentBy`. Subsequent reads from it will return its default value.
-    mutating func clearSpentBy() { _spentBy = nil }
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    // MARK: Lifecycle
 
     init() { }
 
-    fileprivate var _slpToken: Chronik_SlpToken?
-    private var _spentBy: Chronik_OutPoint?
+    // MARK: Functions
+
+    /// Clears the value of `slpToken`. Subsequent reads from it will return its default value.
+    mutating func clearSlpToken() { _slpToken = nil }
+
+    /// Clears the value of `spentBy`. Subsequent reads from it will return its default value.
+    mutating func clearSpentBy() { _spentBy = nil }
 }
 
 // MARK: - Chronik_BlockMetadata
 
 struct Chronik_BlockMetadata {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -880,21 +1039,27 @@ struct Chronik_BlockMetadata {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
+    // MARK: Lifecycle
+
     init() { }
 }
 
 // MARK: - Chronik_OutPoint
 
 struct Chronik_OutPoint {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     var txid: Data = .init()
 
-    var outIdx: UInt32 = 0
+    var outIDx: UInt32 = 0
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    // MARK: Lifecycle
 
     init() { }
 }
@@ -902,6 +1067,8 @@ struct Chronik_OutPoint {
 // MARK: - Chronik_SlpToken
 
 struct Chronik_SlpToken {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -912,12 +1079,24 @@ struct Chronik_SlpToken {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
+    // MARK: Lifecycle
+
     init() { }
 }
 
 // MARK: - Chronik_SlpBurn
 
 struct Chronik_SlpBurn {
+    // MARK: Properties
+
+    var tokenID: Data = .init()
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    fileprivate var _token: Chronik_SlpToken?
+
+    // MARK: Computed Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -929,21 +1108,22 @@ struct Chronik_SlpBurn {
 
     /// Returns true if `token` has been explicitly set.
     var hasToken: Bool { _token != nil }
-    /// Clears the value of `token`. Subsequent reads from it will return its default value.
-    mutating func clearToken() { _token = nil }
 
-    var tokenID: Data = .init()
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    // MARK: Lifecycle
 
     init() { }
 
-    fileprivate var _token: Chronik_SlpToken?
+    // MARK: Functions
+
+    /// Clears the value of `token`. Subsequent reads from it will return its default value.
+    mutating func clearToken() { _token = nil }
 }
 
 // MARK: - Chronik_SlpGenesisInfo
 
 struct Chronik_SlpGenesisInfo {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -960,12 +1140,16 @@ struct Chronik_SlpGenesisInfo {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
+    // MARK: Lifecycle
+
     init() { }
 }
 
 // MARK: - Chronik_UtxoState
 
 struct Chronik_UtxoState {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -978,12 +1162,16 @@ struct Chronik_UtxoState {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
+    // MARK: Lifecycle
+
     init() { }
 }
 
 // MARK: - Chronik_Subscription
 
 struct Chronik_Subscription {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -996,75 +1184,15 @@ struct Chronik_Subscription {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
+    // MARK: Lifecycle
+
     init() { }
 }
 
 // MARK: - Chronik_SubscribeMsg
 
 struct Chronik_SubscribeMsg {
-    // SwiftProtobuf.Message conformance is added in an extension below. See the
-    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
-    // methods supported on all messages.
-
-    var msgType: Chronik_SubscribeMsg.OneOf_MsgType?
-
-    var error: Chronik_Error {
-        get {
-            if case .error(let v)? = msgType { return v }
-            return Chronik_Error()
-        }
-        set { msgType = .error(newValue) }
-    }
-
-    var addedToMempool: Chronik_MsgAddedToMempool {
-        get {
-            if case .addedToMempool(let v)? = msgType { return v }
-            return Chronik_MsgAddedToMempool()
-        }
-        set { msgType = .addedToMempool(newValue) }
-    }
-
-    var removedFromMempool: Chronik_MsgRemovedFromMempool {
-        get {
-            if case .removedFromMempool(let v)? = msgType { return v }
-            return Chronik_MsgRemovedFromMempool()
-        }
-        set { msgType = .removedFromMempool(newValue) }
-    }
-
-    var confirmed: Chronik_MsgConfirmed {
-        get {
-            if case .confirmed(let v)? = msgType { return v }
-            return Chronik_MsgConfirmed()
-        }
-        set { msgType = .confirmed(newValue) }
-    }
-
-    var reorg: Chronik_MsgReorg {
-        get {
-            if case .reorg(let v)? = msgType { return v }
-            return Chronik_MsgReorg()
-        }
-        set { msgType = .reorg(newValue) }
-    }
-
-    var blockConnected: Chronik_MsgBlockConnected {
-        get {
-            if case .blockConnected(let v)? = msgType { return v }
-            return Chronik_MsgBlockConnected()
-        }
-        set { msgType = .blockConnected(newValue) }
-    }
-
-    var blockDisconnected: Chronik_MsgBlockDisconnected {
-        get {
-            if case .blockDisconnected(let v)? = msgType { return v }
-            return Chronik_MsgBlockDisconnected()
-        }
-        set { msgType = .blockDisconnected(newValue) }
-    }
-
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    // MARK: Nested Types
 
     enum OneOf_MsgType: Equatable {
         case error(Chronik_Error)
@@ -1075,6 +1203,8 @@ struct Chronik_SubscribeMsg {
         case blockConnected(Chronik_MsgBlockConnected)
         case blockDisconnected(Chronik_MsgBlockDisconnected)
 
+        // MARK: Static Functions
+
         #if !swift(>=4.1)
         static func == (lhs: Chronik_SubscribeMsg.OneOf_MsgType, rhs: Chronik_SubscribeMsg.OneOf_MsgType) -> Bool {
             // The use of inline closures is to circumvent an issue where the compiler
@@ -1082,43 +1212,63 @@ struct Chronik_SubscribeMsg {
             // enabled. https://github.com/apple/swift-protobuf/issues/1034
             switch (lhs, rhs) {
             case (.error, .error): {
-                    guard case .error(let l) = lhs, case .error(let r) = rhs else { preconditionFailure() }
+                    guard case let .error(l) = lhs, case let .error(r) = rhs else {
+                        preconditionFailure()
+                    }
                     return l == r
                 }()
 
             case (.addedToMempool, .addedToMempool): {
-                    guard case .addedToMempool(let l) = lhs, case .addedToMempool(let r) = rhs else { preconditionFailure() }
+                    guard
+                        case let .addedToMempool(l) = lhs,
+                        case let .addedToMempool(r) = rhs
+                    else {
+                        preconditionFailure()
+                    }
                     return l == r
                 }()
 
             case (.removedFromMempool, .removedFromMempool): {
                     guard
-                        case .removedFromMempool(let l) = lhs,
-                        case .removedFromMempool(let r) = rhs
-                    else { preconditionFailure() }
+                        case let .removedFromMempool(l) = lhs,
+                        case let .removedFromMempool(r) = rhs
+                    else {
+                        preconditionFailure()
+                    }
                     return l == r
                 }()
 
             case (.confirmed, .confirmed): {
-                    guard case .confirmed(let l) = lhs, case .confirmed(let r) = rhs else { preconditionFailure() }
+                    guard case let .confirmed(l) = lhs, case let .confirmed(r) = rhs else {
+                        preconditionFailure()
+                    }
                     return l == r
                 }()
 
             case (.reorg, .reorg): {
-                    guard case .reorg(let l) = lhs, case .reorg(let r) = rhs else { preconditionFailure() }
+                    guard case let .reorg(l) = lhs, case let .reorg(r) = rhs else {
+                        preconditionFailure()
+                    }
                     return l == r
                 }()
 
             case (.blockConnected, .blockConnected): {
-                    guard case .blockConnected(let l) = lhs, case .blockConnected(let r) = rhs else { preconditionFailure() }
+                    guard
+                        case let .blockConnected(l) = lhs,
+                        case let .blockConnected(r) = rhs
+                    else {
+                        preconditionFailure()
+                    }
                     return l == r
                 }()
 
             case (.blockDisconnected, .blockDisconnected): {
                     guard
-                        case .blockDisconnected(let l) = lhs,
-                        case .blockDisconnected(let r) = rhs
-                    else { preconditionFailure() }
+                        case let .blockDisconnected(l) = lhs,
+                        case let .blockDisconnected(r) = rhs
+                    else {
+                        preconditionFailure()
+                    }
                     return l == r
                 }()
 
@@ -1128,12 +1278,98 @@ struct Chronik_SubscribeMsg {
         #endif
     }
 
+    // MARK: Properties
+
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var msgType: Chronik_SubscribeMsg.OneOf_MsgType?
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    // MARK: Computed Properties
+
+    var error: Chronik_Error {
+        get {
+            if case let .error(v)? = msgType {
+                return v
+            }
+            return Chronik_Error()
+        }
+        set { msgType = .error(newValue) }
+    }
+
+    var addedToMempool: Chronik_MsgAddedToMempool {
+        get {
+            if case let .addedToMempool(v)? = msgType {
+                return v
+            }
+            return Chronik_MsgAddedToMempool()
+        }
+        set { msgType = .addedToMempool(newValue) }
+    }
+
+    var removedFromMempool: Chronik_MsgRemovedFromMempool {
+        get {
+            if case let .removedFromMempool(v)? = msgType {
+                return v
+            }
+            return Chronik_MsgRemovedFromMempool()
+        }
+        set { msgType = .removedFromMempool(newValue) }
+    }
+
+    var confirmed: Chronik_MsgConfirmed {
+        get {
+            if case let .confirmed(v)? = msgType {
+                return v
+            }
+            return Chronik_MsgConfirmed()
+        }
+        set { msgType = .confirmed(newValue) }
+    }
+
+    var reorg: Chronik_MsgReorg {
+        get {
+            if case let .reorg(v)? = msgType {
+                return v
+            }
+            return Chronik_MsgReorg()
+        }
+        set { msgType = .reorg(newValue) }
+    }
+
+    var blockConnected: Chronik_MsgBlockConnected {
+        get {
+            if case let .blockConnected(v)? = msgType {
+                return v
+            }
+            return Chronik_MsgBlockConnected()
+        }
+        set { msgType = .blockConnected(newValue) }
+    }
+
+    var blockDisconnected: Chronik_MsgBlockDisconnected {
+        get {
+            if case let .blockDisconnected(v)? = msgType {
+                return v
+            }
+            return Chronik_MsgBlockDisconnected()
+        }
+        set { msgType = .blockDisconnected(newValue) }
+    }
+
+    // MARK: Lifecycle
+
     init() { }
 }
 
 // MARK: - Chronik_MsgAddedToMempool
 
 struct Chronik_MsgAddedToMempool {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1141,6 +1377,8 @@ struct Chronik_MsgAddedToMempool {
     var txid: Data = .init()
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    // MARK: Lifecycle
 
     init() { }
 }
@@ -1148,6 +1386,8 @@ struct Chronik_MsgAddedToMempool {
 // MARK: - Chronik_MsgRemovedFromMempool
 
 struct Chronik_MsgRemovedFromMempool {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1155,6 +1395,8 @@ struct Chronik_MsgRemovedFromMempool {
     var txid: Data = .init()
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    // MARK: Lifecycle
 
     init() { }
 }
@@ -1162,6 +1404,8 @@ struct Chronik_MsgRemovedFromMempool {
 // MARK: - Chronik_MsgConfirmed
 
 struct Chronik_MsgConfirmed {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1169,6 +1413,8 @@ struct Chronik_MsgConfirmed {
     var txid: Data = .init()
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    // MARK: Lifecycle
 
     init() { }
 }
@@ -1176,6 +1422,8 @@ struct Chronik_MsgConfirmed {
 // MARK: - Chronik_MsgReorg
 
 struct Chronik_MsgReorg {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1184,12 +1432,16 @@ struct Chronik_MsgReorg {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
+    // MARK: Lifecycle
+
     init() { }
 }
 
 // MARK: - Chronik_MsgBlockConnected
 
 struct Chronik_MsgBlockConnected {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1197,6 +1449,8 @@ struct Chronik_MsgBlockConnected {
     var blockHash: Data = .init()
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    // MARK: Lifecycle
 
     init() { }
 }
@@ -1204,6 +1458,8 @@ struct Chronik_MsgBlockConnected {
 // MARK: - Chronik_MsgBlockDisconnected
 
 struct Chronik_MsgBlockDisconnected {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1212,12 +1468,16 @@ struct Chronik_MsgBlockDisconnected {
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
+    // MARK: Lifecycle
+
     init() { }
 }
 
 // MARK: - Chronik_Error
 
 struct Chronik_Error {
+    // MARK: Properties
+
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
@@ -1229,6 +1489,8 @@ struct Chronik_Error {
     var isUserError = false
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    // MARK: Lifecycle
 
     init() { }
 }
@@ -1330,8 +1592,7 @@ extension Chronik_UtxoStateVariant: SwiftProtobuf._ProtoNameProviding {
 // MARK: - Chronik_ValidateUtxoRequest + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
 extension Chronik_ValidateUtxoRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
-    SwiftProtobuf._ProtoNameProviding
-{
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".ValidateUtxoRequest"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .same(proto: "outpoints"),
@@ -1357,8 +1618,12 @@ extension Chronik_ValidateUtxoRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }
 
     static func == (lhs: Chronik_ValidateUtxoRequest, rhs: Chronik_ValidateUtxoRequest) -> Bool {
-        if lhs.outpoints != rhs.outpoints { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.outpoints != rhs.outpoints {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
@@ -1366,8 +1631,7 @@ extension Chronik_ValidateUtxoRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
 // MARK: - Chronik_ValidateUtxoResponse + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
 extension Chronik_ValidateUtxoResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
-    SwiftProtobuf._ProtoNameProviding
-{
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".ValidateUtxoResponse"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .standard(proto: "utxo_states"),
@@ -1393,8 +1657,12 @@ extension Chronik_ValidateUtxoResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
     }
 
     static func == (lhs: Chronik_ValidateUtxoResponse, rhs: Chronik_ValidateUtxoResponse) -> Bool {
-        if lhs.utxoStates != rhs.utxoStates { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.utxoStates != rhs.utxoStates {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
@@ -1402,8 +1670,7 @@ extension Chronik_ValidateUtxoResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
 // MARK: - Chronik_BroadcastTxRequest + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
 extension Chronik_BroadcastTxRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
-    SwiftProtobuf._ProtoNameProviding
-{
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".BroadcastTxRequest"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .standard(proto: "raw_tx"),
@@ -1434,9 +1701,15 @@ extension Chronik_BroadcastTxRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
     }
 
     static func == (lhs: Chronik_BroadcastTxRequest, rhs: Chronik_BroadcastTxRequest) -> Bool {
-        if lhs.rawTx != rhs.rawTx { return false }
-        if lhs.skipSlpCheck != rhs.skipSlpCheck { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.rawTx != rhs.rawTx {
+            return false
+        }
+        if lhs.skipSlpCheck != rhs.skipSlpCheck {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
@@ -1444,8 +1717,7 @@ extension Chronik_BroadcastTxRequest: SwiftProtobuf.Message, SwiftProtobuf._Mess
 // MARK: - Chronik_BroadcastTxResponse + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
 extension Chronik_BroadcastTxResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
-    SwiftProtobuf._ProtoNameProviding
-{
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".BroadcastTxResponse"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .same(proto: "txid"),
@@ -1471,8 +1743,12 @@ extension Chronik_BroadcastTxResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }
 
     static func == (lhs: Chronik_BroadcastTxResponse, rhs: Chronik_BroadcastTxResponse) -> Bool {
-        if lhs.txid != rhs.txid { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.txid != rhs.txid {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
@@ -1480,8 +1756,7 @@ extension Chronik_BroadcastTxResponse: SwiftProtobuf.Message, SwiftProtobuf._Mes
 // MARK: - Chronik_BroadcastTxsRequest + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
 extension Chronik_BroadcastTxsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
-    SwiftProtobuf._ProtoNameProviding
-{
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".BroadcastTxsRequest"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .standard(proto: "raw_txs"),
@@ -1512,9 +1787,15 @@ extension Chronik_BroadcastTxsRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }
 
     static func == (lhs: Chronik_BroadcastTxsRequest, rhs: Chronik_BroadcastTxsRequest) -> Bool {
-        if lhs.rawTxs != rhs.rawTxs { return false }
-        if lhs.skipSlpCheck != rhs.skipSlpCheck { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.rawTxs != rhs.rawTxs {
+            return false
+        }
+        if lhs.skipSlpCheck != rhs.skipSlpCheck {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
@@ -1522,8 +1803,7 @@ extension Chronik_BroadcastTxsRequest: SwiftProtobuf.Message, SwiftProtobuf._Mes
 // MARK: - Chronik_BroadcastTxsResponse + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
 extension Chronik_BroadcastTxsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
-    SwiftProtobuf._ProtoNameProviding
-{
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".BroadcastTxsResponse"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .same(proto: "txids"),
@@ -1549,8 +1829,12 @@ extension Chronik_BroadcastTxsResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
     }
 
     static func == (lhs: Chronik_BroadcastTxsResponse, rhs: Chronik_BroadcastTxsResponse) -> Bool {
-        if lhs.txids != rhs.txids { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.txids != rhs.txids {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
@@ -1558,8 +1842,7 @@ extension Chronik_BroadcastTxsResponse: SwiftProtobuf.Message, SwiftProtobuf._Me
 // MARK: - Chronik_BlockchainInfo + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
 extension Chronik_BlockchainInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
-    SwiftProtobuf._ProtoNameProviding
-{
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".BlockchainInfo"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .standard(proto: "tip_hash"),
@@ -1590,16 +1873,23 @@ extension Chronik_BlockchainInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
 
     static func == (lhs: Chronik_BlockchainInfo, rhs: Chronik_BlockchainInfo) -> Bool {
-        if lhs.tipHash != rhs.tipHash { return false }
-        if lhs.tipHeight != rhs.tipHeight { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.tipHash != rhs.tipHash {
+            return false
+        }
+        if lhs.tipHeight != rhs.tipHeight {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
 
 // MARK: - Chronik_Tx + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
-extension Chronik_Tx: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Chronik_Tx: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".Tx"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .same(proto: "txid"),
@@ -1617,6 +1907,12 @@ extension Chronik_Tx: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
     ]
 
     fileprivate class _StorageClass {
+        // MARK: Static Properties
+
+        static let defaultInstance = _StorageClass()
+
+        // MARK: Properties
+
         var _txid: Data = .init()
         var _version: Int32 = 0
         var _inputs: [Chronik_TxInput] = []
@@ -1630,9 +1926,7 @@ extension Chronik_Tx: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
         var _isCoinbase = false
         var _network: Chronik_Network = .bch
 
-        static let defaultInstance = _StorageClass()
-
-        private init() { }
+        // MARK: Lifecycle
 
         init(copying source: _StorageClass) {
             _txid = source._txid
@@ -1648,6 +1942,8 @@ extension Chronik_Tx: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
             _isCoinbase = source._isCoinbase
             _network = source._network
         }
+
+        private init() { }
     }
 
     fileprivate mutating func _uniqueStorage() -> _StorageClass {
@@ -1737,30 +2033,59 @@ extension Chronik_Tx: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
             )) { (_args: (_StorageClass, _StorageClass)) in
                 let _storage = _args.0
                 let rhs_storage = _args.1
-                if _storage._txid != rhs_storage._txid { return false }
-                if _storage._version != rhs_storage._version { return false }
-                if _storage._inputs != rhs_storage._inputs { return false }
-                if _storage._outputs != rhs_storage._outputs { return false }
-                if _storage._lockTime != rhs_storage._lockTime { return false }
-                if _storage._slpTxData != rhs_storage._slpTxData { return false }
-                if _storage._slpErrorMsg != rhs_storage._slpErrorMsg { return false }
-                if _storage._block != rhs_storage._block { return false }
-                if _storage._timeFirstSeen != rhs_storage._timeFirstSeen { return false }
-                if _storage._size != rhs_storage._size { return false }
-                if _storage._isCoinbase != rhs_storage._isCoinbase { return false }
-                if _storage._network != rhs_storage._network { return false }
+                if _storage._txid != rhs_storage._txid {
+                    return false
+                }
+                if _storage._version != rhs_storage._version {
+                    return false
+                }
+                if _storage._inputs != rhs_storage._inputs {
+                    return false
+                }
+                if _storage._outputs != rhs_storage._outputs {
+                    return false
+                }
+                if _storage._lockTime != rhs_storage._lockTime {
+                    return false
+                }
+                if _storage._slpTxData != rhs_storage._slpTxData {
+                    return false
+                }
+                if _storage._slpErrorMsg != rhs_storage._slpErrorMsg {
+                    return false
+                }
+                if _storage._block != rhs_storage._block {
+                    return false
+                }
+                if _storage._timeFirstSeen != rhs_storage._timeFirstSeen {
+                    return false
+                }
+                if _storage._size != rhs_storage._size {
+                    return false
+                }
+                if _storage._isCoinbase != rhs_storage._isCoinbase {
+                    return false
+                }
+                if _storage._network != rhs_storage._network {
+                    return false
+                }
                 return true
             }
-            if !storagesAreEqual { return false }
+            if !storagesAreEqual {
+                return false
+            }
         }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
 
 // MARK: - Chronik_Utxo + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
-extension Chronik_Utxo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Chronik_Utxo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".Utxo"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .same(proto: "outpoint"),
@@ -1820,21 +2145,38 @@ extension Chronik_Utxo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
     }
 
     static func == (lhs: Chronik_Utxo, rhs: Chronik_Utxo) -> Bool {
-        if lhs._outpoint != rhs._outpoint { return false }
-        if lhs.blockHeight != rhs.blockHeight { return false }
-        if lhs.isCoinbase != rhs.isCoinbase { return false }
-        if lhs.value != rhs.value { return false }
-        if lhs._slpMeta != rhs._slpMeta { return false }
-        if lhs._slpToken != rhs._slpToken { return false }
-        if lhs.network != rhs.network { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs._outpoint != rhs._outpoint {
+            return false
+        }
+        if lhs.blockHeight != rhs.blockHeight {
+            return false
+        }
+        if lhs.isCoinbase != rhs.isCoinbase {
+            return false
+        }
+        if lhs.value != rhs.value {
+            return false
+        }
+        if lhs._slpMeta != rhs._slpMeta {
+            return false
+        }
+        if lhs._slpToken != rhs._slpToken {
+            return false
+        }
+        if lhs.network != rhs.network {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
 
 // MARK: - Chronik_Token + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
-extension Chronik_Token: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Chronik_Token: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".Token"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .standard(proto: "slp_tx_data"),
@@ -1847,6 +2189,12 @@ extension Chronik_Token: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     ]
 
     fileprivate class _StorageClass {
+        // MARK: Static Properties
+
+        static let defaultInstance = _StorageClass()
+
+        // MARK: Properties
+
         var _slpTxData: Chronik_SlpTxData?
         var _tokenStats: Chronik_TokenStats?
         var _block: Chronik_BlockMetadata?
@@ -1855,9 +2203,7 @@ extension Chronik_Token: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
         var _containsBaton = false
         var _network: Chronik_Network = .bch
 
-        static let defaultInstance = _StorageClass()
-
-        private init() { }
+        // MARK: Lifecycle
 
         init(copying source: _StorageClass) {
             _slpTxData = source._slpTxData
@@ -1868,6 +2214,8 @@ extension Chronik_Token: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
             _containsBaton = source._containsBaton
             _network = source._network
         }
+
+        private init() { }
     }
 
     fileprivate mutating func _uniqueStorage() -> _StorageClass {
@@ -1937,25 +2285,44 @@ extension Chronik_Token: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
             )) { (_args: (_StorageClass, _StorageClass)) in
                 let _storage = _args.0
                 let rhs_storage = _args.1
-                if _storage._slpTxData != rhs_storage._slpTxData { return false }
-                if _storage._tokenStats != rhs_storage._tokenStats { return false }
-                if _storage._block != rhs_storage._block { return false }
-                if _storage._timeFirstSeen != rhs_storage._timeFirstSeen { return false }
-                if _storage._initialTokenQuantity != rhs_storage._initialTokenQuantity { return false }
-                if _storage._containsBaton != rhs_storage._containsBaton { return false }
-                if _storage._network != rhs_storage._network { return false }
+                if _storage._slpTxData != rhs_storage._slpTxData {
+                    return false
+                }
+                if _storage._tokenStats != rhs_storage._tokenStats {
+                    return false
+                }
+                if _storage._block != rhs_storage._block {
+                    return false
+                }
+                if _storage._timeFirstSeen != rhs_storage._timeFirstSeen {
+                    return false
+                }
+                if _storage._initialTokenQuantity != rhs_storage._initialTokenQuantity {
+                    return false
+                }
+                if _storage._containsBaton != rhs_storage._containsBaton {
+                    return false
+                }
+                if _storage._network != rhs_storage._network {
+                    return false
+                }
                 return true
             }
-            if !storagesAreEqual { return false }
+            if !storagesAreEqual {
+                return false
+            }
         }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
 
 // MARK: - Chronik_BlockInfo + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
-extension Chronik_BlockInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Chronik_BlockInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".BlockInfo"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .same(proto: "hash"),
@@ -2041,20 +2408,48 @@ extension Chronik_BlockInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     }
 
     static func == (lhs: Chronik_BlockInfo, rhs: Chronik_BlockInfo) -> Bool {
-        if lhs.hash != rhs.hash { return false }
-        if lhs.prevHash != rhs.prevHash { return false }
-        if lhs.height != rhs.height { return false }
-        if lhs.nBits != rhs.nBits { return false }
-        if lhs.timestamp != rhs.timestamp { return false }
-        if lhs.blockSize != rhs.blockSize { return false }
-        if lhs.numTxs != rhs.numTxs { return false }
-        if lhs.numInputs != rhs.numInputs { return false }
-        if lhs.numOutputs != rhs.numOutputs { return false }
-        if lhs.sumInputSats != rhs.sumInputSats { return false }
-        if lhs.sumCoinbaseOutputSats != rhs.sumCoinbaseOutputSats { return false }
-        if lhs.sumNormalOutputSats != rhs.sumNormalOutputSats { return false }
-        if lhs.sumBurnedSats != rhs.sumBurnedSats { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.hash != rhs.hash {
+            return false
+        }
+        if lhs.prevHash != rhs.prevHash {
+            return false
+        }
+        if lhs.height != rhs.height {
+            return false
+        }
+        if lhs.nBits != rhs.nBits {
+            return false
+        }
+        if lhs.timestamp != rhs.timestamp {
+            return false
+        }
+        if lhs.blockSize != rhs.blockSize {
+            return false
+        }
+        if lhs.numTxs != rhs.numTxs {
+            return false
+        }
+        if lhs.numInputs != rhs.numInputs {
+            return false
+        }
+        if lhs.numOutputs != rhs.numOutputs {
+            return false
+        }
+        if lhs.sumInputSats != rhs.sumInputSats {
+            return false
+        }
+        if lhs.sumCoinbaseOutputSats != rhs.sumCoinbaseOutputSats {
+            return false
+        }
+        if lhs.sumNormalOutputSats != rhs.sumNormalOutputSats {
+            return false
+        }
+        if lhs.sumBurnedSats != rhs.sumBurnedSats {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
@@ -2062,8 +2457,7 @@ extension Chronik_BlockInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 // MARK: - Chronik_BlockDetails + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
 extension Chronik_BlockDetails: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
-    SwiftProtobuf._ProtoNameProviding
-{
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".BlockDetails"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .same(proto: "version"),
@@ -2104,18 +2498,29 @@ extension Chronik_BlockDetails: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     }
 
     static func == (lhs: Chronik_BlockDetails, rhs: Chronik_BlockDetails) -> Bool {
-        if lhs.version != rhs.version { return false }
-        if lhs.merkleRoot != rhs.merkleRoot { return false }
-        if lhs.nonce != rhs.nonce { return false }
-        if lhs.medianTimestamp != rhs.medianTimestamp { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.version != rhs.version {
+            return false
+        }
+        if lhs.merkleRoot != rhs.merkleRoot {
+            return false
+        }
+        if lhs.nonce != rhs.nonce {
+            return false
+        }
+        if lhs.medianTimestamp != rhs.medianTimestamp {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
 
 // MARK: - Chronik_Block + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
-extension Chronik_Block: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Chronik_Block: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".Block"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .standard(proto: "block_info"),
@@ -2125,14 +2530,18 @@ extension Chronik_Block: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     ]
 
     fileprivate class _StorageClass {
+        // MARK: Static Properties
+
+        static let defaultInstance = _StorageClass()
+
+        // MARK: Properties
+
         var _blockInfo: Chronik_BlockInfo?
         var _blockDetails: Chronik_BlockDetails?
         var _rawHeader: Data = .init()
         var _txs: [Chronik_Tx] = []
 
-        static let defaultInstance = _StorageClass()
-
-        private init() { }
+        // MARK: Lifecycle
 
         init(copying source: _StorageClass) {
             _blockInfo = source._blockInfo
@@ -2140,6 +2549,8 @@ extension Chronik_Block: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
             _rawHeader = source._rawHeader
             _txs = source._txs
         }
+
+        private init() { }
     }
 
     fileprivate mutating func _uniqueStorage() -> _StorageClass {
@@ -2197,15 +2608,27 @@ extension Chronik_Block: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
             )) { (_args: (_StorageClass, _StorageClass)) in
                 let _storage = _args.0
                 let rhs_storage = _args.1
-                if _storage._blockInfo != rhs_storage._blockInfo { return false }
-                if _storage._blockDetails != rhs_storage._blockDetails { return false }
-                if _storage._rawHeader != rhs_storage._rawHeader { return false }
-                if _storage._txs != rhs_storage._txs { return false }
+                if _storage._blockInfo != rhs_storage._blockInfo {
+                    return false
+                }
+                if _storage._blockDetails != rhs_storage._blockDetails {
+                    return false
+                }
+                if _storage._rawHeader != rhs_storage._rawHeader {
+                    return false
+                }
+                if _storage._txs != rhs_storage._txs {
+                    return false
+                }
                 return true
             }
-            if !storagesAreEqual { return false }
+            if !storagesAreEqual {
+                return false
+            }
         }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
@@ -2213,8 +2636,7 @@ extension Chronik_Block: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
 // MARK: - Chronik_ScriptUtxos + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
 extension Chronik_ScriptUtxos: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
-    SwiftProtobuf._ProtoNameProviding
-{
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".ScriptUtxos"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .standard(proto: "output_script"),
@@ -2245,9 +2667,15 @@ extension Chronik_ScriptUtxos: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     }
 
     static func == (lhs: Chronik_ScriptUtxos, rhs: Chronik_ScriptUtxos) -> Bool {
-        if lhs.outputScript != rhs.outputScript { return false }
-        if lhs.utxos != rhs.utxos { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.outputScript != rhs.outputScript {
+            return false
+        }
+        if lhs.utxos != rhs.utxos {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
@@ -2255,8 +2683,7 @@ extension Chronik_ScriptUtxos: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
 // MARK: - Chronik_TxHistoryPage + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
 extension Chronik_TxHistoryPage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
-    SwiftProtobuf._ProtoNameProviding
-{
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".TxHistoryPage"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .same(proto: "txs"),
@@ -2287,16 +2714,23 @@ extension Chronik_TxHistoryPage: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
 
     static func == (lhs: Chronik_TxHistoryPage, rhs: Chronik_TxHistoryPage) -> Bool {
-        if lhs.txs != rhs.txs { return false }
-        if lhs.numPages != rhs.numPages { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.txs != rhs.txs {
+            return false
+        }
+        if lhs.numPages != rhs.numPages {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
 
 // MARK: - Chronik_Utxos + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
-extension Chronik_Utxos: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Chronik_Utxos: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".Utxos"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .standard(proto: "script_utxos"),
@@ -2322,15 +2756,20 @@ extension Chronik_Utxos: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     }
 
     static func == (lhs: Chronik_Utxos, rhs: Chronik_Utxos) -> Bool {
-        if lhs.scriptUtxos != rhs.scriptUtxos { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.scriptUtxos != rhs.scriptUtxos {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
 
 // MARK: - Chronik_Blocks + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
-extension Chronik_Blocks: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Chronik_Blocks: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".Blocks"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .same(proto: "blocks"),
@@ -2356,15 +2795,20 @@ extension Chronik_Blocks: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     }
 
     static func == (lhs: Chronik_Blocks, rhs: Chronik_Blocks) -> Bool {
-        if lhs.blocks != rhs.blocks { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.blocks != rhs.blocks {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
 
 // MARK: - Chronik_SlpTxData + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
-extension Chronik_SlpTxData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Chronik_SlpTxData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".SlpTxData"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .standard(proto: "slp_meta"),
@@ -2399,16 +2843,23 @@ extension Chronik_SlpTxData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     }
 
     static func == (lhs: Chronik_SlpTxData, rhs: Chronik_SlpTxData) -> Bool {
-        if lhs._slpMeta != rhs._slpMeta { return false }
-        if lhs._genesisInfo != rhs._genesisInfo { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs._slpMeta != rhs._slpMeta {
+            return false
+        }
+        if lhs._genesisInfo != rhs._genesisInfo {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
 
 // MARK: - Chronik_SlpMeta + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
-extension Chronik_SlpMeta: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Chronik_SlpMeta: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".SlpMeta"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .standard(proto: "token_type"),
@@ -2449,18 +2900,29 @@ extension Chronik_SlpMeta: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     }
 
     static func == (lhs: Chronik_SlpMeta, rhs: Chronik_SlpMeta) -> Bool {
-        if lhs.tokenType != rhs.tokenType { return false }
-        if lhs.txType != rhs.txType { return false }
-        if lhs.tokenID != rhs.tokenID { return false }
-        if lhs.groupTokenID != rhs.groupTokenID { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.tokenType != rhs.tokenType {
+            return false
+        }
+        if lhs.txType != rhs.txType {
+            return false
+        }
+        if lhs.tokenID != rhs.tokenID {
+            return false
+        }
+        if lhs.groupTokenID != rhs.groupTokenID {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
 
 // MARK: - Chronik_TokenStats + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
-extension Chronik_TokenStats: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Chronik_TokenStats: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".TokenStats"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .standard(proto: "total_minted"),
@@ -2491,16 +2953,23 @@ extension Chronik_TokenStats: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     }
 
     static func == (lhs: Chronik_TokenStats, rhs: Chronik_TokenStats) -> Bool {
-        if lhs.totalMinted != rhs.totalMinted { return false }
-        if lhs.totalBurned != rhs.totalBurned { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.totalMinted != rhs.totalMinted {
+            return false
+        }
+        if lhs.totalBurned != rhs.totalBurned {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
 
 // MARK: - Chronik_TxInput + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
-extension Chronik_TxInput: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Chronik_TxInput: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".TxInput"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .standard(proto: "prev_out"),
@@ -2560,21 +3029,38 @@ extension Chronik_TxInput: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     }
 
     static func == (lhs: Chronik_TxInput, rhs: Chronik_TxInput) -> Bool {
-        if lhs._prevOut != rhs._prevOut { return false }
-        if lhs.inputScript != rhs.inputScript { return false }
-        if lhs.outputScript != rhs.outputScript { return false }
-        if lhs.value != rhs.value { return false }
-        if lhs.sequenceNo != rhs.sequenceNo { return false }
-        if lhs._slpBurn != rhs._slpBurn { return false }
-        if lhs._slpToken != rhs._slpToken { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs._prevOut != rhs._prevOut {
+            return false
+        }
+        if lhs.inputScript != rhs.inputScript {
+            return false
+        }
+        if lhs.outputScript != rhs.outputScript {
+            return false
+        }
+        if lhs.value != rhs.value {
+            return false
+        }
+        if lhs.sequenceNo != rhs.sequenceNo {
+            return false
+        }
+        if lhs._slpBurn != rhs._slpBurn {
+            return false
+        }
+        if lhs._slpToken != rhs._slpToken {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
 
 // MARK: - Chronik_TxOutput + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
-extension Chronik_TxOutput: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Chronik_TxOutput: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".TxOutput"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .same(proto: "value"),
@@ -2619,11 +3105,21 @@ extension Chronik_TxOutput: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     }
 
     static func == (lhs: Chronik_TxOutput, rhs: Chronik_TxOutput) -> Bool {
-        if lhs.value != rhs.value { return false }
-        if lhs.outputScript != rhs.outputScript { return false }
-        if lhs._slpToken != rhs._slpToken { return false }
-        if lhs._spentBy != rhs._spentBy { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.value != rhs.value {
+            return false
+        }
+        if lhs.outputScript != rhs.outputScript {
+            return false
+        }
+        if lhs._slpToken != rhs._slpToken {
+            return false
+        }
+        if lhs._spentBy != rhs._spentBy {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
@@ -2631,8 +3127,7 @@ extension Chronik_TxOutput: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
 // MARK: - Chronik_BlockMetadata + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
 extension Chronik_BlockMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
-    SwiftProtobuf._ProtoNameProviding
-{
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".BlockMetadata"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .same(proto: "height"),
@@ -2668,17 +3163,26 @@ extension Chronik_BlockMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
 
     static func == (lhs: Chronik_BlockMetadata, rhs: Chronik_BlockMetadata) -> Bool {
-        if lhs.height != rhs.height { return false }
-        if lhs.hash != rhs.hash { return false }
-        if lhs.timestamp != rhs.timestamp { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.height != rhs.height {
+            return false
+        }
+        if lhs.hash != rhs.hash {
+            return false
+        }
+        if lhs.timestamp != rhs.timestamp {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
 
 // MARK: - Chronik_OutPoint + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
-extension Chronik_OutPoint: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Chronik_OutPoint: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".OutPoint"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .same(proto: "txid"),
@@ -2692,7 +3196,7 @@ extension Chronik_OutPoint: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
             // enabled. https://github.com/apple/swift-protobuf/issues/1034
             switch fieldNumber {
             case 1: try decoder.decodeSingularBytesField(value: &txid)
-            case 2: try decoder.decodeSingularUInt32Field(value: &outIdx)
+            case 2: try decoder.decodeSingularUInt32Field(value: &outIDx)
             default: break
             }
         }
@@ -2702,23 +3206,30 @@ extension Chronik_OutPoint: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
         if !txid.isEmpty {
             try visitor.visitSingularBytesField(value: txid, fieldNumber: 1)
         }
-        if outIdx != 0 {
-            try visitor.visitSingularUInt32Field(value: outIdx, fieldNumber: 2)
+        if outIDx != 0 {
+            try visitor.visitSingularUInt32Field(value: outIDx, fieldNumber: 2)
         }
         try unknownFields.traverse(visitor: &visitor)
     }
 
     static func == (lhs: Chronik_OutPoint, rhs: Chronik_OutPoint) -> Bool {
-        if lhs.txid != rhs.txid { return false }
-        if lhs.outIdx != rhs.outIdx { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.txid != rhs.txid {
+            return false
+        }
+        if lhs.outIDx != rhs.outIDx {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
 
 // MARK: - Chronik_SlpToken + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
-extension Chronik_SlpToken: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Chronik_SlpToken: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".SlpToken"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .same(proto: "amount"),
@@ -2749,16 +3260,23 @@ extension Chronik_SlpToken: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     }
 
     static func == (lhs: Chronik_SlpToken, rhs: Chronik_SlpToken) -> Bool {
-        if lhs.amount != rhs.amount { return false }
-        if lhs.isMintBaton != rhs.isMintBaton { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.amount != rhs.amount {
+            return false
+        }
+        if lhs.isMintBaton != rhs.isMintBaton {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
 
 // MARK: - Chronik_SlpBurn + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
-extension Chronik_SlpBurn: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Chronik_SlpBurn: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".SlpBurn"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .same(proto: "token"),
@@ -2793,9 +3311,15 @@ extension Chronik_SlpBurn: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     }
 
     static func == (lhs: Chronik_SlpBurn, rhs: Chronik_SlpBurn) -> Bool {
-        if lhs._token != rhs._token { return false }
-        if lhs.tokenID != rhs.tokenID { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs._token != rhs._token {
+            return false
+        }
+        if lhs.tokenID != rhs.tokenID {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
@@ -2803,8 +3327,7 @@ extension Chronik_SlpBurn: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
 // MARK: - Chronik_SlpGenesisInfo + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
 extension Chronik_SlpGenesisInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
-    SwiftProtobuf._ProtoNameProviding
-{
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".SlpGenesisInfo"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .standard(proto: "token_ticker"),
@@ -2850,19 +3373,32 @@ extension Chronik_SlpGenesisInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
 
     static func == (lhs: Chronik_SlpGenesisInfo, rhs: Chronik_SlpGenesisInfo) -> Bool {
-        if lhs.tokenTicker != rhs.tokenTicker { return false }
-        if lhs.tokenName != rhs.tokenName { return false }
-        if lhs.tokenDocumentURL != rhs.tokenDocumentURL { return false }
-        if lhs.tokenDocumentHash != rhs.tokenDocumentHash { return false }
-        if lhs.decimals != rhs.decimals { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.tokenTicker != rhs.tokenTicker {
+            return false
+        }
+        if lhs.tokenName != rhs.tokenName {
+            return false
+        }
+        if lhs.tokenDocumentURL != rhs.tokenDocumentURL {
+            return false
+        }
+        if lhs.tokenDocumentHash != rhs.tokenDocumentHash {
+            return false
+        }
+        if lhs.decimals != rhs.decimals {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
 
 // MARK: - Chronik_UtxoState + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
-extension Chronik_UtxoState: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Chronik_UtxoState: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".UtxoState"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .same(proto: "height"),
@@ -2898,10 +3434,18 @@ extension Chronik_UtxoState: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     }
 
     static func == (lhs: Chronik_UtxoState, rhs: Chronik_UtxoState) -> Bool {
-        if lhs.height != rhs.height { return false }
-        if lhs.isConfirmed != rhs.isConfirmed { return false }
-        if lhs.state != rhs.state { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.height != rhs.height {
+            return false
+        }
+        if lhs.isConfirmed != rhs.isConfirmed {
+            return false
+        }
+        if lhs.state != rhs.state {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
@@ -2909,8 +3453,7 @@ extension Chronik_UtxoState: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 // MARK: - Chronik_Subscription + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
 extension Chronik_Subscription: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
-    SwiftProtobuf._ProtoNameProviding
-{
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".Subscription"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .standard(proto: "script_type"),
@@ -2946,10 +3489,18 @@ extension Chronik_Subscription: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     }
 
     static func == (lhs: Chronik_Subscription, rhs: Chronik_Subscription) -> Bool {
-        if lhs.scriptType != rhs.scriptType { return false }
-        if lhs.payload != rhs.payload { return false }
-        if lhs.isSubscribe != rhs.isSubscribe { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.scriptType != rhs.scriptType {
+            return false
+        }
+        if lhs.payload != rhs.payload {
+            return false
+        }
+        if lhs.isSubscribe != rhs.isSubscribe {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
@@ -2957,8 +3508,7 @@ extension Chronik_Subscription: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 // MARK: - Chronik_SubscribeMsg + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
 extension Chronik_SubscribeMsg: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
-    SwiftProtobuf._ProtoNameProviding
-{
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".SubscribeMsg"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .same(proto: "error"),
@@ -2981,11 +3531,15 @@ extension Chronik_SubscribeMsg: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
                     var hadOneofValue = false
                     if let current = self.msgType {
                         hadOneofValue = true
-                        if case .error(let m) = current { v = m }
+                        if case let .error(m) = current {
+                            v = m
+                        }
                     }
                     try decoder.decodeSingularMessageField(value: &v)
                     if let v {
-                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        if hadOneofValue {
+                            try decoder.handleConflictingOneOf()
+                        }
                         self.msgType = .error(v)
                     }
                 }()
@@ -2995,11 +3549,15 @@ extension Chronik_SubscribeMsg: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
                     var hadOneofValue = false
                     if let current = self.msgType {
                         hadOneofValue = true
-                        if case .addedToMempool(let m) = current { v = m }
+                        if case let .addedToMempool(m) = current {
+                            v = m
+                        }
                     }
                     try decoder.decodeSingularMessageField(value: &v)
                     if let v {
-                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        if hadOneofValue {
+                            try decoder.handleConflictingOneOf()
+                        }
                         self.msgType = .addedToMempool(v)
                     }
                 }()
@@ -3009,11 +3567,15 @@ extension Chronik_SubscribeMsg: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
                     var hadOneofValue = false
                     if let current = self.msgType {
                         hadOneofValue = true
-                        if case .removedFromMempool(let m) = current { v = m }
+                        if case let .removedFromMempool(m) = current {
+                            v = m
+                        }
                     }
                     try decoder.decodeSingularMessageField(value: &v)
                     if let v {
-                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        if hadOneofValue {
+                            try decoder.handleConflictingOneOf()
+                        }
                         self.msgType = .removedFromMempool(v)
                     }
                 }()
@@ -3023,11 +3585,15 @@ extension Chronik_SubscribeMsg: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
                     var hadOneofValue = false
                     if let current = self.msgType {
                         hadOneofValue = true
-                        if case .confirmed(let m) = current { v = m }
+                        if case let .confirmed(m) = current {
+                            v = m
+                        }
                     }
                     try decoder.decodeSingularMessageField(value: &v)
                     if let v {
-                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        if hadOneofValue {
+                            try decoder.handleConflictingOneOf()
+                        }
                         self.msgType = .confirmed(v)
                     }
                 }()
@@ -3037,11 +3603,15 @@ extension Chronik_SubscribeMsg: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
                     var hadOneofValue = false
                     if let current = self.msgType {
                         hadOneofValue = true
-                        if case .reorg(let m) = current { v = m }
+                        if case let .reorg(m) = current {
+                            v = m
+                        }
                     }
                     try decoder.decodeSingularMessageField(value: &v)
                     if let v {
-                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        if hadOneofValue {
+                            try decoder.handleConflictingOneOf()
+                        }
                         self.msgType = .reorg(v)
                     }
                 }()
@@ -3051,11 +3621,15 @@ extension Chronik_SubscribeMsg: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
                     var hadOneofValue = false
                     if let current = self.msgType {
                         hadOneofValue = true
-                        if case .blockConnected(let m) = current { v = m }
+                        if case let .blockConnected(m) = current {
+                            v = m
+                        }
                     }
                     try decoder.decodeSingularMessageField(value: &v)
                     if let v {
-                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        if hadOneofValue {
+                            try decoder.handleConflictingOneOf()
+                        }
                         self.msgType = .blockConnected(v)
                     }
                 }()
@@ -3065,11 +3639,15 @@ extension Chronik_SubscribeMsg: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
                     var hadOneofValue = false
                     if let current = self.msgType {
                         hadOneofValue = true
-                        if case .blockDisconnected(let m) = current { v = m }
+                        if case let .blockDisconnected(m) = current {
+                            v = m
+                        }
                     }
                     try decoder.decodeSingularMessageField(value: &v)
                     if let v {
-                        if hadOneofValue { try decoder.handleConflictingOneOf() }
+                        if hadOneofValue {
+                            try decoder.handleConflictingOneOf()
+                        }
                         self.msgType = .blockDisconnected(v)
                     }
                 }()
@@ -3086,37 +3664,51 @@ extension Chronik_SubscribeMsg: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
         // https://github.com/apple/swift-protobuf/issues/1182
         switch msgType {
         case .error?: try {
-                guard case .error(let v)? = self.msgType else { preconditionFailure() }
+                guard case let .error(v)? = self.msgType else {
+                    preconditionFailure()
+                }
                 try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
             }()
 
         case .addedToMempool?: try {
-                guard case .addedToMempool(let v)? = self.msgType else { preconditionFailure() }
+                guard case let .addedToMempool(v)? = self.msgType else {
+                    preconditionFailure()
+                }
                 try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
             }()
 
         case .removedFromMempool?: try {
-                guard case .removedFromMempool(let v)? = self.msgType else { preconditionFailure() }
+                guard case let .removedFromMempool(v)? = self.msgType else {
+                    preconditionFailure()
+                }
                 try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
             }()
 
         case .confirmed?: try {
-                guard case .confirmed(let v)? = self.msgType else { preconditionFailure() }
+                guard case let .confirmed(v)? = self.msgType else {
+                    preconditionFailure()
+                }
                 try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
             }()
 
         case .reorg?: try {
-                guard case .reorg(let v)? = self.msgType else { preconditionFailure() }
+                guard case let .reorg(v)? = self.msgType else {
+                    preconditionFailure()
+                }
                 try visitor.visitSingularMessageField(value: v, fieldNumber: 5)
             }()
 
         case .blockConnected?: try {
-                guard case .blockConnected(let v)? = self.msgType else { preconditionFailure() }
+                guard case let .blockConnected(v)? = self.msgType else {
+                    preconditionFailure()
+                }
                 try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
             }()
 
         case .blockDisconnected?: try {
-                guard case .blockDisconnected(let v)? = self.msgType else { preconditionFailure() }
+                guard case let .blockDisconnected(v)? = self.msgType else {
+                    preconditionFailure()
+                }
                 try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
             }()
 
@@ -3126,8 +3718,12 @@ extension Chronik_SubscribeMsg: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     }
 
     static func == (lhs: Chronik_SubscribeMsg, rhs: Chronik_SubscribeMsg) -> Bool {
-        if lhs.msgType != rhs.msgType { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.msgType != rhs.msgType {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
@@ -3135,8 +3731,7 @@ extension Chronik_SubscribeMsg: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 // MARK: - Chronik_MsgAddedToMempool + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
 extension Chronik_MsgAddedToMempool: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
-    SwiftProtobuf._ProtoNameProviding
-{
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".MsgAddedToMempool"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .same(proto: "txid"),
@@ -3162,8 +3757,12 @@ extension Chronik_MsgAddedToMempool: SwiftProtobuf.Message, SwiftProtobuf._Messa
     }
 
     static func == (lhs: Chronik_MsgAddedToMempool, rhs: Chronik_MsgAddedToMempool) -> Bool {
-        if lhs.txid != rhs.txid { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.txid != rhs.txid {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
@@ -3171,8 +3770,7 @@ extension Chronik_MsgAddedToMempool: SwiftProtobuf.Message, SwiftProtobuf._Messa
 // MARK: - Chronik_MsgRemovedFromMempool + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
 extension Chronik_MsgRemovedFromMempool: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
-    SwiftProtobuf._ProtoNameProviding
-{
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".MsgRemovedFromMempool"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .same(proto: "txid"),
@@ -3198,8 +3796,12 @@ extension Chronik_MsgRemovedFromMempool: SwiftProtobuf.Message, SwiftProtobuf._M
     }
 
     static func == (lhs: Chronik_MsgRemovedFromMempool, rhs: Chronik_MsgRemovedFromMempool) -> Bool {
-        if lhs.txid != rhs.txid { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.txid != rhs.txid {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
@@ -3207,8 +3809,7 @@ extension Chronik_MsgRemovedFromMempool: SwiftProtobuf.Message, SwiftProtobuf._M
 // MARK: - Chronik_MsgConfirmed + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
 extension Chronik_MsgConfirmed: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
-    SwiftProtobuf._ProtoNameProviding
-{
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".MsgConfirmed"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .same(proto: "txid"),
@@ -3234,15 +3835,20 @@ extension Chronik_MsgConfirmed: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     }
 
     static func == (lhs: Chronik_MsgConfirmed, rhs: Chronik_MsgConfirmed) -> Bool {
-        if lhs.txid != rhs.txid { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.txid != rhs.txid {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
 
 // MARK: - Chronik_MsgReorg + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
-extension Chronik_MsgReorg: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Chronik_MsgReorg: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".MsgReorg"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .same(proto: "txid"),
@@ -3268,8 +3874,12 @@ extension Chronik_MsgReorg: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     }
 
     static func == (lhs: Chronik_MsgReorg, rhs: Chronik_MsgReorg) -> Bool {
-        if lhs.txid != rhs.txid { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.txid != rhs.txid {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
@@ -3277,8 +3887,7 @@ extension Chronik_MsgReorg: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
 // MARK: - Chronik_MsgBlockConnected + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
 extension Chronik_MsgBlockConnected: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
-    SwiftProtobuf._ProtoNameProviding
-{
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".MsgBlockConnected"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .standard(proto: "block_hash"),
@@ -3304,8 +3913,12 @@ extension Chronik_MsgBlockConnected: SwiftProtobuf.Message, SwiftProtobuf._Messa
     }
 
     static func == (lhs: Chronik_MsgBlockConnected, rhs: Chronik_MsgBlockConnected) -> Bool {
-        if lhs.blockHash != rhs.blockHash { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.blockHash != rhs.blockHash {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
@@ -3313,8 +3926,7 @@ extension Chronik_MsgBlockConnected: SwiftProtobuf.Message, SwiftProtobuf._Messa
 // MARK: - Chronik_MsgBlockDisconnected + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
 extension Chronik_MsgBlockDisconnected: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
-    SwiftProtobuf._ProtoNameProviding
-{
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".MsgBlockDisconnected"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .standard(proto: "block_hash"),
@@ -3340,15 +3952,20 @@ extension Chronik_MsgBlockDisconnected: SwiftProtobuf.Message, SwiftProtobuf._Me
     }
 
     static func == (lhs: Chronik_MsgBlockDisconnected, rhs: Chronik_MsgBlockDisconnected) -> Bool {
-        if lhs.blockHash != rhs.blockHash { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.blockHash != rhs.blockHash {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }
 
 // MARK: - Chronik_Error + SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding
 
-extension Chronik_Error: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+extension Chronik_Error: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
+    SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = _protobuf_package + ".Error"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .standard(proto: "error_code"),
@@ -3384,10 +4001,18 @@ extension Chronik_Error: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     }
 
     static func == (lhs: Chronik_Error, rhs: Chronik_Error) -> Bool {
-        if lhs.errorCode != rhs.errorCode { return false }
-        if lhs.msg != rhs.msg { return false }
-        if lhs.isUserError != rhs.isUserError { return false }
-        if lhs.unknownFields != rhs.unknownFields { return false }
+        if lhs.errorCode != rhs.errorCode {
+            return false
+        }
+        if lhs.msg != rhs.msg {
+            return false
+        }
+        if lhs.isUserError != rhs.isUserError {
+            return false
+        }
+        if lhs.unknownFields != rhs.unknownFields {
+            return false
+        }
         return true
     }
 }

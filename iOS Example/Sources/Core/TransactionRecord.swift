@@ -31,7 +31,7 @@ struct TransactionInputOutput {
     let address: String?
     let value: Int?
     let changeOutput: Bool
-    let pluginId: UInt8?
+    let pluginID: UInt8?
     let pluginData: Any?
 }
 

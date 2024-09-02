@@ -1,8 +1,7 @@
 //
 //  MainNet.swift
-//  ECashKit
 //
-//  Created by Sun on 2024/8/21.
+//  Created by Sun on 2023/3/31.
 //
 
 import Foundation
@@ -10,6 +9,8 @@ import Foundation
 import BitcoinCore
 
 public class MainNet: INetwork {
+    // MARK: Properties
+
     public let bundleName = "ECash"
 
     public let maxBlockSize: UInt32 = 32 * 1024 * 1024
@@ -17,14 +18,14 @@ public class MainNet: INetwork {
     public let privateKey: UInt8 = 0x80
     public let scriptHash: UInt8 = 0x05
     public let bech32PrefixPattern = "ecash"
-    public let xPubKey: UInt32 = 0x0488_B21E
-    public let xPrivKey: UInt32 = 0x0488_ADE4
-    public let magic: UInt32 = 0xE3E1_F3E8
+    public let xPubKey: UInt32 = 0x0488B21E
+    public let xPrivKey: UInt32 = 0x0488ADE4
+    public let magic: UInt32 = 0xE3E1F3E8
     public let port = 8333
     public let coinType: UInt32 = 899
     public let sigHash: SigHashType = .bitcoinCashAll
     public var syncableFromApi = true
-    public var blockchairChainId = "ecash"
+    public var blockchairChainID = "ecash"
 
     public let dnsSeeds = [
         "x5.seed.bitcoinabc.org", // Bitcoin ABC seeder
@@ -36,6 +37,8 @@ public class MainNet: INetwork {
     ]
 
     public let dustRelayTxFee = 1000
+
+    // MARK: Lifecycle
 
     public init() { }
 }

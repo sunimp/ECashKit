@@ -1,8 +1,7 @@
 //
 //  TestNet.swift
-//  ECashKit
 //
-//  Created by Sun on 2024/8/21.
+//  Created by Sun on 2023/3/31.
 //
 
 import Foundation
@@ -17,14 +16,14 @@ class TestNet: INetwork {
     let privateKey: UInt8 = 0xEF
     let scriptHash: UInt8 = 0xC4
     let bech32PrefixPattern = "ecashtest"
-    let xPubKey: UInt32 = 0x0435_87CF
-    let xPrivKey: UInt32 = 0x0435_8394
-    let magic: UInt32 = 0xF4E5_F3F4
+    let xPubKey: UInt32 = 0x043587CF
+    let xPrivKey: UInt32 = 0x04358394
+    let magic: UInt32 = 0xF4E5F3F4
     let port = 18333
     let coinType: UInt32 = 1
     let sigHash: SigHashType = .bitcoinCashAll
     var syncableFromApi = true
-    var blockchairChainId = ""
+    var blockchairChainID = ""
 
     let dnsSeeds = [
         "testnet-seed.bitcoinabc.org",
