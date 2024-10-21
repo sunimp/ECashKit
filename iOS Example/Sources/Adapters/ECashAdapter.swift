@@ -10,7 +10,7 @@ import Foundation
 import BitcoinCore
 import ECashKit
 import HDWalletKit
-import WWToolKit
+import SWToolKit
 
 class ECashAdapter: BaseAdapter {
     let eCashKit: Kit

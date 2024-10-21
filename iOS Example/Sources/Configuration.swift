@@ -8,7 +8,7 @@
 import Foundation
 
 import BitcoinCore
-import WWToolKit
+import SWToolKit
 
 class Configuration {
     static let shared = Configuration()

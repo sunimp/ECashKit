@@ -3,17 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2FA5D47CFAEB8DB143F27645 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA5DACF4DE83AC5FE512D28 /* Extensions.swift */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
-		6BB5E6CE29D4105400A2C24B /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6BB5E6CD29D4105400A2C24B /* SnapKit */; };
-		6BB5E6D029D411BB00A2C24B /* ECashKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6BB5E6CF29D411BB00A2C24B /* ECashKit */; };
-		6BB5E6D229D43E3F00A2C24B /* BitcoinCashKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6BB5E6D129D43E3F00A2C24B /* BitcoinCashKit */; };
 		6BC11A6528EEEDF80001FDF1 /* ECashAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC11A6428EEEDF80001FDF1 /* ECashAdapter.swift */; };
 		A408060C2C75FEF8003947F1 /* UIExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = A408060B2C75FEF8003947F1 /* UIExtensions */; };
+		A47C9D552CC65BEA00E1B958 /* ECashKit in Frameworks */ = {isa = PBXBuildFile; productRef = A47C9D542CC65BEA00E1B958 /* ECashKit */; };
 		D36AAA9823A2125E0065B32B /* BaseAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36AAA7F23A2125D0065B32B /* BaseAdapter.swift */; };
 		D36AAA9923A2125E0065B32B /* SendController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D36AAA8123A2125D0065B32B /* SendController.xib */; };
 		D36AAA9A23A2125E0065B32B /* BalanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36AAA8223A2125D0065B32B /* BalanceController.swift */; };
@@ -40,8 +38,8 @@
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACD51AFB9204008FA782 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6BB5E6B529D4041800A2C24B /* ECashKit.Swift */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ECashKit.Swift; path = ..; sourceTree = "<group>"; };
-		6BB5E6B829D4050B00A2C24B /* ECashKit Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ECashKit Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BC11A6428EEEDF80001FDF1 /* ECashAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECashAdapter.swift; sourceTree = "<group>"; };
+		A4B1D0532CC65B6D005BA558 /* ECashKit-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ECashKit-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D36AAA7F23A2125D0065B32B /* BaseAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseAdapter.swift; sourceTree = "<group>"; };
 		D36AAA8123A2125D0065B32B /* SendController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SendController.xib; sourceTree = "<group>"; };
 		D36AAA8223A2125D0065B32B /* BalanceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceController.swift; sourceTree = "<group>"; };
@@ -68,10 +66,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BB5E6D229D43E3F00A2C24B /* BitcoinCashKit in Frameworks */,
-				6BB5E6D029D411BB00A2C24B /* ECashKit in Frameworks */,
+				A47C9D552CC65BEA00E1B958 /* ECashKit in Frameworks */,
 				A408060C2C75FEF8003947F1 /* UIExtensions in Frameworks */,
-				6BB5E6CE29D4105400A2C24B /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,7 +80,7 @@
 				6BB5E6B429D4041800A2C24B /* Packages */,
 				607FACD21AFB9204008FA782 /* Sources */,
 				6BC11A5F28EECBE90001FDF1 /* Frameworks */,
-				6BB5E6B829D4050B00A2C24B /* ECashKit Demo.app */,
+				A4B1D0532CC65B6D005BA558 /* ECashKit-Example.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -190,13 +186,11 @@
 			);
 			name = "iOS Example";
 			packageProductDependencies = (
-				6BB5E6CD29D4105400A2C24B /* SnapKit */,
-				6BB5E6CF29D411BB00A2C24B /* ECashKit */,
-				6BB5E6D129D43E3F00A2C24B /* BitcoinCashKit */,
 				A408060B2C75FEF8003947F1 /* UIExtensions */,
+				A47C9D542CC65BEA00E1B958 /* ECashKit */,
 			);
 			productName = ECashKit;
-			productReference = 6BB5E6B829D4050B00A2C24B /* ECashKit Demo.app */;
+			productReference = A4B1D0532CC65B6D005BA558 /* ECashKit-Example.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -207,7 +201,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 1540;
+				LastUpgradeCheck = 1600;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
 					607FACCF1AFB9204008FA782 = {
@@ -227,8 +221,8 @@
 			);
 			mainGroup = 607FACC71AFB9204008FA782;
 			packageReferences = (
-				6BB5E6CC29D4105400A2C24B /* XCRemoteSwiftPackageReference "SnapKit" */,
-				A408060A2C75FEF8003947F1 /* XCRemoteSwiftPackageReference "UIExtensions.Swift" */,
+				A408060A2C75FEF8003947F1 /* XCRemoteSwiftPackageReference "UIExtensions" */,
+				A47C9D532CC65BEA00E1B958 /* XCLocalSwiftPackageReference "../../ECashKit" */,
 			);
 			productRefGroup = 607FACC71AFB9204008FA782;
 			projectDirPath = "";
@@ -404,7 +398,7 @@
 				);
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sunimp.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "ECashKit Demo";
+				PRODUCT_NAME = "ECashKit-Example";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 			};
@@ -422,7 +416,7 @@
 				);
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sunimp.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "ECashKit Demo";
+				PRODUCT_NAME = "ECashKit-Example";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 5.0;
 			};
@@ -451,43 +445,33 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		6BB5E6CC29D4105400A2C24B /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
+/* Begin XCLocalSwiftPackageReference section */
+		A47C9D532CC65BEA00E1B958 /* XCLocalSwiftPackageReference "../../ECashKit" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../../ECashKit;
 		};
-		A408060A2C75FEF8003947F1 /* XCRemoteSwiftPackageReference "UIExtensions.Swift" */ = {
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A408060A2C75FEF8003947F1 /* XCRemoteSwiftPackageReference "UIExtensions" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sunimp/UIExtensions.Swift.git";
+			repositoryURL = "https://github.com/sunimp/UIExtensions.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.2;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6BB5E6CD29D4105400A2C24B /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6BB5E6CC29D4105400A2C24B /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-		6BB5E6CF29D411BB00A2C24B /* ECashKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = ECashKit;
-		};
-		6BB5E6D129D43E3F00A2C24B /* BitcoinCashKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = BitcoinCashKit;
-		};
 		A408060B2C75FEF8003947F1 /* UIExtensions */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A408060A2C75FEF8003947F1 /* XCRemoteSwiftPackageReference "UIExtensions.Swift" */;
+			package = A408060A2C75FEF8003947F1 /* XCRemoteSwiftPackageReference "UIExtensions" */;
 			productName = UIExtensions;
+		};
+		A47C9D542CC65BEA00E1B958 /* ECashKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ECashKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

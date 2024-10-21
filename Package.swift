@@ -15,18 +15,18 @@ let package = Package(
         ),
     ],
     dependencies: [
-        .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.28.1"),
-        .package(url: "https://github.com/sunimp/BitcoinCore.Swift.git", .upToNextMajor(from: "3.2.0")),
-        .package(url: "https://github.com/sunimp/BitcoinCashKit.Swift.git", .upToNextMajor(from: "3.2.0")),
-        .package(url: "https://github.com/nicklockwood/SwiftFormat.git", from: "0.54.3"),
+        .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.28.2"),
+        .package(url: "https://github.com/sunimp/BitcoinCore.git", .upToNextMajor(from: "1.0.0")),
+        .package(url: "https://github.com/sunimp/BitcoinCashKit.git", .upToNextMajor(from: "1.0.0")),
+        .package(url: "https://github.com/nicklockwood/SwiftFormat.git", from: "0.54.6"),
     ],
     targets: [
         .target(
             name: "ECashKit",
             dependencies: [
+                "BitcoinCore",
+                "BitcoinCashKit",
                 .product(name: "SwiftProtobuf", package: "swift-protobuf"),
-                .product(name: "BitcoinCore", package: "BitcoinCore.Swift"),
-                .product(name: "BitcoinCashKit", package: "BitcoinCashKit.Swift"),
             ]
         ),
     ]

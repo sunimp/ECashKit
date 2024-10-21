@@ -1,5 +1,6 @@
 //
 //  Kit.swift
+//  ECashKit
 //
 //  Created by Sun on 2023/3/31.
 //
@@ -10,7 +11,7 @@ import BigInt
 import BitcoinCashKit
 import BitcoinCore
 import HDWalletKit
-import WWToolKit
+import SWToolKit
 
 // MARK: - Kit
 

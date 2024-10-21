@@ -1,5 +1,6 @@
 //
 //  ChronikApi.swift
+//  ECashKit
 //
 //  Created by Sun on 2023/3/31.
 //
@@ -8,7 +9,7 @@ import Foundation
 
 import BitcoinCore
 import SwiftProtobuf
-import WWToolKit
+import SWToolKit
 
 // MARK: - ChronikApi
 
@@ -48,7 +49,7 @@ public class ChronikApi {
         let data: Data
         do {
             data = try await networkManager.fetchData(url: url + path, method: .get, parameters: parameters)
-        } catch let error as WWToolKit.NetworkManager.ResponseError {
+        } catch let error as SWToolKit.NetworkManager.ResponseError {
             if let code = error.statusCode, code == 200, error.rawData == nil {
                 return []
             } else {
@@ -64,11 +65,11 @@ public class ChronikApi {
             numPages = Int(historyPage.numPages)
             items.append(contentsOf: historyPage.txs.map {
                 ApiTransactionItem(
-                    blockHash: $0.block.hash.ww.reversedHex,
+                    blockHash: $0.block.hash.sw.reversedHex,
                     blockHeight: Int($0.block.height),
                     apiAddressItems: $0.outputs.map {
                         ApiAddressItem(
-                            script: $0.outputScript.ww.reversedHex,
+                            script: $0.outputScript.sw.reversedHex,
                             address: ""
                         )
                     }

@@ -1,5 +1,6 @@
 //
 //  ECashRestoreKeyConverter.swift
+//  ECashKit
 //
 //  Created by Sun on 2023/3/31.
 //
@@ -16,7 +17,7 @@ class ECashRestoreKeyConverter: IRestoreKeyConverter {
     // MARK: Functions
 
     public func keysForApiRestore(publicKey: PublicKey) -> [String] {
-        [publicKey.hashP2pkh.ww.hex]
+        [publicKey.hashP2pkh.sw.hex]
     }
 
     public func bloomFilterElements(publicKey: PublicKey) -> [Data] {
